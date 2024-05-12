@@ -1,0 +1,97 @@
+How much time it takes to run your function when the size of input grows. 
+
+Big O notation:
+	It mathematically describes the complexity of an algorithm in terms of time and space. 
+	O(1) constant > O(log n) logarithmic  > O(n) linear > O(n*log n) log linear > O(n^2) quadratic > O(n^3) cubic > O (2^n) exponential > O(n!) factorial
+	
+Time Complexity: It is to determine how the running time of an algorithm increases with the size of input data. The amount of time it takes to solve a given problem. 
+Space Complexity: The amount of memory required to solve a given problem.
+
+A function f(n) is considered to O(g(n)), if there exists some positive real constant c and an integer n0 > 0 such that the inequality f(n) < c(g(n)) holds true for all n >= n0
+
+Data:
+-> Data Collection
+-> Data Processing 
+-> Data Output 
+-> Data Storage
+
+Storing the data efficiently. - helps in storing and retrieval.
+Uses: To give a better experience to User, save money.
+
+Variable: 
+Name or something like a box to store data.
+int a = 5;
+Here, "a" is the variable which is storing value "5".
+
+Data type: 
+It is something which is used to determine the type of data - whether it is an integer or String or a decimal value etc. 
+
+Coming to Java, 
+Java is a Statically typed language. You have to give the data type.
+For other languages, which are dynamically typed languages -> Compiler will assign the data type at run-time.
+
+Programming languages: 
+Java, Python and C++ are Object oriented programming languages.
+
+Array:
+Why do we need an Array: Instead of storing values in different variables, we can create a single entity kind of thing and store those values in it.
+Eg: int a = 2; int b = 3; int c = 4; int d  =6;
+Instead of defining 4 variables like above to store different integer values, we can create a single Array and store all those values.
+int []  array = {2,3,4,6};
+
+Data has to be stored in a Memory, and that Memory will be having a Memory location associated to it.
+
+Array is an Abstract Data type
+
+Data Structures: A way to organize and store the data efficiently.
+Algorithms: Series of instructions which help to solve a problem (Or the steps which you write to solve a problem).
+
+Efficiently -> Performance and Memory.
+
+To solve a problem, there can be multiple ways, where one way would be more efficient than the other. 
+How to pick the best algorithm ? 
+
+There comes Algorithm Analysis. (to determine which algorithm you should pick to solve a specific problem).
+Algorithm Analysis consists of checking 2 types - memory (Space Complexity) and performance (Time Complexity).
+
+To be more efficient, an Algorithm should take less memory and less time to run.
+
+Both of the above can be different on each system (computer) if we take seconds into account. So, there has to be a uniform way to determine the memory and time independent of the system where the program is run. 
+
+We need to know how the Algorithm scales based on the input size.
+To determine anything, You need to know the size of the data that you will be working with. 
+
+
+We use Algorithms to implement Data Structures.
+
+
+When to use which Data Structure ? To answer this, you should know the what are all the Data Structures, their uses and differences between them.
+
+Big O Complexity: 
+O(1): Constant time. It doesn't matter how many values are in input. Time will be same for  every case.
+O(log n): Logarithmic time
+O(n): Linear time
+
+
+
+
+O(1) constant time: Running time doesn't depend on size of the input.
+Eg: Hash tables (Insertion and Retrieval), Array (Insertion and Retrieval)
+Why time complexity is constant time for above cases ? 
+	Because, data goes directly to the location (given if we have the index)
+
+Hash table: 
+	Data (Key and Value pair) goes through a Hash function and gets stored in a Hash Table.
+	Here, only the key will be used by Hash function to determine the value during Retrieval.  (If you pass the value to get the key, there is no way to get the key)
+	
+O(n) linear time
+Eg: Searching an Array
+
+O(log n) logarithmic time
+Eg: Binary search
+For each operation, the size of data cuts by half.
+
+In order to search an array using binary search, we have to sort the elements first. For sorting, there are many algorithms.
+
+O(n^2) 
+Eg: Insertion Sort
