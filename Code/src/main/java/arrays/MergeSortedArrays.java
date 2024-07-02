@@ -1,4 +1,8 @@
 package arrays;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MergeSortedArrays {
 
 	public static void main (String[] args) {
@@ -13,25 +17,24 @@ public class MergeSortedArrays {
 	}
 	
 	public static int[] sortArrays(int[] arr1, int[] arr2) {
-		int i=0, j=0, k=0;
-		int l1 = arr1.length;
-		int l2 = arr2.length;
-		int[] sortedArray = new int[l1 + l2];
-		while (i<l1 && j<l2) {
-			if (arr1[i] < arr2[j])
-				sortedArray[k++] = arr1[i++];
-			else if (arr1[i] > arr2[j])
-				sortedArray[k++] = arr2[j++];
+		List<String> newList = new ArrayList<>();
+		int newLen = arr1.length + arr2.length;
+		int[] sortedArr = new int[newLen];
+		int i,j,k = 0;
+		for (i = 0; i< arr1.length; i++) {
+			for (j = 0; j< arr2.length; j++) {
+				if (arr1[i] < arr2[j]) {
+					sortedArr[k] = arr1[i];
+					k++;
+					i++;
+				} else if (arr1[i] > arr2[j]) {
+					sortedArr[k] = arr2[j];
+					k++;
+					j++;
+				}
+			}
 		}
-		
-		// Store remaining elements of first array 
-	    while (i < l1) 
-	    	sortedArray[k++] = arr1[i++]; 
-
-	    // Store remaining elements of second array 
-	    while (j < l2) 
-	    	sortedArray[k++] = arr2[j++]; 
-		return sortedArray;
+		return sortedArr;
 	}
 }
 // Starting off from the index 0, individually compare the elements at corresponding indexes of both arrays.
