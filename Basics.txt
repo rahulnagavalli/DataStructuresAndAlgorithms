@@ -95,3 +95,135 @@ In order to search an array using binary search, we have to sort the elements fi
 
 O(n^2) 
 Eg: Insertion Sort
+
+
+------------------------------------------------------------------------------------------------------------------------------
+- Generics 
+	https://www.w3resource.com/java-exercises/generic/index.php
+- Java 8 streams
+- ArrayList - write custom implementation
+- Set - write custom implementation
+- LinkedList - write custom implementation.
+- HashMap - write custom implementation.
+
+
+
+
+Public class Printer <T> {
+	T thingToPrint;
+
+	public Printer (T thingToPrint) {
+		this.thingToPrint = thingToPrint;
+	}
+
+	public void print() {
+		System.out.println(thingToPrint);
+	}
+}
+
+
+Printer<Integer> printer = new Printer<>();
+
+
+Generics don’t work with primitive data types. They work with custom classes and Wrapper classes.
+Also, using Object as generic type doesn’t work and it would cause type safety issues. 
+So, it would be better to use generics with angle brackets. Like, <T>
+
+
+Public class Printer<T extends Animal>
+
+Here, above format is called as “Bounded generic”.
+
+- If you want to add Generics to methods, below is the syntax:
+
+Public static <T> void shout(T thingToShout) {
+	System.out.println(thingToShout + “!!”);
+}
+
+Here, “T” is the generic type. 
+And, we have to mention the generic type in angle brackets before method’s return type. 
+Like “<T>”.
+
+We can also have multiple generic types. Like, below:
+Public <T, V> void shout(T firstThing, V secondThing) {
+
+}
+
+We can also return a generic type. Like, below: 
+
+Public <T, V> T shout(T firstThing, V secondThing) {
+
+}
+
+— Wild cards in Generics:
+
+** Even though Integer is sub-class of Object, a List of Integers is not a sub-class of List of Objects.
+
+So, we can use generics in above scenario.
+
+Public static void main(String[] args) {
+	List<Integer> intList = new ArrayList<>();
+	intList.add(3);
+	printList(intList);
+ 
+	List<Cat> catList = new ArrayList<>();
+	catList.add(new Cat());
+	printList(catList);
+}
+
+Public static void printList(List<?> myList) {
+	// do something
+}
+
+We can also use bounded generics with generic wildcards, Like, below:
+List<? extends Animal>
+
+——————————General—————————————————
+
+If you think that we need the value of index in return (From a collection), only then use basic for loop.
+Or else, we can use enhanced for loop.
+
+For index manipulation, reverse traversal, accessing index etc., we can use regular for loop.
+For iterating over all the elements, read only access etc., we can use enhanced for loop.
+
+
+- In an ArrayList, to access the elements, we should use list.get(i), but not list[I]. 
+
+Because, list[I] is used only for Arrays and not for Lists. 
+
+—————————
+- If we have 2 separate lists of the same type, and if we are working to merge them, 
+Then creating a empty list without specifying the size is not a good approach. 
+What if the sum of both the lists is greater than 10 ? 
+As default ArrayList size is 10, then the list which we have created has to resize itself multiple times. 
+So, in order to avoid that costly operation, we create a new list with size as the sum of sizes of both lists.
+
+List<T> newList = new ArrayList<>(list1.size() + list2.size());
+
+*** In Lists, we don’t have length variable. We have to use size() method to find out the length. 
+Whereas in Arrays, we can use length variable. 
+
+
+——— Java Predicate ———
+
+It is a Functional Interface is Java which has single abstract method - test, which accepts any type of input and returns a boolean value.
+boolean test(T t)
+
+Implementation of Java Predicate: 
+ (Given “s” is a String)
+Predicate<String> hasGreaterLengthPred = s-> s.length() > 10;
+
+// how to use above predicate ? 
+
+boolean result = hasGreaterLengthPred.test(“Hello World!”);
+
+Why did we call test() method ? 
+Because, Predicate Interface has an abstract method named “test” and we have provided implementation of that method using lambda functions. 
+
+n -> n%2 == 0
+
+Above line is called as a Predicate, as it can be assigned to a Predicate. 
+
+Predicate<Integer> isEvenNumber = n -> n%2 == 0;
+
+
