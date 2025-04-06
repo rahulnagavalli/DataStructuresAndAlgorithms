@@ -1,1 +1,41 @@
+1. Functional Requirements. 
+  Like, users should be able to do this thing, that thing etc. 
+  Prioritize the top 3 functional requirements.
+  Keep your requirements targeted.
+  Having a long list of requirements will harm you in the interview.
 
+  Eg: 
+  a. Users should be able to post tweets.
+  b. Users should be able to follow each other.
+  c. Users should be able to see tweets from users they follow.
+
+2. Non-Functional requirements:
+  Like, System should be able to handle x requests per second etc. 
+  Those are the system qualities that are important to your users.
+  Prioritize top 3-5 of non-functional requirements.
+
+  It is better when non-functional requirements are quantified. ("system should be low latency" is obvious, but "system should have low latency search < 500 ms" is meaningful)
+
+  Eg: 
+  a. System should be highly available, prioritizing availability over consistency.
+  b. System should be able to scale to 100 Million DAUs.
+  c. System should be low latency, rendering feeds under 200 ms.
+
+  Ask below questions for getting the proper Non-functional requirements.
+
+  1. CAP Theorom
+    Should your system prioritize Consistency over Availability ? P stands for Partition.
+  2. Environment constraints:
+    Like, Are you running on a Mobile device with limited battery life or limited memory or limited bandwidth ?
+  3. Scalability:
+    All systems need to scale. But does this system need a unique scaling requirement ? Does it have bursty traffic at specific time of the day ? Or peak traffic during holidays ? 
+    Also, consider read vs write ratio here. Does your system needs to scale reads or writes more ? 
+  4. Latency:
+    How quickly does the system needs to respond to user requests ? 
+  5. Durability:
+    How important is that the data in the system is not lost ? (A social networking application might be able to tolerate some data loss but a banking system cannot)
+  6. Security:
+    How secure does the system needs to be ? Consider Data Protection, Access Controls  and Compliance with regulation.
+  7. Fault Tolerance:
+    How well does the system needs to handle failures ? Consider Redundancy, Failover and Recovery mechanisms.
+  8. Compliance:
