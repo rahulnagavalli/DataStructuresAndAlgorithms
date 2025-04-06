@@ -1,1 +1,6 @@
+Valid Anagram:
 
+- we can convert both strings to char Arrays and then check if each element of first array is present in second array. If not present, then return false. But, this would check 
+  only the presence but not the frequency.
+- So, use a HashMap to store the character and count of each char in both the arrays. (This approach makes use of .getOrDefault(), .put(), .get() methods of HashMap)
+  O(n) time and O(n) space (we create new array to store the freq)
