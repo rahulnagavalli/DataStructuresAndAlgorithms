@@ -1,1 +1,266 @@
 
+- Scaling
+	- Horizontal scaling: adding more machines to a system
+		- WORK DISTRIBUTION: Must use Load Balancer - to distribute work to the right node.
+			- Load Balancer Strategies: 
+				- Least Connections
+				- Utilization based
+				- Round Robin Allocation
+				- Queueing System (For Asynchronous jobs)
+	- Vertical scaling: adding more resources to a single machine
+
+LLD: 
+Goal: to achieve less software development time and high code accuracy.
+Need to draw: Class, Sequence and Activity diagrams.
+
+OOP has 4 paradigms.
+
+Design principles are different from Design patterns. 
+Design principles - SOLID
+Design patterns - Creational, Structural and Behavioural
+
+OOP - Is a programming style/model that is dependent on the concepts of Objects and Classes.
+- It involves dividing a program into pieces of objects that communicate with each other.
+- Every object has its own unique set of properties.
+- Those properties are later accessed and modified through the use of various operations.
+
+A single employee can be considered as an object and that object has properties like, name, number and age etc. 
+
+Basic concepts of OOP:
+- Attributes
+- Methods
+- Classes
+- Objects
+
+Each object has state and behaviour.
+Class is like a blueprint for creating objects. 
+
+Attributes represent the state of the object.
+Method represents the behaviour of the objects. 
+
+Principles of OOP:
+- Encapsulation
+- Abstraction
+- Inheritance
+- Polymorphism
+
+Both Encapsulation and Abstraction come under Data hiding. 
+Its like, masking the classes's internal operations and providing only an interface through which other entities can interact with the class. 
+It is to prevent unauthorized access to one class by another class. 
+
+Encapsulation: 
+- Its about hiding data and make them accessible using getter and setter functions.
+- It's about restricting access to the data.
+- Binding data and methods within a single unit - called as a class. 
+- Those data and methods can be private. 
+- Other classes can access these private data and methods through public methods - getters, setters or other public methods. 
+
+Advantages: 
+- Flexibility to choose which variables are read-only and write-only
+- classes are simpler to maintain
+
+Abstraction: 
+- Its about hiding the implementation using Interfaces and Abstract classes.
+- Its about hiding unnecessary data to simplify the structure.
+- Eg: Users accessing functions/methods without knowing the internal implementation details. 
+
+
+
+
+Inheritance:
+- It provides a way to create a new class from an existing class. 
+- The new class is a specialized version of the existing class such that it inherits all the attributes (variables) and methods of the existing class.
+- We use inheritance where we can establish a IS-A relationship. Like, Dog is an Animal, Car is a Vehicle.
+
+Modes of Inheritance: 
+- Using Access Modifiers: we define the scope of the data members and member functions. 
+
+Polymorphism:
+- Its about allowing an object to have several different forms and behaviours. 
+- Eg: Take Animal class. We can have one method - makeNoise(). There are many animals, which can have their own implementation of the given method.
+
+Types:
+- Static Polymorphism OR Compile-time Polymorphism (Method Overloading)
+	- A class contains more than 1 method with same method name, return type but different parameters. 
+- Dynamic Polymorphism OR Runtime Polymorphism (Method Overriding)
+	- Sub-class provides a different implementation of a method already defined in parent class
+	- Call to the overridden method is decided at run-time. So it is called as Runtime Polymorphism.
+
+Type can be of parent, but object has to be of child. 
+
+Eg: List<String> obj = new ArrayList<>():
+      Computer obj2 = new Laptop();
+
+
+Object oriented analysis and design:
+- Its about analyzing and designing a system using object oriented concepts.
+Process: 
+- Observe the system 
+- Design the objects
+- Establish relationship between objects
+- Model and design the build
+
+UML diagrams 
+- A standard way of visualizing a system's design.
+
+building blocks of UML diagrams:
+- things
+- relationships
+- diagrams
+
+UML diagrams used in an OOD interview:
+- Use case diagram
+- Class diagram
+- Sequence diagram
+- Activity diagram
+
+Use case diagram: 
+- It describes the specification of users and their possible interaction with system.
+
+Class diagram:
+
+
+
+
+
+
+Association:
+- Class Association
+- Object Association
+
+Class Association: 
+
+
+
+Object Association: 
+- Simple Association
+- Composition
+- Aggregation
+
+Simple Association: 
+
+
+Composition: 
+
+
+
+Aggregation: 
+
+
+
+Dependency: 
+
+
+Sequence Diagram: 
+- It is a form of communication diagram that illustrates how different actors and objects interact with each other or between themselves. 
+- It represents these interactions as exchange of messages between different entities.
+
+Elements of a Sequence diagram: 
+- Lifeline (dotted line) - they never overlap each other.
+- Activation bars - vertical boxes on the lifeline - which denote active period.
+- Messages:
+	- Solid line with a filled arrow head - this is for synchronous messages, where sender has to wait for the receiver to return a response before performing another operation. 
+	- Solid line with open arrow head - asynchronous messages 
+	- Dotted line with filled arrow head - this is for synchronous returns - a synchronous return has to be paired with synchronous message. 
+
+
+
+Activity diagram: 
+
+
+
+
+When to use a Sequence diagram and when to use an Activity diagram ? 
+It depends on various use cases, like: 
+- Level of detail
+- Communication Needs
+- Complexity of interactions
+- Process flow
+
+
+Why follow design principles ? 
+- While creating software, we can follow good practices to avoid issues and make our code easy to understand, robust and maintainable.
+- Reduce tight coupling of code, which reduces errors
+- Reduces the code's complexity 
+- Produces more maintainable and understandable software code
+- Produces code that is modular, feature specific and testable.
+
+SOLID Design Principles:
+- Single responsibility principle: Each class should be responsible for single part or functionality of the system.
+- Open/Closed principle: Software components should be open for extension but closed for modification.
+- Liskov substitution principle: Objects of sub class should behave the same way as objects of a super class, such that they are replaceable.
+- Interface segregation principle: It does not recommend having methods that an Interface would not use and require.
+- Dependency inversion principle: one should depend on abstraction not concretion. (High level modules should not depend on low level modules, but rather should depend on Abstraction. )
+
+Single responsibility principle: 
+
+
+Open/Closed principle: 
+A software system should be easy to extend without the need for modification in the existing system.
+
+
+
+
+Liskov substitution principle: 
+- Generally applies to Inheritance and Polymorphism.
+
+
+
+Interface Segregation Principle: 
+- It is a design principle which does not recommend having methods that an Interface would not require or use.
+
+
+
+Dependency Inversion principle: 
+
+
+
+
+
+
+
+STAR: 
+Situation Task Action Result
+
+Design Patterns: 
+Why design patterns ? 
+- Designing efficient and reusable code is what required in software and all developers strive for.
+- When working on large applications, code structure becomes an integral element where we need to prevent repeating code for similar tasks.
+- However, trying to build upon and adding features to an existing system is quite a challenging task, since we need to know the complete particulars.
+- These include the relationships between each entities and the hierarchy between different entities. 
+- Also, developers need to update the code in such a way as to make it easily adaptable to change in future. 
+- This is where design patterns come into play.
+
+Advantages of design patterns:
+- They provide the templates that developers can build code on. They can focus more on quality on code rather than its structure.
+
+Types of design patterns:
+- Creational design patterns
+- Structural design patterns
+- Behavioural design patterns
+- Architectural design patterns
+
+Creational design patterns:
+- These patterns are used to provide a mechanism for creating the objects without revealing the creation method.
+
+Structural design patterns:
+- They are concerned with class and object composition and relationship between objects.
+- They let us add new functionalities to objects so that restructuring some parts of the system does not affect the rest.
+
+Behaviour design pattern:
+- They are concerned with communication between dissimilar objects in a system.
+
+Architectural design pattern: 
+- They are for solving architectural problems. 
+
+
+Factory design pattern: 
+- It is a creational design pattern that abstracts the creation of objects. 
+- It allows to create objects without specifying data types and delegating the responsibility to subclasses or specialized factory classes.
+- Used when the type of objects cannot be anticipated beforehand.
+
+Constructor:
+- uses constructors for creating objects.
+
+Builder design pattern:
+- it can be used when designing classes whose constructors would have more than handful of parameters.
