@@ -1,0 +1,5 @@
+Frequent Mistakes: 
+- Avoiding checking code line by line after writing
+- forgetting to put semi-colons (;) at the end of lines
+- forgetting to put correct indentation
+- forgetting return statements
