@@ -1,6 +1,21 @@
+-- 4/6
 Valid Anagram:
 
 - we can convert both strings to char Arrays and then check if each element of first array is present in second array. If not present, then return false. But, this would check 
   only the presence but not the frequency.
 - So, use a HashMap to store the character and count of each char in both the arrays. (This approach makes use of .getOrDefault(), .put(), .get() methods of HashMap)
   O(n) time and O(n) space (we create new array to store the freq)
+
+-- 4/8
+Container with most water:
+
+- We calculate the area for every occurrence of l and r (width = l-r and height = Math.min(height[l], height[r])).
+- And for every occurrence, set a value for maxArea (Math.max(maxArea, area)). And, we do this setting inside while loop. If we do it outside while loop, then we will get only the area of last entry of l and r.
+
+Basic pattern in optimization problems:
+- While looping through options, track the best result seen so far.
+You’ll see this in:
+- Maximum subarray problems (Kadane’s)
+- Best time to buy and sell stock
+- Longest substring without repeating characters
+- Max sliding window problems
