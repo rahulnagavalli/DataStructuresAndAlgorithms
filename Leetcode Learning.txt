@@ -26,6 +26,14 @@ Group Anagrams:
 - Anagrams when sorted, will be in the same order. (Using Arrays.sort())
 - We can sort even the Characters using Arrays.sort(). If there is a String, it has to be converted into char[] by using s.toCharArray() and then on that char[], we can do sorting.
 
+-- 4/9:
+
+Top K frequent elements:
+
+- Use HashMap to count the frequency of elements.
+- Use a min heap to keep the top k frequent elements.
+- remove the least frequent from the heap size when size > k
+
 
 
 Basic pattern in optimization problems:
