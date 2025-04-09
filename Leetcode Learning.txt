@@ -27,7 +27,6 @@ Group Anagrams:
 - We can sort even the Characters using Arrays.sort(). If there is a String, it has to be converted into char[] by using s.toCharArray() and then on that char[], we can do sorting.
 
 
-
 Basic pattern in optimization problems:
 - While looping through options, track the best result seen so far.
 You’ll see this in:
@@ -45,3 +44,13 @@ When to use a HashMap:
 
 
 Use Map<key, List<value>> when we have multiple values for a unique key.
+
+
+-- 4/9:
+
+Top K frequent elements:
+
+- Use HashMap to count the frequency of elements.
+- Use a min heap to keep the top k frequent elements.
+- remove the least frequent from the heap size when size > k
+
