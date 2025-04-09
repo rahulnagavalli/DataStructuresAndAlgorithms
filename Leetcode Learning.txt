@@ -12,6 +12,22 @@ Container with most water:
 - We calculate the area for every occurrence of l and r (width = l-r and height = Math.min(height[l], height[r])).
 - And for every occurrence, set a value for maxArea (Math.max(maxArea, area)). And, we do this setting inside while loop. If we do it outside while loop, then we will get only the area of last entry of l and r.
 
+Trapping Rain water:
+
+- Able to calculate leftMax and rightMax is most important here. It is almost same as calculating maxArea in above problem. 
+
+leftMax[0] = height[0];
+for (int i = 1; i< n; i++) {
+  leftMax[i] = Math.max(leftMax[i-1], height[i]); // Here, we are doing leftMax[i-1] because, we need the leftMax which is calculated until now, which is similar to calculating maxAre in above problem.
+}
+
+Group Anagrams:
+
+- Anagrams when sorted, will be in the same order. (Using Arrays.sort())
+- We can sort even the Characters using Arrays.sort(). If there is a String, it has to be converted into char[] by using s.toCharArray() and then on that char[], we can do sorting.
+
+
+
 Basic pattern in optimization problems:
 - While looping through options, track the best result seen so far.
 You’ll see this in:
@@ -19,3 +35,13 @@ You’ll see this in:
 - Best time to buy and sell stock
 - Longest substring without repeating characters
 - Max sliding window problems
+
+
+When to use a HashMap:
+
+- When there is a need to group elements based on some derived key
+- when we want to check for existence or retrieve a group by some property
+- when the problem has lookup, counting or clustering.
+
+
+Use Map<key, List<value>> when we have multiple values for a unique key.
