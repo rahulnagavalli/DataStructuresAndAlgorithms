@@ -1,5 +1,6 @@
 Frequent Mistakes: 
-- Avoiding checking code line by line after writing
-- forgetting to put semi-colons (;) at the end of lines
-- forgetting to put correct indentation
-- forgetting return statements
+- checking code line by line after writing
+- put semi-colons (;) at the end of lines
+- put correct indentation
+- return statements
+- Basic methods for data types (like, String.toCharArray, String.charAt(i), Character.toLowerCase(), Character.isLetterOrDigit())
