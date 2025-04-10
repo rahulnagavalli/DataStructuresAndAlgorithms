@@ -25,6 +25,7 @@ Group Anagrams:
 
 - Anagrams when sorted, will be in the same order. (Using Arrays.sort())
 - We can sort even the Characters using Arrays.sort(). If there is a String, it has to be converted into char[] by using s.toCharArray() and then on that char[], we can do sorting.
+- computeIfAbsent() is used here.
 
 
 Basic pattern in optimization problems:
@@ -53,4 +54,16 @@ Top K frequent elements:
 - Use HashMap to count the frequency of elements.
 - Use a min heap to keep the top k frequent elements.
 - remove the least frequent from the heap size when size > k
+
+
+-- 4/10:
+
+Valid Palindrome:
+
+- Can be solved by creating a new StringBuilder and appending only the characters which are letters or digits and converting them into lowerCase. But in that case, we would use O(n) extra space. To avoid it, use 2 pointer
+  approach.
+- If you want to skip the elements from the beginning, then use a while loop - 
+  Eg: while (l < r && !Character.isLetterOrDigit(l)) { // Here, we are skipping the non-alphanumeric characters at the beginning of the array.
+        l++;
+      }
 
