@@ -71,6 +71,12 @@ Valid Palindrome:
 
 Top Frequent K elements:
 
+Bucket Sort:
+
+- As we get time as O(nlogn) using normal sorting, we can use bucket sorting instead.
+- Bucket sorting allows us to group elements by frequency and directly access high frequency groups.
+- Since the maximum frequency of any number can't be more than n (length of the array), we can use an array of size n+1
+  where index=frequency.
 
 
 
