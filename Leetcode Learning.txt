@@ -71,12 +71,39 @@ Valid Palindrome:
 
 Top Frequent K elements:
 
+-- 4/14: 
+
 Bucket Sort:
 
 - As we get time as O(nlogn) using normal sorting, we can use bucket sorting instead.
 - Bucket sorting allows us to group elements by frequency and directly access high frequency groups.
 - Since the maximum frequency of any number can't be more than n (length of the array), we can use an array of size n+1
   where index=frequency.
+
+- This problem can be done using - Array of lists OR List of lists. 
+
+List<Integer>[] bucket = new List[nums.length + 1]
+vs
+List<List<Integer>> bucket = new ArrayList<>();
+
+Array of Lists:
+Use when you care about speed and memory and know about size in advance.
+Pros:
+- Faster index access - a[i] compared to a.get(i)
+- Less memory overhead when compared to resizing ArrayList.
+
+Cons:
+- If we use this, there will be compiler warning saying raw array is used.
+- Java doesn't allow creation of generic arrays, so it is technically unsafe.
+
+List of lists:
+Use when you need flexibility, dynamic resizing and cleaner code.
+Pros:
+- Avoids Java's type safety issues.
+Cons:
+- takes more memory - as ArrayList stores references and has dynamic resizing.
+
+
 
 
 
