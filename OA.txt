@@ -1,6 +1,2 @@
-Pascal's triangle
-https://leetcode.com/problems/find-longest-self-contained-substring/description/
-finding the first missing number
-tik-tak-toe
-Online assessment on hackerrank consist of 3 problems based on array and Java OOPS concept
+
 
