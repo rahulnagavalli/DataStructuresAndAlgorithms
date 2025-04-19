@@ -1,0 +1,25 @@
+- Somewhat of a classic question I've seen online before, basically we have users on day1 and day2, we want the overlap, the tricky part is that the data doesn't fit into memory.
+  Basically we want to sort day1 on disk so that we can check day2 values in logn time with binary search. to sort on disk you sort chunks of data, once each chunk is sorted this becomes merge k sorted lists leetcode question but with files instead of lists
+- 560. Subarray Sum Equals K
+- 986. Interval List Intersection
+- https://leetcode.com/problems/diameter-of-binary-tree/description/?envType=company&envId=facebook
+- https://leetcode.com/problems/basic-calculator-ii (needed a hint there to solve in O(1) space
+- https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
+- https://leetcode.com/problems/median-of-two-sorted-arrays/description/
+- multithreading in which need to ise Executor Framework. (Need to read a file line by line and then print unique word using thread pool
+- It was Welsh Sorting where you had an alphabet of 1 to 2 character strings and given a list of words you need to write a comparison function
+- It was to write an AirMap class which has two methods:
+
+add_to_map(start, dest)
+
+print_all_routes(start,dest)
+
+where you have an airline that has travel destinations e.g A to B, C to D, D to E etc.
+-  LFU cache.
+- Pascal's triangle
+https://leetcode.com/problems/find-longest-self-contained-substring/description/
+finding the first missing number
+tik-tak-toe
+Online assessment on hackerrank consist of 3 problems based on array and Java OOPS concept
+
+

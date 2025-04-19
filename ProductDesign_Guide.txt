@@ -1,0 +1,23 @@
+https://github.com/ashishps1/awesome-low-level-design
+
+designgurus.io: Grokking the Object Oriented Design Interview
+
+https://www.youtube.com/watch?v=pTB30aXS77U
+https://www.youtube.com/watch?v=0mcP8ZpUR38
+https://www.youtube.com/watch?v=eiDyK_ofPPM
+
+Look at grokking LLd examples.  Main ones you wanna go through are blackjack, parking lot and a banking/ATM system .
+
+Learn how to design blackjack/deck of cards (do it with intentions that your interviewer could ask you half way through to change it from blackjack to a different card game like uno, so you wanna use extensible design and rely on composition)
+
+Learn how to design snake /tiktactoe with intention to change the game up to a larger square/parameters.
+
+Learn the design a vending machine.
+
+Then do the fake LLd question that are really leetcode dsa questions that get commonly asked.
+
+LRU/LFU hash First unique character Snapshot array Get random o(1) In memory file system Keeping median (two heaps)
+
+The really stupid ones like design a hashmap/hashset. Single or double linked list, essentially basic data structures as well sometimes come up under this category.
+
+That should be pretty much enough to clear most LLD questions for entry to intermediate roles at FAANG companies.
