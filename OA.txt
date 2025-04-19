@@ -1,2 +1,4 @@
 Pascal's triangle
 https://leetcode.com/problems/find-longest-self-contained-substring/description/
+finding the first missing number
+tik-tak-toe
