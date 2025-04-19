@@ -1,0 +1,2 @@
+- design an online library, conceptually similar to ticketmaster
+- Somewhat of a classic question I've seen online before, basically we have users on day1 and day2, we want the overlap, the tricky part is that the data doesn't fit into memory.
