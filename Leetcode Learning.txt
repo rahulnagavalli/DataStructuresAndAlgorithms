@@ -104,6 +104,20 @@ Cons:
 - takes more memory - as ArrayList stores references and has dynamic resizing.
 
 
+-- 4/18:
+
+Kth largest element in an Array:
+
+Brute Force:
+- sort the array
+- do nums[nums.length - k]
+
+using quick select:
+- why to sort the entire array? We don't need the entire array sort, just the kth largest element.
+- Question: Can I partially sort or partition the array ? 
+- quick select: does partial sorting, inspired from quick sort.
+- quick select is written to find the kth smallest, but not the kth largest.
+- but in an array of size n, kth largest element is the (n-k)th smallest element.
 
 
 
