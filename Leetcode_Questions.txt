@@ -16,5 +16,10 @@ print_all_routes(start,dest)
 
 where you have an airline that has travel destinations e.g A to B, C to D, D to E etc.
 -  LFU cache.
+- Pascal's triangle
+https://leetcode.com/problems/find-longest-self-contained-substring/description/
+finding the first missing number
+tik-tak-toe
+Online assessment on hackerrank consist of 3 problems based on array and Java OOPS concept
 
 
