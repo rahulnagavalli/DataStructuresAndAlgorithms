@@ -120,4 +120,23 @@ using quick select:
 - but in an array of size n, kth largest element is the (n-k)th smallest element.
 
 
+-- 5/3:
+
+Greedy logic:
+- At each step, you make the best possible choice available right now.
+- You greedily pick what seems logic locally, hoping it leads to global optimum.
+
+Boats to save people:
+
+- number of boats will be saved when we send heaviest and lightest persons in one boat. 
+- THIS ASSUMPTION IS WRONG: so that once they complete, we can deal with others - using any of the combinations.
+- Instead, its like, pairing 2 people and saving the space or number of boats.
+- If sending heaviest and lightest together is not possible, then we will send only the heaviest.
+
+- Here, we will increment the count if sum of people[l] + people[r] <= weight. Because, if the sum is less than weight, then we can send those 2 people in one boat. Also, if the sum is equal to weight, then
+  we can send those 2 in one boat as wel. 
+- And, if the sum is less than weight, it suggests that we can send the heaviest weight person alone. So, increment the count and do r-- (As, we already send the heaviest person, we can remove him from our consideration).
+
+
+
 
