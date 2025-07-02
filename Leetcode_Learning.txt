@@ -21,11 +21,13 @@ for (int i = 1; i< n; i++) {
   leftMax[i] = Math.max(leftMax[i-1], height[i]); // Here, we are doing leftMax[i-1] because, we need the leftMax which is calculated until now, which is similar to calculating maxAre in above problem.
 }
 
-Group Anagrams:
+Group Anagrams - 4/8, 7/2:
 
 - Anagrams when sorted, will be in the same order. (Using Arrays.sort())
 - We can sort even the Characters using Arrays.sort(). If there is a String, it has to be converted into char[] by using s.toCharArray() and then on that char[], we can do sorting.
 - computeIfAbsent() is used here.
+- Create a Map<String, List<String>>. key will be the string - in a sorted form and value will be list of Strings that are Anagrams of that String.
+- Use new ArrayList<>(map.values()) to get List<List<String>> from List<String>
 
 
 Basic pattern in optimization problems:
@@ -47,7 +49,7 @@ When to use a HashMap:
 Use Map<key, List<value>> when we have multiple values for a unique key.
 
 
--- 4/9:
+-- 4/9, 7/2:
 
 Top K frequent elements:
 
@@ -103,6 +105,13 @@ Pros:
 Cons:
 - takes more memory - as ArrayList stores references and has dynamic resizing.
 
+When Should Bucket Sort Come to Mind?
+  Whenever the problem mentions:
+  
+  ✅ Frequencies (e.g. "most frequent", "least frequent")
+  ✅ Fixed or bounded value ranges
+  ✅ Top-K or group-by-frequency problems
+  ✅ Avoiding O(n log n) sorting when better is possible
 
 -- 4/18:
 
