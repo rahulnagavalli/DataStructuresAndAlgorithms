@@ -24,7 +24,7 @@ for (int i = 1; i< n; i++) {
 Group Anagrams - 4/8, 7/2:
 
 - Anagrams when sorted, will be in the same order. (Using Arrays.sort())
-- We can sort even the Characters using Arrays.sort(). If there is a String, it has to be converted into char[] by using s.toCharArray() and then on that char[], we can do sorting.
+- We can sort even the Characters using Arrays.sort(). If there is a String, it has to be converted into char[] by using s.toCharArray() and then on that char[], we can do sorting. Arrays.sort() does in-place sorting. It doesn't return any value.
 - computeIfAbsent() is used here.
 - Create a Map<String, List<String>>. key will be the string - in a sorted form and value will be list of Strings that are Anagrams of that String.
 - Use new ArrayList<>(map.values()) to get List<List<String>> from List<String>
