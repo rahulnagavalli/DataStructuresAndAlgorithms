@@ -113,6 +113,9 @@ When Should Bucket Sort Come to Mind?
   ✅ Top-K or group-by-frequency problems
   ✅ Avoiding O(n log n) sorting when better is possible
 
+- to convert int (primitive type) to Integer (wrapper type). use Integer.valueOf(5); (Eg: Integer num = Integer.valueOf(5);)
+- to convert wrapper object back to primitive type, use intValue() (Eg: int value = num.intValue();)
+
 -- 4/18:
 
 Kth largest element in an Array:
@@ -146,6 +149,37 @@ Boats to save people:
   we can send those 2 in one boat as wel. 
 - And, if the sum is less than weight, it suggests that we can send the heaviest weight person alone. So, increment the count and do r-- (As, we already send the heaviest person, we can remove him from our consideration).
 
+-- 7/13:
 
+Contains duplicate:
+- Here, we just need to know whether duplicates exist or not.
+- we don't need the frequency of that duplicate. So HashMap is overkill for this. Use HashSet instead.
+
+Patterns:
+
+  Data Structures:
+
+    HashSet: Use when you're tracking uniqueness or presence. 
+      - You only care about existence of values.
+      - You don't need any additional information about it (like how many times you've seen an element or where you saw it)
+    HashMap: Use when you need to associate keys with values.
+      - You care about count, position, mapping etc. 
+
+
+Data Structures:
+
+String:
+  - Any operation that will modify or transforms a String, always returns a new String. So, that would make O(n) space. So, it is advisable to use in-place operations for problems like Valid Palindrome to avoid extra space.
+
+Set:
+
+Map:
+
+Two Sum:
+
+Patterns:
+  - basic left-right pointer logic:
+    - Use 2 pointers - each start from the end of the given array: then if sum is equal, then return the answer. If sum is less than target, increment left pointer and if sum is greater than target, decrement right pointer.
+    - for "while" loop condition, make sure if you want to repeat the indices or not. while (l <= r) suggests that you want to do the operation on element present at single index (Eg: nums[1] + nums[1]). If not, use while (l < r)
 
 
