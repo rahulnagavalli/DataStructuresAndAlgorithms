@@ -168,14 +168,24 @@ Patterns:
 
 Data Structures:
 
+Character:
+  - Character.isLetterOrDigit(): Used to check whether given character is a letter or digit (Useful in problem like - Valid Palindrome)
+
 String:
   - Any operation that will modify or transforms a String, always returns a new String. So, that would make O(n) space. So, it is advisable to use in-place operations for problems like Valid Palindrome to avoid extra space.
+  - String s = "name"; s.toCharArray(); (this is for converting a String to character Array)
+  - String s = "name"; char ch = s.charAt(1); (this gives the character at specified index location - which is 'a')
 
 Set:
 
 Map:
 
+
+
+
 Two Sum:
+
+7/15:
 
 Patterns:
   - basic left-right pointer logic:
