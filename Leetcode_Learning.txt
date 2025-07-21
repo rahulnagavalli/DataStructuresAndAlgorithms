@@ -48,30 +48,15 @@ When to use a HashMap:
 
 Use Map<key, List<value>> when we have multiple values for a unique key.
 
+-- 4/11:
 
--- 4/9, 7/2:
+Top Frequent K elements:
 
 Top K frequent elements:
 
 - Use HashMap to count the frequency of elements.
 - Use a min heap to keep the top k frequent elements.
 - remove the least frequent from the heap size when size > k
-
-
--- 4/10:
-
-Valid Palindrome:
-
-- Can be solved by creating a new StringBuilder and appending only the characters which are letters or digits and converting them into lowerCase. But in that case, we would use O(n) extra space. To avoid it, use 2 pointer
-  approach.
-- If you want to skip the elements from the beginning, then use a while loop - 
-  Eg: while (l < r && !Character.isLetterOrDigit(l)) { // Here, we are skipping the non-alphanumeric characters at the beginning of the array.
-        l++;
-      }
-
--- 4/11:
-
-Top Frequent K elements:
 
 -- 4/14: 
 
@@ -112,6 +97,18 @@ When Should Bucket Sort Come to Mind?
   ✅ Fixed or bounded value ranges
   ✅ Top-K or group-by-frequency problems
   ✅ Avoiding O(n log n) sorting when better is possible
+
+For List<List<Integer>> list = new ArrayList<>();
+the outer list is already initialized. But the inner list has to be initialized.
+So, initialize it by using a for loop.
+for (int i = 0; i< list.size(); i++) {
+  list.add(new ArrayList<>());
+}
+
+then loop over the buckets - starting from the larger bucket. And, in each bucket, get all the elements using for loop - and add them to result (with condition that size of that result is k) - as we only need top k elements.
+
+** We need the condition result.size() < k in the outer for loop. (also need that in the inner for loop). 
+Why in the outer for loop ? - after collecting the k elements, we don't want to iterate over the lower frequency buckets.
 
 - to convert int (primitive type) to Integer (wrapper type). use Integer.valueOf(5); (Eg: Integer num = Integer.valueOf(5);)
 - to convert wrapper object back to primitive type, use intValue() (Eg: int value = num.intValue();)
@@ -155,6 +152,18 @@ Contains duplicate:
 - Here, we just need to know whether duplicates exist or not.
 - we don't need the frequency of that duplicate. So HashMap is overkill for this. Use HashSet instead.
 
+-- 7/21:
+
+Valid Palindrome: 
+
+- Can be solved by creating a new StringBuilder and appending only the characters which are letters or digits and converting them into lowerCase. But in that case, we would use O(n) extra space. To avoid it, use 2 pointer
+  approach.
+- If you want to skip the elements from the beginning, then use a while loop - 
+  Eg: while (l < r && !Character.isLetterOrDigit(l)) { // Here, we are skipping the non-alphanumeric characters at the beginning of the array.
+        l++;
+      }
+- We use l < r again in the inner while loops (while skipping alphanumeric characters) because, we don't want the left and right pointers to cross each other.
+
 Patterns:
 
   Data Structures:
@@ -173,12 +182,21 @@ Character:
 
 String:
   - Any operation that will modify or transforms a String, always returns a new String. So, that would make O(n) space. So, it is advisable to use in-place operations for problems like Valid Palindrome to avoid extra space.
-  - String s = "name"; s.toCharArray(); (this is for converting a String to character Array)
+  - String s = "name"; char[] sArray = s.toCharArray(); (this is for converting a String to character Array)
   - String s = "name"; char ch = s.charAt(1); (this gives the character at specified index location - which is 'a')
+
+Array:
+  - For comparing Arrays, use Arrays.equals(arr1, arr2); (You cannot use "!=" OR "==" operator for comparing arrays)
 
 Set:
 
 Map:
+  - computeIfAbsent() method: Used when you are populating a Map where each Key maps to a List or Set, and you want to initialize it only when necessary. (Like, in Group Anagrams problem, when we want to populate the Map with key as sorted string and value as List of Strings that are the Anagrams. We want the value to be populated only when anagram is found. If not, it should be initialized as an empty ArrayList.)
+  Usage:
+  Eg: If you want to group Strings by length:
+  Map<Integer, List<String>> map = new HashMap<>();
+  String word = "apple";
+  map.computIfAbsent(word.length(), 
 
 
 
