@@ -156,14 +156,49 @@ Contains duplicate:
 
 Valid Palindrome: 
 
-- Can be solved by creating a new StringBuilder and appending only the characters which are letters or digits and converting them into lowerCase. But in that case, we would use O(n) extra space. To avoid it, use 2 pointer
-  approach.
+- Can be solved by creating a new StringBuilder and appending only the characters which are letters or digits and converting them into lowerCase. But in that case, we would use O(n) extra space. To avoid it, 
+  use 2 pointer approach.
 - If you want to skip the elements from the beginning, then use a while loop - 
   Eg: while (l < r && !Character.isLetterOrDigit(l)) { // Here, we are skipping the non-alphanumeric characters at the beginning of the array.
         l++;
       }
 - We use l < r again in the inner while loops (while skipping alphanumeric characters) because, we don't want the left and right pointers to cross each other.
 
+-- 7/22:
+Two Sum II - Input Array Is Sorted:
+
+- Approach is a basic 2 pointer approach. 
+- Coming to time complexity, at each iteration, one of the pointer will move a step inward. At the worst, both of them move n/2 steps inward. So, n/2 + n/2= O(n).
+
+Remove Duplicates from Sorted Array:
+
+- Use Fast and Slow pointer approach.
+- one pointer will be for counting the unique numbers. The other pointer will be for traversing through the Array.
+- If (nums[j] != nums[i]) {
+    i++; // increment the unique number counter 
+    nums[i] = nums[j]; // this for moving the unique number from right to left - as we want all the unique numbers at the left end of the Array.
+
+Container with Most Water:
+
+- Use 2 pointer approach for this (converging pointers - moving from both ends of the Array)
+- height = Math.min(height[l], height[r])
+- width = r-l
+- For l++, r--
+  - If left line is shorter, we move the left pointer to right, hoping to find a taller line on the left. (Only then we would get max height and in turn max area)
+  - If right line is shorter, we move the right pointer to left, hoping to find a taller line on the right.
+  - Because, area depends on height and width. If we want to move to the right, then we need a taller line on the left (as height is the Min of left line and right line)
+  So, if height[l] < height[r] then l++; else if height[l] > height[r] then r--
+
+left = 0           right = 8
+height[left] = 1   height[right] = 7
+
+Area = min(1,7) * 8 = 1*8 = 8
+Because the current height is limited to 1 (shorter of 1 and 7) and no matter what we do, keep height 1 and reduced width won't help. So, we have to have larger 
+number on the left. So do l++
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Patterns:
 
   Data Structures:
@@ -191,7 +226,8 @@ Array:
 Set:
 
 Map:
-  - computeIfAbsent() method: Used when you are populating a Map where each Key maps to a List or Set, and you want to initialize it only when necessary. (Like, in Group Anagrams problem, when we want to populate the Map with key as sorted string and value as List of Strings that are the Anagrams. We want the value to be populated only when anagram is found. If not, it should be initialized as an empty ArrayList.)
+  - computeIfAbsent() method: Used when you are populating a Map where each Key maps to a List or Set, and you want to initialize it only when necessary. (Like, in Group Anagrams problem, when we want to populate 
+the Map with key as sorted string and value as List of Strings that are the Anagrams. We want the value to be populated only when anagram is found. If not, it should be initialized as an empty ArrayList.)
   Usage:
   Eg: If you want to group Strings by length:
   Map<Integer, List<String>> map = new HashMap<>();
@@ -203,11 +239,15 @@ Map:
 
 Two Sum:
 
-7/15:
-
 Patterns:
-  - basic left-right pointer logic:
+  - basic left-right pointer logic: (converging pointers: l++, r--)
+    - Use when you want to get pairs (like in 2 sum when array is sorted, valid palindrome, container with most water etc. )
     - Use 2 pointers - each start from the end of the given array: then if sum is equal, then return the answer. If sum is less than target, increment left pointer and if sum is greater than target, decrement right pointer.
-    - for "while" loop condition, make sure if you want to repeat the indices or not. while (l <= r) suggests that you want to do the operation on element present at single index (Eg: nums[1] + nums[1]). If not, use while (l < r)
+    - for "while" loop condition, make sure if you want to repeat the indices or not. while (l <= r) suggests that you want to do the operation on element present at single index (Eg: nums[1] + nums[1]). If not, use 
+while (l < r)
+
+  - Fast and Slow pointers (one pointer will go fast and other pointer will go slow based on some condition)
+    - Use when you are building/modifying the Array in-place. (like in, Remove duplicates from sorted Array, Move Zeroes, Remove Element etc. )
+    - Here, there's no strict rule that both pointers start at 0 and 1 index respectively. It depends on the approach. But one of the pointer moves fast and other moves slow - that is the rule.
 
 
