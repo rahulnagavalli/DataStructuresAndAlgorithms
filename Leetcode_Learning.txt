@@ -250,4 +250,17 @@ while (l < r)
     - Use when you are building/modifying the Array in-place. (like in, Remove duplicates from sorted Array, Move Zeroes, Remove Element etc. )
     - Here, there's no strict rule that both pointers start at 0 and 1 index respectively. It depends on the approach. But one of the pointer moves fast and other moves slow - that is the rule.
 
+Sliding Window:
+
+When to use this: Mostly when you see subArray or subString related questions.
+
+Window of variable length:
+
+
+Window of fixed length:
+
+Vocabulary:
+
+SubString: A contiguous and non-empty sequence of characters.
+
 
