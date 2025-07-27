@@ -224,6 +224,8 @@ Array:
   - For comparing Arrays, use Arrays.equals(arr1, arr2); (You cannot use "!=" OR "==" operator for comparing arrays)
 
 Set:
+  - Methods: add(), contains(), remove()
+  - contains() and remove() operations are O(1)
 
 Map:
   - computeIfAbsent() method: Used when you are populating a Map where each Key maps to a List or Set, and you want to initialize it only when necessary. (Like, in Group Anagrams problem, when we want to populate 
