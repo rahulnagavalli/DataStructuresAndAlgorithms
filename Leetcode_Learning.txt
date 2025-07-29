@@ -197,6 +197,30 @@ Because the current height is limited to 1 (shorter of 1 and 7) and no matter wh
 number on the left. So do l++
 
 
+Longeset SubString Without Repeating Characters:
+
+Brute force approach:
+- need 2 for loops, where first loop is for starting index and second loop is for moving the pointer forward. (i for start of a new window and j for expanding the new window)
+- create the Set inside outer for loop, as each outer loop represents start of a new window, so the set must be re-initialized for that start.
+
+In case of Brute force approach, 
+- we are checking too much - checking the substrings that are overlapping.
+- there has to be a way to avoid duplication.
+- this is where sliding window helps.
+
+Sliding window:
+- As we are moving j to expand the window, if we find a duplicate character, moving i foward until the window becomes valid again.
+
+
+
+
+| Signal from Problem   | Think...                       |
+| --------------------- | ------------------------------ |
+| "Substring"           | Sliding window / two pointers  |
+| "No repeating"        | Set or Map to track uniqueness |
+| Time too slow (O(n²)) | Can I reuse previous window?   |
+| Need to adjust range  | Move left/right pointer        |
+
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Patterns:
@@ -226,6 +250,8 @@ Array:
 Set:
   - Methods: add(), contains(), remove()
   - contains() and remove() operations are O(1)
+  - lookup time is O(1)
+  - handles uniqueness. if an element is already present, the add() call will return false.
 
 Map:
   - computeIfAbsent() method: Used when you are populating a Map where each Key maps to a List or Set, and you want to initialize it only when necessary. (Like, in Group Anagrams problem, when we want to populate 
