@@ -209,7 +209,21 @@ In case of Brute force approach,
 - this is where sliding window helps.
 
 Sliding window:
-- As we are moving j to expand the window, if we find a duplicate character, moving i foward until the window becomes valid again.
+- As we are moving j to expand the window, if we find a duplicate character, moving i forward until the window becomes valid again.
+
+This can be achieved using HashSet and HashMap.
+
+HashSet - 
+int i, maxLen = 0;
+Set<Character> set = new HashSet<>();
+for (int j = 0; j< s.length(); j++) {
+  while (set.contains(s.charAt(j)) {
+    set.remove(s.charAt(i));
+    i++;
+  }
+  set.add(s.charAt(j));
+  maxLen = Math.max(maxLen, j-i+1);
+}
 
 
 
