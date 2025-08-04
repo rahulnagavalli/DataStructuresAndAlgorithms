@@ -1,4 +1,5 @@
 1. Functional Requirements. 
+  Features of the system.
   Like, users should be able to do this thing, that thing etc. 
   Prioritize the top 3 functional requirements.
   Keep your requirements targeted.
@@ -9,7 +10,11 @@
   b. Users should be able to follow each other.
   c. Users should be able to see tweets from users they follow.
 
+  d. booking tickets should be of low latency.
+  e. able to scale to certain number of users.
+
 2. Non-Functional requirements:
+  Qualities of the system.
   Like, System should be able to handle x requests per second etc. 
   Those are the system qualities that are important to your users.
   Prioritize top 3-5 of non-functional requirements.
@@ -41,3 +46,41 @@
   7. Fault Tolerance:
     How well does the system needs to handle failures ? Consider Redundancy, Failover and Recovery mechanisms.
   8. Compliance:
+
+
+API Design:
+
+Product Design - User facing systems or apps (ticketmaster, bit.ly etc. )
+Infra Design - Non-User facing systems (like, message queue, Rate limiter etc. )
+
+1. Requirements
+2. Core Entities 
+  Entities that you will persist to DB or your API will exchange. (Eg: User, Ticket, Event etc.)
+3. API or Interface
+4. Data flow
+5. High Level Design 
+  Goal: to meet the Functional Requirements of the system
+6. Deep dives
+  Enhance the High Level Design
+  Goal: to meet the Non-functional requirements of the system
+
+
+Evaluation: 
+1. Problem Solving 
+  Identify and prioritize the core challenges.
+  Eg: In designing a Ticketmaster, focus on booking flow and not the authentication.
+
+2. Solution Design:
+  Create scalable architecture with balanced trade-offs
+
+3. Technical Excellence
+  Demonstrate deep knowledge and expertise
+  Eg: talk about specific areas where things could break
+
+4. Communication
+  Clearly explain complex concepts to stakeholders
+
+
+Fundamentals:
+- Storage
+  
