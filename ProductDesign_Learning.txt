@@ -82,5 +82,49 @@ Evaluation:
 
 
 Fundamentals:
-- Storage
+1. Storage
+  Should be able to discuss various data storage models and use cases.
+  Should be able to articulate when each storage paradigm makes sense based on access patterns and given consistency requirements of the system agreed upon in Non-functional requirements.
+  Eg: How data is organized in Relational DB vs Document based DB vs Key-Value Stores
+      ACID principles vs BSE principles for distributed databases
+
+2. Scalability
+  Its just a concept of how do we scale our system to support more users and more requests.
+  Scale compute: 
+  i. Vertical Scaling: Bigger Server - More CPU, More RAM
+  ii. Horizontal Scaling: More machines 
+
+  Scale Storage:
+  i. Sharding/Partitioning:
+  ii. Consistent Hashing:
+
+3. Networking
+  Application Layer (L7)
+  a. HTTP/HTTPS protocols
+  b. REST vs GraphQL vs gRPC
+  c. RESTful Semantics
+  d. DNS resolution
+  e. Websockets vs SSE (Server sent events)
+
+  Transport Layer (L4) - For Infra style interviews
+  a. TCP
+  b. UDP
+  c. Request response lifecycle
+
+  Network Layer (L3) - Have basic understanding of these
+  a. Load Balancing
+  b. Firewalls, ACLs
+
+4. Latency, Throughput and Performance
+  Goal: To optimize performance of the system
+  Should be able to recall approx. latency numbers for common operations.
+  Eg: 
+    i. Memory access (RAM: 100ns)
+    ii. Disc reads (SSD: 0.1-0.2 ms, HDD: 1-2ms)
+    iii. Network calls (Same Region: 1-10ms, Cross Region: 10-50 ms)
+  Should be able to understand throughput limitations.
+  Should be able to perform basic capacity planning estimations.
+  Should be able to identify Performance bottlenecks and offering solutions (Eg: Adding Cache to lower latency)
+5. Fault tolerance and Redundancy
+6. CAP Theorom
   
