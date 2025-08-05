@@ -227,3 +227,22 @@ Above line is called as a Predicate, as it can be assigned to a Predicate.
 Predicate<Integer> isEvenNumber = n -> n%2 == 0;
 
 
+-------------------------------------------------------------
+
+API - API's help software components to communicate with each other using a set of definitions and protocols.
+
+There are 2 main protocols: 
+- REST - It is built around standard HTTP methods and resources represented as the URL.
+- GraphQL - It lets the clients request exactly the data they need. It solves over-fetchind and under-fetching.
+
+RPC - for communication between server to server and not client to server.
+
+real time protocols - web sockets, Server Sent Events, WEBrtc
+
+
+REST: 
+- Here, Resources are the core entities and they are Plural Nouns in URL. (GET /events or GET /events/{id} or GET /events/{id}/tickets)
+- Resources: They are reflected in the URL path and they define the data that is being acted upon.
+- HttpMethod will explain the Verb and not necessarily the URL.  (Eg: POST /events/create)
+
+PUT - idempotent (you can run it multiple times and get same result)
