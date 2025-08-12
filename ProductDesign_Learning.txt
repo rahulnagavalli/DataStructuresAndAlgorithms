@@ -1,3 +1,14 @@
+1. Requirements
+2. Core Entities 
+  Entities that you will persist to DB or that your API will exchange. (Eg: User, Ticket, Event etc.)
+3. API or Interface
+4. Data flow
+5. High Level Design 
+  Goal: to meet the Functional Requirements of the system
+6. Deep dives
+  Enhance the High Level Design
+  Goal: to meet the Non-functional requirements of the system
+----------------------------------------------------------------------------------------------------------------
 1. Functional Requirements. 
   Features of the system.
   Like, users should be able to do this thing, that thing etc. 
@@ -47,40 +58,10 @@
     How well does the system needs to handle failures ? Consider Redundancy, Failover and Recovery mechanisms.
   8. Compliance:
 
-
-API Design:
-
+----------------------------------------------------------------------------------------------------------------
 Product Design - User facing systems or apps (ticketmaster, bit.ly etc. )
 Infra Design - Non-User facing systems (like, message queue, Rate limiter etc. )
-
-1. Requirements
-2. Core Entities 
-  Entities that you will persist to DB or your API will exchange. (Eg: User, Ticket, Event etc.)
-3. API or Interface
-4. Data flow
-5. High Level Design 
-  Goal: to meet the Functional Requirements of the system
-6. Deep dives
-  Enhance the High Level Design
-  Goal: to meet the Non-functional requirements of the system
-
-
-Evaluation: 
-1. Problem Solving 
-  Identify and prioritize the core challenges.
-  Eg: In designing a Ticketmaster, focus on booking flow and not the authentication.
-
-2. Solution Design:
-  Create scalable architecture with balanced trade-offs
-
-3. Technical Excellence
-  Demonstrate deep knowledge and expertise
-  Eg: talk about specific areas where things could break
-
-4. Communication
-  Clearly explain complex concepts to stakeholders
-
-
+----------------------------------------------------------------------------------------------------------------
 Fundamentals:
 1. Storage
   Should be able to discuss various data storage models and use cases.
@@ -127,4 +108,21 @@ Fundamentals:
   Should be able to identify Performance bottlenecks and offering solutions (Eg: Adding Cache to lower latency)
 5. Fault tolerance and Redundancy
 6. CAP Theorom
+----------------------------------------------------------------------------------------------------------------
+API Design:
   
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Evaluation: 
+1. Problem Solving 
+  Identify and prioritize the core challenges.
+  Eg: In designing a Ticketmaster, focus on booking flow and not the authentication.
+
+2. Solution Design:
+  Create scalable architecture with balanced trade-offs
+
+3. Technical Excellence
+  Demonstrate deep knowledge and expertise
+  Eg: talk about specific areas where things could break
+
+4. Communication
+  Clearly explain complex concepts to stakeholders
