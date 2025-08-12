@@ -110,7 +110,25 @@ Fundamentals:
 6. CAP Theorom
 ----------------------------------------------------------------------------------------------------------------
 API Design:
-  
+
+Application Program Interface.
+API's enable 2 software components to communicate with each other using a set of definitions and protocols.
+
+Two main protocols:
+- REST: Has Http Methods and Resources represented as URL's 
+  - Resource: They represent the data that is being acted upon.
+  - For naming, use plural Nouns.
+  - Here, Resources map directly to core entities;
+  - Eg: GET /events
+        GET /events/{id}
+        GET /events/{id}/tickets
+  - Dont use verb in the API endpoint. Verb is always the HTTP method.
+    Eg: POST /events/create -> This is wrong.
+        POST /events -> This is correct.
+- GraphQL: It lets the clients request exactly the data that they need using queries. Reduces over-fetching and under-fetching.
+
+Server to Server communication: 
+- RPC
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Evaluation: 
 1. Problem Solving 
