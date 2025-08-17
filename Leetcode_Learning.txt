@@ -203,6 +203,9 @@ Brute force approach:
 - need 2 for loops, where first loop is for starting index and second loop is for moving the pointer forward. (i for start of a new window and j for expanding the new window)
 - create the Set inside outer for loop, as each outer loop represents start of a new window, so the set must be re-initialized for that start.
 
+set.contains() -> referred as lookup.
+set.add() -> referred as insertion.
+
 In case of Brute force approach, 
 - we are checking too much - checking the substrings that are overlapping.
 - there has to be a way to avoid duplication.
@@ -212,6 +215,21 @@ Sliding window:
 - As we are moving j to expand the window, if we find a duplicate character, moving i forward until the window becomes valid again.
 
 This can be achieved using HashSet and HashMap.
+
+Exmple: abcabcbb
+
+i    j    set
+0    0    a
+0    1    ab
+0    2    abc
+0    3    Here, a is duplicate. So, start by removing from left end. Then, set becomes bc
+1    3    bc doesn't contain a, so goes to next step and adds "a" to "bc", making it "bca"
+1    4    Here, existing set is "bca" and new character is "b", so it is duplicate. Start by removing left most character using "i". Then set becomes "ca"
+2    4    "ca" doesn't contain "b", so add it. Now set becomes "cab"
+2    5    Here, existing set is "cab" and new character is "c", so it is duplicate. Start by removing left most character using "i". Then set becomes "ab"
+3    5    "ab" doesn't contain "c", so add it. Now set becomes "abc"
+3    6    Here, existing set is "abc" and new character is "b", so it is duplicate. That means, duplicate could be present anywhere between i and j-1. Start by removing left most character using "i". Then set becomes "bc"
+4    6    
 
 HashSet - 
 int i, maxLen = 0;
@@ -225,7 +243,8 @@ for (int j = 0; j< s.length(); j++) {
   maxLen = Math.max(maxLen, j-i+1);
 }
 
-
+** We have to remove characters from the left until the first occurrence of duplicate character is kicked out. (That's why, we have i++ in the while loop)
+** We shrink the window from the left until the duplicate character is removed.
 
 
 | Signal from Problem   | Think...                       |
