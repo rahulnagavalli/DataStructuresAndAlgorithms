@@ -282,7 +282,7 @@ Array:
 
 Set:
   - Methods: add(), contains(), remove()
-  - contains() and remove() operations are O(1)
+  - contains() [lookup] and remove() [insertion] operations are O(1)
   - lookup time is O(1)
   - handles uniqueness. if an element is already present, the add() call will return false.
 
