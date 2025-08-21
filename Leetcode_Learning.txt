@@ -305,6 +305,13 @@ Brute force:
 - If the window is valid, we will just take the length of that window and set it to maxLength. At the end of the String, whatever value of maxLength is present, that will be the answer.
 
 ** Instead of saying "Outside the inner for loop", Say -> "before the inner for loop"
+
+
+Permutation in String: 
+brute force: 
+- convert first string to charArray, sort and then back to String.
+- for each substring in second string, do same thing as above and then compare with first string. if equal, then return true.
+- this approach has time complexity of n^3.logn
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Patterns:
 
