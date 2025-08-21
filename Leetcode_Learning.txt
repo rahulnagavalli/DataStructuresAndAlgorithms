@@ -254,7 +254,57 @@ for (int j = 0; j< s.length(); j++) {
 | Time too slow (O(n²)) | Can I reuse previous window?   |
 | Need to adjust range  | Move left/right pointer        |
 
+Longest Repeating Character Replacement: 
 
+
+Why initalize HashMap before the inner for loop and not inside the inner for loop ? 
+What happens if we initialize the HashMap inside the inner for loop - ? 
+Answer: 
+  String = "AABA";
+  for (int i = 0; i< s.length(); i++) {
+    for (int j = i; j< s.length(); j++) {
+      Map<Character, Integer> freqMap = new HashMap<>(); 
+      freqMap.put(s.charAt(j), freqMap.getOrDefault(s.charAt(j), 0) + 1));
+      ....
+    }
+  }
+
+  Now, in above code, 
+  first iteration: "A". Map has {A-> 1}
+  Second iteration: "AA". Map has {A -> 1}.   
+    But for second iteration where window is "AA", Map should have {A-> 2}. But as we have initialized Map in the inner for loop, it will reset for every window. We don't want that to happen. We want to capture the highest frequency for a character in all the windows for each iteration of outer for loop. 
+    A
+    AA
+    AAB
+    AABA  
+     A
+     AB
+     ABA
+      B
+      BA
+
+
+Brute force: 
+- find the frequency of each character in any given window - inside inner loop (j)
+  Map<Character, Integer> freqMap = new HashMap<>();
+  freqMap.put(s.charAt(j), freqMap.getOrDefault(s.charAt(j), 0) + 1);
+  Eg: AABABBA : if window is AABA, then {A-> 3, B-> 1)
+- find most common character in any given window - referred as maxFreq (or max frequency) - calculating using Math.max(maxFreq, freqMap.get(s.charAt(j))); -> This line will be inside inner for loop, because, we want to find the maxFreq for every window. 
+  Eg: When window is 
+      - AABA, in this window, maxFreq will be 3 (coming from A)
+      - AABAB, maxFreq = 3
+      - AABABB, maxFreq = 3
+- we want all the characters in a given window to match the most common character in that given window so that we will get the longest repeating character sub string.
+- replacementsNeeded = windowLength - maxFreq
+  Eg: AABABBA
+  Consider the subString "AABAB". 
+  windowLength = 5 (calculated as j-i+1)
+  maxFreq = 3
+  replacements needed to make longest repeating character sub string is 2 (which is windowLength - countOfMostFrequentCharacter)
+- Now, as long as the above difference is <= k (given in question), the current window that we are considering - is Valid.
+- If the window is valid, we will just take the length of that window and set it to maxLength. At the end of the String, whatever value of maxLength is present, that will be the answer.
+
+** Instead of saying "Outside the inner for loop", Say -> "before the inner for loop"
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Patterns:
 
