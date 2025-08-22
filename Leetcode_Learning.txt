@@ -216,6 +216,20 @@ Sliding window:
 
 This can be achieved using HashSet and HashMap.
 
+Key Idea: Sliding Window
+
+Instead of starting over for every i, we can use two pointers (left and right) and a HashSet (or HashMap).
+
+right moves forward exploring characters.
+
+If s[right] is unique, include it and update answer.
+
+If s[right] is duplicate, move left forward until duplicate is removed.
+
+This way, each character is processed at most twice (once added, once removed).
+
+👉 Complexity becomes O(n).
+
 Exmple: abcabcbb
 
 i    j    set
@@ -235,7 +249,7 @@ HashSet -
 int i, maxLen = 0;
 Set<Character> set = new HashSet<>();
 for (int j = 0; j< s.length(); j++) {
-  while (set.contains(s.charAt(j)) {
+  while (set.contains(s.charAt(j)) { // We will be looping through until the duplicate element is removed. As duplicate element is at s.charAt(j), we have it in the while condition.
     set.remove(s.charAt(i));
     i++;
   }
