@@ -366,6 +366,14 @@ the Map with key as sorted string and value as List of Strings that are the Anag
   String word = "apple";
   map.computIfAbsent(word.length(), 
 
+✅ Use computeIfAbsent when:
+
+You are grouping values (like map of lists/sets).
+
+You want to avoid null checks when initializing collections.
+
+You are working with caches or memoization (lazy initialization).
+
 
 
 
