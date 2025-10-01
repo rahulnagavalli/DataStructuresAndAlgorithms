@@ -246,3 +246,12 @@ REST:
 - HttpMethod will explain the Verb and not necessarily the URL.  (Eg: POST /events/create)
 
 PUT - idempotent (you can run it multiple times and get same result)
+
+
+-------------------------------------------------------------
+
+10/1: 
+
+Stack: 
+	It is an Abstract, Linear data structure with a pre-defined capacity.
+
