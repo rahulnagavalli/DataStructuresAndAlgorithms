@@ -253,5 +253,6 @@ PUT - idempotent (you can run it multiple times and get same result)
 10/1: 
 
 Stack: 
-	It is an Abstract, Linear data structure with a pre-defined capacity.
+	It is an Abstract, Linear data type with a pre-defined capacity.
+	It specifies the operation and behaviour without specifying how the data is stored or implemented.
 
