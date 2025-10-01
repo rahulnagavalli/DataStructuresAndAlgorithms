@@ -1,0 +1,13 @@
+Abstract: 
+  Defines what can be done and not how.
+  Eg: Stack -> It is considered as a Abstract data type. Because, it defines what operations can be performed. But it doesn't define how those operations can be done. Those operations can be done by ArrayList, LinkedList etc. 
+  Analogy: Blueprint -> It defines what the building should have (doors, windows etc.)
+           Building -> It defines how it's built.
+
+Abstract data type: 
+  It focuses on what operations can be performed - it is conceptual. 
+  Eg: Stack, Queue, Map etc. 
+
+Abstract data structure: 
+  It focuses on how the data is actually stored and organized - it is about the implementation.
+  Eg: ArrayList, LinkedList, HashMap etc. 
