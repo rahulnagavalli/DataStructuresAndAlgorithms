@@ -326,6 +326,7 @@ brute force:
 - convert first string to charArray, sort and then back to String.
 - for each substring in second string, do same thing as above and then compare with first string. if equal, then return true.
 - this approach has time complexity of n^3.logn
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Patterns:
 
@@ -399,8 +400,6 @@ Window of variable length:
 
 Window of fixed length:
 
-Vocabulary:
 
-SubString: A contiguous and non-empty sequence of characters.
 
 
