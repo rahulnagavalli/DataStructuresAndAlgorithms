@@ -12,6 +12,14 @@ Data structure:
   It focuses on how the data is actually stored and organized - it is about the implementation.
   Eg: ArrayList, LinkedList, HashMap etc. 
 
+Linear data type: 
+  Data elements are arranged sequentially - one after another. 
+  Eg: Stack, Queue, LinkedList
+
+Non-Linear data type: 
+  Elements branch out.
+  Eg: Tree, Graph
+
 Idempotency: 
   Performing a same request multiple times has the same effect as performing it once. End state doesn't change. 
 
