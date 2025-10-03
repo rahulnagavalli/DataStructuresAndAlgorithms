@@ -1,0 +1,5 @@
+10/3: 
+
+Valid Parentheses: 
+  Each opening bracket must have a corresponding closing bracket. 
+  Most recent opening bracket must be closed first -> Last In First Out behaviour
