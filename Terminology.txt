@@ -8,6 +8,15 @@ Abstract data type:
   It focuses on what operations can be performed - it is conceptual. 
   Eg: Stack, Queue, Map etc. 
 
-Abstract data structure: 
+Data structure: 
   It focuses on how the data is actually stored and organized - it is about the implementation.
   Eg: ArrayList, LinkedList, HashMap etc. 
+
+Idempotency: 
+  Performing a same request multiple times has the same effect as performing it once. End state doesn't change. 
+
+Rate limiting: 
+  It is a control mechanism that limits the number of operations that a client can perform within a given time period.
+
+Stack: 
+  It is an Abstract data type, which can be implemented using different data structures such as ArrayList or LinkedList. 
