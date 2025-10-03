@@ -26,5 +26,11 @@ Idempotency:
 Rate limiting: 
   It is a control mechanism that limits the number of operations that a client can perform within a given time period.
 
+SubString: 
+  A contiguous and non-empty sequence of characters.
+
 Stack: 
   It is an Abstract data type, which can be implemented using different data structures such as ArrayList or LinkedList. 
+
+<>: 
+  Angle Brackets
