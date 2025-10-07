@@ -72,8 +72,21 @@ Fundamentals:
 2. Scalability
   Its just a concept of how do we scale our system to support more users and more requests.
   Scale compute: 
-  i. Vertical Scaling: Bigger Server - More CPU, More RAM
-  ii. Horizontal Scaling: More machines 
+  i. Horizontal Scaling: Adding more machines to a system to increase its capacity. 
+  ii. Vertical Scaling: Adding more resources to a single system to increase its capacity. Bigger Server - More CPU, More RAM
+
+  i. Horizontal Scaling: 
+      If we proceed with this type of scaling, then: 
+      First challenge: Getting work distributed to the right machine.
+      Here, we need to consider how to distribute work across the machines. 
+      Work distribution needs to keep the load on the system as even as possible.
+        So if one node is receiving more traffic than others, then we are not getting much out of the Horizontal Scaling.
+      One way is "Consistent Hashing".
+        Here, we arrange data and machines in a circular space called "hash ring", allowing us to add or remove machines with minimal data redistribution.
+      Another way is "Load Balancing".
+        Here, the load balancer will choose which node to use for an incoming request. 
+          It uses differents strategies - like, least connection, utilization-based, round robin etc.
+
 
   Scale Storage:
   i. Sharding/Partitioning:
@@ -117,6 +130,7 @@ API's enable 2 software components to communicate with each other using a set of
 Two main protocols:
 - REST: Has Http Methods and Resources represented as URL's 
   - Resource: They represent the data that is being acted upon.
+  - REST endpoint describe Resources and not Verbs.
   - For naming, use plural Nouns.
   - Here, Resources map directly to core entities;
   - Eg: GET /events
