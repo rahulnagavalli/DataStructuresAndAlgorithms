@@ -12,6 +12,10 @@ Data structure:
   It focuses on how the data is actually stored and organized - it is about the implementation.
   Eg: ArrayList, LinkedList, HashMap etc. 
 
+Fault tolerance: 
+
+Latency: 
+
 Linear data type: 
   Data elements are arranged sequentially - one after another. 
   Eg: Stack, Queue, LinkedList
@@ -23,14 +27,21 @@ Non-Linear data type:
 Idempotency: 
   Performing a same request multiple times has the same effect as performing it once. End state doesn't change. 
 
+Performance bottlenecks:
+
 Rate limiting: 
   It is a control mechanism that limits the number of operations that a client can perform within a given time period.
+
+Redundancy:
 
 SubString: 
   A contiguous and non-empty sequence of characters.
 
 Stack: 
   It is an Abstract data type, which can be implemented using different data structures such as ArrayList or LinkedList. 
+
+Throughput: 
+
 
 <>: 
   Angle Brackets
