@@ -23,6 +23,7 @@
 
 2. Non-Functional requirements:
   Qualities of the system.
+  Characteristics of a system.
   Like, System should be able to handle x requests per second etc. 
   Those are the system qualities that are important to your users.
   Prioritize top 3-5 of non-functional requirements.
@@ -117,7 +118,16 @@ Fundamentals:
   Should be able to perform basic capacity planning estimations.
   Should be able to identify Performance bottlenecks and offering solutions (Eg: Adding Cache to lower latency)
 5. Fault tolerance and Redundancy
+  Failures are inevitable in distributed systems.
+  We should be able to discuss things like Replication strategy, Failure detection mechanisms.
 6. CAP Theorom
+  Consistency: All users see same data at the same time.
+  Availability: every request gets a response or not (successful or not)
+  Partition tolerance: System works despite network failures between nodes.
+
+  System can have only 2 of the above 3. 
+  Consistency over Availability ? - choose only one.
+
 ----------------------------------------------------------------------------------------------------------------
 API Design:
 
