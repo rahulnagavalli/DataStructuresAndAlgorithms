@@ -21,9 +21,6 @@
   b. Users should be able to follow each other.
   c. Users should be able to see tweets from users they follow.
 
-  d. booking tickets should be of low latency.
-  e. able to scale to certain number of users.
-
 2. Non-Functional requirements:
   Qualities of the system.
   Like, System should be able to handle x requests per second etc. 
