@@ -128,6 +128,35 @@ Fundamentals:
   System can have only 2 of the above 3. 
   Consistency over Availability ? - choose only one.
 
+  Consider a situation: 
+  An online platform has users in all countries and servers in all countries as well.
+  User A writes to a server in Region A.
+  User B wants to see the same ticket and his request goes to server in Region B.
+
+  If there is a network issue while replicating data between Region A and Region B, we would have below options:
+  1. Stop serving data (affects Consistency)
+  2. Risk wrong data (affects Availability)
+
+  Examples where we need strong consistency:
+  1. Ticket booking platforms (Airline, Event etc.)
+      If we sell a ticket, everyone needs to see the ticket as unavailable, without any delay.
+  2. Inventory system (Amazon etc.)
+      Can't sell the same last item to multiple customers.
+  3. Financial systems 
+      Stock trades must be executed in a strict order.
+
+
+  If you don't need strong consistency, then choose availability.
+  Eg: Social media platforms. What if user A posts a photo and user B in another country won't see that photo instantly ? It doesn't affect that much effect, and its not a big deal when the delay is for a couple of seconds.
+  These can handle data delay for couple of seconds. But in case of consistency, if a ticket is sold, then it has to be shown as sold for all the users instantly. or else, they would try to buy the same ticket.
+
+  1. Social media apps
+  2. business review services (like, Yelp)
+  3. Streaming platforms (like, Netflix)
+
+  How does choosing Consistency affect my system design ? 
+  
+
 ----------------------------------------------------------------------------------------------------------------
 API Design:
 
