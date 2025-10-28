@@ -155,6 +155,10 @@ Fundamentals:
   3. Streaming platforms (like, Netflix)
 
   How does choosing Consistency affect my system design ? 
+  1. Implement distributed transactions
+    If we have a database and a cache, we need to make sure they are strongly consistent.
+    If a write happens on a database, it has to happen on cache as well. 
+  2. limit to a single node.
   
 
 ----------------------------------------------------------------------------------------------------------------
