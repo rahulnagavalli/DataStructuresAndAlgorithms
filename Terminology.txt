@@ -8,6 +8,16 @@ Abstract data type:
   It focuses on what operations can be performed - it is conceptual. 
   Eg: Stack, Queue, Map etc. 
 
+Atomic transactions:
+  It is a smallest unit of work that either completely entirely or fails entirely.
+  So, if any part of the transaction fails, the system rolls back to the original state as if nothing every happened. 
+
+  Eg: If you want to withdraw $100 from Account A, 
+                     deposit $100 to Account B, 
+      and if deposit fails due to some network issue, system must revert the withdrawal from Account A.
+
+  It is one of the four foundational properties of database transactions (ACID)
+
 Data structure: 
   It focuses on how the data is actually stored and organized - it is about the implementation.
   Eg: ArrayList, LinkedList, HashMap etc. 
