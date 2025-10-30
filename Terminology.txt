@@ -42,6 +42,7 @@ Non-Linear data type:
 
 Idempotency: 
   Performing a same request multiple times has the same effect as performing it once. End state doesn't change. 
+  Retries don't change the outcome.
 
 Performance bottlenecks:
 
