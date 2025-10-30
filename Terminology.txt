@@ -8,13 +8,19 @@ Abstract data type:
   It focuses on what operations can be performed - it is conceptual. 
   Eg: Stack, Queue, Map etc. 
 
+API: 
+  API's enable 2 software components to communicate with each other using a set of definitions and protocols.
+  There are 2 main protocols - REST and GraphQL
+
 Atomic transactions:
-  It is a smallest unit of work that either completely entirely or fails entirely.
+  It is a smallest unit of work that either completes entirely or fails entirely.
   So, if any part of the transaction fails, the system rolls back to the original state as if nothing every happened. 
 
   Eg: If you want to withdraw $100 from Account A, 
                      deposit $100 to Account B, 
-      and if deposit fails due to some network issue, system must revert the withdrawal from Account A.
+      and if the withdrawal succeeds and the deposit fails due to some network issue, then the entire transaction must rollback, returning Account A to its original balance.
+
+  Here, the atomic transaction is (withdrawal from Account A + Deposit to Account B).
 
   It is one of the four foundational properties of database transactions (ACID)
 
