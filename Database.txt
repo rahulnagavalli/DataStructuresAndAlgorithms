@@ -1,0 +1,43 @@
+Atomicity: Important principle in ACID.
+Eg: Bank transfer, order placement etc. 
+
+TODO: 
+- Know how RDBMS implements it (commit logs, rollback segments)
+- Be able to explain how Atomicity prevents partial writes.
+
+Eg: 
+BEGIN; 
+UPDATE ACCOUNTS SET BALANCE = BALANCE - 100 WHERE ID = 'A';
+UPDATE ACCOUNTS SET BALANCE = BALANCE + 100 WHERE ID = 'B';
+COMMIT;
+
+If any lines, then rollback the entire transaction.
+
+Transaction logging: 
+  Learn how databases ensure Atomicity via: 
+    Write-Ahead logs (WAL)
+    Undo/Redo logs
+    Checkpoints.
+
+Distributed Atomicity:
+  Why Atomicity is hard in distributed systems (due to partial failures).
+  It can be achieved using: 
+  Two phase commit 
+  Three phase commit 
+  Saga pattern
+  Outbox pattern
+Tradeoffs between Atomicity and Availability.
+
+
+
+Idempotency and Compensation; 
+  When strict Atomicity is not possible (Eg: In Microservices), system rely on
+  1. Idempotent operations (retries don't change outcome)
+  2. Compensating transactions (reverse a failed step)
+  3. Event-driven design (using queues to ensure eventual consistency)
+
+Eg: In Microservices, 
+Step 1: Deduct Payment
+Step 2: Reserve Inventory
+Step 3: Create Order.
+If Step 3 fails, trigger compensation = refund payment + release inventory.
