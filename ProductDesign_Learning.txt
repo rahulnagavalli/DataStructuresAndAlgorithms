@@ -129,6 +129,8 @@ Fundamentals:
   Consistency over Availability ? - choose only one.
 
 STRONG CONSISTENCY: 
+  All clients always see the same, most recent value after a write. 
+
   Consider a situation: 
   An online platform has users in all countries and servers in all countries as well.
   User A writes to a server in Region A.
@@ -179,6 +181,7 @@ STRONG CONSISTENCY:
   Here, latency is accepted. Because in banking, correctness is more important than speed. (even if there is cross-region network latency)
 
 CAUSAL CONSISTENCY: 
+  Only the operations that are causally related are seen in the same order by everyone. Unrelated operations may be seen in different order. 
   It preserves cause-and-effect, but doesn't force a single global order for everything.
   For chat applications. 
     cause-and-effect must be preserved within the same chat.
