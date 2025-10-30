@@ -122,12 +122,13 @@ Fundamentals:
   We should be able to discuss things like Replication strategy, Failure detection mechanisms.
 6. CAP Theorom
   Consistency: All users see same data at the same time.
-  Availability: every request gets a response. (successful or not)
+  Availability: System continues to operate even when parts of it fail.
   Partition tolerance: System works despite network failures between nodes.
 
   System can have only 2 of the above 3. 
   Consistency over Availability ? - choose only one.
 
+STRONG CONSISTENCY: 
   Consider a situation: 
   An online platform has users in all countries and servers in all countries as well.
   User A writes to a server in Region A.
@@ -145,6 +146,66 @@ Fundamentals:
   3. Financial systems 
       Stock trades must be executed in a strict order.
 
+  For above examples, we need a 'single globally agreed state at all times'. 
+  1. One system of Record
+  2. All transactions go through a leader node.
+  3. Synchronous replications 
+  4. Locks (When account A is being debited, system acquires a lock on that account)
+
+  Even if a bank has servers in many countries, there is always primary authoritative ledger (often in the headquarter region).
+  And, all the writes happen to that primary server.
+  And, the local servers have read replicas/cache/edge services (to ensure faster queries and faster user experience).
+
+  Eg: If you withdraw $200 from your account, it will be updated in the main ledger in USA. (when you are withdrawing money from India).   
+      But your mobile banking app might still be showing your old balance for a few seconds (as it will be reading from a local replica and the sync may not have happened yet)
+
+  If banks try to synchronize every display read, then viewing balance could take time.
+  So, banks will use Strong consistency for writes and Eventual consistency for Reads.
+  Because, reading from a local replica is faster, cheaper and scalable.
+
+  And, even if transaction happens in the same country or same building that the bank is present, 
+  Writes always go to the main ledger and Reads often come from Replicas. 
+  This is done for 
+  a. Performance.
+  b. Scalability.
+  c. Fault tolerance.
+
+  Why not always read from the primary ledger ? 
+  1. Because, millions of users open banking apps at the same time.
+  2. Reads far outnumber writes. 
+  3. Hitting the primary ledger for every read would overload it.
+
+
+  Here, latency is accepted. Because in banking, correctness is more important than speed. (even if there is cross-region network latency)
+
+CAUSAL CONSISTENCY: 
+  It preserves cause-and-effect, but doesn't force a single global order for everything.
+  For chat applications. 
+    cause-and-effect must be preserved within the same chat.
+    Alice: Hey
+    Bob: Hi
+
+    Here, both Alice and Bob has to see Hey -> Hi. 
+
+  For chat applications, we don't want Strong consistency. 
+  Because, if we enforce Strong consistency, meaning "All messages in all chats must be seen in the same global order". -> and this works only for banks, tickets etc. 
+  And below would be the problems: 
+  1. Messaging would slow down.
+  2. Every message would require global co-ordination.
+  3. One slow region would delay all other chats.
+
+  Eg: You are chatting with Alice in one window and with Bob in another window. 
+  Chat A messages can be delivered without waiting for chat B messages.
+
+
+| Feature                                    | Banking                      | WhatsApp Chat                    |
+| ------------------------------------------ | ---------------------------- | -------------------------------- |
+| Requires Strong Consistency?               | ✅ Yes                        | ❌ No                             |
+| Must maintain global ordering?             | ✅ Yes                        | ❌ Only per conversation          |
+| Acceptable Latency?                        | ✅ Yes (200–500 ms OK)        | ❌ No (must be sub-100 ms)        |
+| Can system continue during network splits? | ❌ Usually stops writes       | ✅ Continues writing locally      |
+| Why?                                       | Prevent financial corruption | Preserve speed & user experience |
+
 
   If you don't need strong consistency, then choose availability.
   Eg: Social media platforms. What if user A posts a photo and user B in another country won't see that photo instantly ? It doesn't affect that much effect, and its not a big deal when the delay is for a couple of seconds.
@@ -160,8 +221,22 @@ Fundamentals:
     If a write happens on a database, it has to happen on cache as well. 
   2. limit to a single node.
     If its a single node, then there won't be any propagation issues.
-  
+  3. discuss consensus protocols.
+  4. accept higher latency (use loaders etc.)
 
+
+  How Availability affects system design ? 
+  1. Use multiple replicas.
+
+But, important thing to remember is: Different parts of a system can have different requirements.
+Eg: TicketMaster
+1. Consistency for booking tickets. (We cannot have 2 users booking the same ticket)
+2. Availability for CRUD on events. 
+
+Eg: Tinder
+1. Consistency for matching. (If user A swipes right to user B, then user B has to see that he is liked by user A instantly).
+2. Availability for viewing profile data.
+  
 ----------------------------------------------------------------------------------------------------------------
 API Design:
 
