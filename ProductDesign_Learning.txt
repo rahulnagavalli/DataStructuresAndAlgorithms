@@ -122,7 +122,7 @@ Fundamentals:
   We should be able to discuss things like Replication strategy, Failure detection mechanisms.
 6. CAP Theorom
   Consistency: All users see same data at the same time.
-  Availability: every request gets a response or not (successful or not)
+  Availability: every request gets a response. (successful or not)
   Partition tolerance: System works despite network failures between nodes.
 
   System can have only 2 of the above 3. 
@@ -159,6 +159,7 @@ Fundamentals:
     If we have a database and a cache, we need to make sure they are strongly consistent.
     If a write happens on a database, it has to happen on cache as well. 
   2. limit to a single node.
+    If its a single node, then there won't be any propagation issues.
   
 
 ----------------------------------------------------------------------------------------------------------------
@@ -179,7 +180,7 @@ Two main protocols:
   - Dont use verb in the API endpoint. Verb is always the HTTP method.
     Eg: POST /events/create -> This is wrong.
         POST /events -> This is correct.
-- GraphQL: It lets the clients request exactly the data that they need using queries. Reduces over-fetching and under-fetching.
+- GraphQL: It lets the clients request exactly the data that they need using queries. Reduces over-fetching and under-fetching. 
 
 Server to Server communication: 
 - RPC
