@@ -59,6 +59,11 @@ STRONG CONSISTENCY:
 
   Here, latency is accepted. Because in banking, correctness is more important than speed. (even if there is cross-region network latency)
 
+Where is strong consistency ideal? 
+  1. Banking 
+  2. Ticket sales
+  3. Inventory
+
 CAUSAL CONSISTENCY: 
   Only the operations that are causally related are seen in the same order by everyone. Unrelated operations may be seen in different order. 
   It preserves cause-and-effect, but doesn't force a single global order for everything.
@@ -118,4 +123,22 @@ Eg: TicketMaster
 Eg: Tinder
 1. Consistency for matching. (If user A swipes right to user B, then user B has to see that he is liked by user A instantly).
 2. Availability for viewing profile data.
+
+Why would strong consistency introduce latency across Messaging apps ? 
+
+  To achieve Strong consistency in case of messaging apps, we need: 
+  1. Propagate all the messages through a single leader node.
+  2. Replicate the same message across all the replicas.
+  3. All the servers have to acknowledge before showing the message as "seen". 
+  
+  That means, messaging app like Whatsapp has to wait until all the servers across the world have to agree.
+  
+  This would introduce significant latency. 
+
+Where is causal consistency ideal? 
+  1. Messaging apps.
+  2. Comments and replies.
+  3. Document collaboration.
+  4. Social feeds.
+  5. Multi-region apps.
   
