@@ -142,3 +142,27 @@ Where is causal consistency ideal?
   4. Social feeds.
   5. Multi-region apps.
   
+
+READ YOUR WRITES CONSISTENCY: 
+  If I change something, I should see it immediately.
+  After we write or update data, we must be able to see our own update immediately, even if other users see old data for a little while.
+  So, only your sessions sees the latest version.
+
+  Eg: Whatsapp, iMessage. 
+    If you send a message, it will appear in your own chat window immediately. 
+    It does not wait for the server to confirm global replication.
+
+    Other devices might see the message slightly later, that is eventual consistency. But, I always see my own updates instantly.
+  Where is Read your write consistency ideal?
+  1. Messaging apps.
+  2. Collaborative apps.
+  3. User profiles in Web apps. (Amazon, LinkedIn, Facebook user profile settings)
+
+RYW consistency is often used together with Eventual consistency.
+
+| Model                               | Meaning                                 | Example                        |
+| ----------------------------------- | --------------------------------------- | ------------------------------ |
+| Strong Consistency              | Everyone always sees the same data      | Banking ledger                 |
+| Causal Consistency              | Replies follow messages                 | WhatsApp conversation ordering |
+| Eventual Consistency            | Everyone sees correct data *eventually* | Social media likes count delay |
+| Read-Your-Own-Write Consistency | **You** see your updates immediately    | WhatsApp local message display |
