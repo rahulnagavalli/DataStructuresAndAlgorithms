@@ -57,6 +57,9 @@ SubString:
 Stack: 
   It is an Abstract data type, which can be implemented using different data structures such as ArrayList or LinkedList. 
 
+Stickiness: 
+  It is a feature of Load balancer where it repeatedly routes traffic from client to a single destination instead of balancing traffic across multiple destinations.
+
 Throughput: 
 
 
