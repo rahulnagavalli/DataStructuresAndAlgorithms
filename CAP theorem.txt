@@ -160,6 +160,10 @@ READ YOUR WRITES CONSISTENCY:
 
 RYW consistency is often used together with Eventual consistency.
 
+  How is the RYW consistency achieved ? 
+  1. Session stickiness
+  
+
 | Model                               | Meaning                                 | Example                        |
 | ----------------------------------- | --------------------------------------- | ------------------------------ |
 | Strong Consistency              | Everyone always sees the same data      | Banking ledger                 |
