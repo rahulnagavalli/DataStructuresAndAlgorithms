@@ -111,19 +111,6 @@ CAUSAL CONSISTENCY:
   3. discuss consensus protocols.
   4. accept higher latency (use loaders etc.)
 
-
-  How Availability affects system design ? 
-  1. Use multiple replicas.
-
-But, important thing to remember is: Different parts of a system can have different requirements.
-Eg: TicketMaster
-1. Consistency for booking tickets. (We cannot have 2 users booking the same ticket)
-2. Availability for CRUD on events. 
-
-Eg: Tinder
-1. Consistency for matching. (If user A swipes right to user B, then user B has to see that he is liked by user A instantly).
-2. Availability for viewing profile data.
-
 Why would strong consistency introduce latency across Messaging apps ? 
 
   To achieve Strong consistency in case of messaging apps, we need: 
@@ -161,7 +148,17 @@ READ YOUR WRITES CONSISTENCY:
 RYW consistency is often used together with Eventual consistency.
 
   How is the RYW consistency achieved ? 
+    It is achieved by ensuring that the user's future reads are routed to the replica that has seen their write. 
+    And, it can be done in distributed systems using below: 
   1. Session stickiness
+  2. Local caching
+      Client temporarily stores the writes locally.
+  3. Version tracking/vector clocks
+      This is used mainly in DynamoDB, Cassandra.
+      Every write is tagged with a version number.    
+      So when we read, the client requests at least that version, ensuring it never reads old data.
+
+      this is how the distributed NoSQL stores use RYW consistency without making use of session stickiness.
   
 
 | Model                               | Meaning                                 | Example                        |
@@ -170,3 +167,18 @@ RYW consistency is often used together with Eventual consistency.
 | Causal Consistency              | Replies follow messages                 | WhatsApp conversation ordering |
 | Eventual Consistency            | Everyone sees correct data *eventually* | Social media likes count delay |
 | Read-Your-Own-Write Consistency | **You** see your updates immediately    | WhatsApp local message display |
+
+
+
+
+  How Availability affects system design ? 
+  1. Use multiple replicas.
+
+But, important thing to remember is: Different parts of a system can have different requirements.
+Eg: TicketMaster
+1. Consistency for booking tickets. (We cannot have 2 users booking the same ticket)
+2. Availability for CRUD on events. 
+
+Eg: Tinder
+1. Consistency for matching. (If user A swipes right to user B, then user B has to see that he is liked by user A instantly).
+2. Availability for viewing profile data.
