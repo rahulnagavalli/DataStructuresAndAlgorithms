@@ -10,8 +10,9 @@ Two main protocols:
   - For naming, use plural Nouns.
   - Here, Resources map directly to core entities;
   - Eg: GET /events
-        GET /events/{id}
+        GET /events/{id} -> Here, we use Path parameters if we want to specify the resource that we want to work with. or identify a resource.
         GET /events/{id}/tickets
+        GET /events?city=LA&date=2025-01-01 -> Here we use Query parameters if we want to specify optional filters.
   - Dont use verb in the API endpoint. Verb is always the HTTP method.
     Eg: POST /events/create -> This is wrong.
         POST /events -> This is correct.
