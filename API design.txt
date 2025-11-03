@@ -16,7 +16,41 @@ Two main protocols:
   - Dont use verb in the API endpoint. Verb is always the HTTP method.
     Eg: POST /events/create -> This is wrong.
         POST /events -> This is correct.
+
+
+  Pagination: 
+  There are couple of types. 
+  1. Page based 
+  2. Cursor based - TODO: Learn more about this.
+
 - GraphQL: It lets the clients request exactly the data that they need using queries. Reduces over-fetching and under-fetching. 
+
+  Common things to watch out with graphQL:
+  - (n+1) problem.
+    If we want to get all the event related details for first 100 events, then you would have to get their venue details and also the ticket details. So you have to make (n+1) Database calls.
+    How to solve it?
+    - Data loader
+    - Batching
+
+  Benefits of graphQL over REST:
+  - Secure access at field level.
+    How is it done?
+    - Resolver
 
 Server to Server communication: 
 - RPC
+  What: So, instead of calling resources, RPC is modelled around calling methods over a service.
+        Its almost like, making a local function call, but over a network and calling function that is present in a different service.
+  Use: This is used for intra-microservice communication.
+  Why: This is faster than REST because we use binary form of communication, like gRPC.
+        It overcomes HTTP overheads (URL parsing, headers, status codes, conversion from JSON format) by making calls using compact-binary formats like, Protocol Buffers (that stores data in raw bytes, instead of human readable text) that takes less space, which results in faster.
+
+  So if RPC is faster, why can't we use it for client-server communication? 
+  Because, 
+    1. client-server communication is easy when its over REST, as it doesn't need an extra setup. 
+    2. REST uses HTTP that every client already knows, it provides JSON format that every human can easily read and understand.
+  But, for RPC, both the client and server have to agree on a specific protocol in binary format.
+    1. Using RPC, we can control both the internal ends of Microservices. Whereas in case of handling multiple external clients, it becomes difficult.
+
+    gRPC will generate client and server code in different languages and that how a Java server in on box can talk to Python server in another box.
+    gRPC will handle all the network communication under the hood.
