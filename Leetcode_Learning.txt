@@ -411,6 +411,37 @@ Window of variable length:
 
 Window of fixed length:
 
+Goal: Make counting feel automatic.
+| Problem                           | Link                                                                                                                       | Why                                            |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| 383. Ransom Note                  | [https://leetcode.com/problems/ransom-note/](https://leetcode.com/problems/ransom-note/)                                   | Same “pay from frequency” logic                |
+| 242. Valid Anagram (already done) | —                                                                                                                          | baseline                                       |
+| 409. Longest Palindrome           | [https://leetcode.com/problems/longest-palindrome/](https://leetcode.com/problems/longest-palindrome/)                     | Counting pairs → intuition for even/odd counts |
+| 451. Sort Characters By Frequency | [https://leetcode.com/problems/sort-characters-by-frequency/](https://leetcode.com/problems/sort-characters-by-frequency/) | Convert counts → sort → build output           |
+
+Stage 2 — Grouping by Canonical Representation (Pattern: signature keys)
+
+Now extend "strings with same character counts belong together" logic.
+| Problem                            | Link                                                                                                                         | Key Insight                                            |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| 49. Group Anagrams                 | [https://leetcode.com/problems/group-anagrams/](https://leetcode.com/problems/group-anagrams/)                               | Convert each word to count signature or sorted form    |
+| 438. Find All Anagrams in a String | [https://leetcode.com/problems/find-all-anagrams-in-a-string/](https://leetcode.com/problems/find-all-anagrams-in-a-string/) | 🧠 Sliding Window + Frequency Balance (BIG skill jump) |
+| 567. Permutation in String         | [https://leetcode.com/problems/permutation-in-string/](https://leetcode.com/problems/permutation-in-string/)                 | Same idea but boolean result instead of list           |
 
 
+Stage 3 — Sliding Window + Frequency Map (This is where intuition grows)
+
+Once you finish 438 + 567, do:
+| Problem                                           | Link                                                                                                                                                           | Why                                                              |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| 3. Longest Substring Without Repeating Characters | [https://leetcode.com/problems/longest-substring-without-repeating-characters/](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | Window with uniqueness condition                                 |
+| 76. Minimum Window Substring                      | [https://leetcode.com/problems/minimum-window-substring/](https://leetcode.com/problems/minimum-window-substring/)                                             | 💎 Hard — but uses EXACT same frequency + shrinking window logic |
+
+Stage 4 — Harder Variants / Core Interview Classics
+
+Do these once the above feel smooth:
+| Problem                                      | Link                                                                                                                                             | Pattern                         |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- |
+| 424. Longest Repeating Character Replacement | [https://leetcode.com/problems/longest-repeating-character-replacement/](https://leetcode.com/problems/longest-repeating-character-replacement/) | window + dynamic best frequency |
+| 1004. Max Consecutive Ones III               | [https://leetcode.com/problems/max-consecutive-ones-iii/](https://leetcode.com/problems/max-consecutive-ones-iii/)                               | similar principle but numeric   |
 
