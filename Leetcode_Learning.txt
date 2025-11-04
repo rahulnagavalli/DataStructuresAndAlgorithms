@@ -6,6 +6,17 @@ Valid Anagram:
 - So, use a HashMap to store the character and count of each char in both the arrays. (This approach makes use of .getOrDefault(), .put(), .get() methods of HashMap)
   O(n) time and O(n) space (we create new array to store the freq)
 
+// if (!freq.containsKey(r)) {
+//     return false;
+/ }
+
+is same as writing: 
+
+Integer count = freq.get(r);
+if (count == null) {
+  return false;
+}
+
 -- 4/8
 Container with most water:
 
