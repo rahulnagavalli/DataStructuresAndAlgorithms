@@ -21,6 +21,8 @@ Two main protocols:
   Pagination: 
   There are couple of types. 
   1. Page based 
+      This is useful when we have a large number of events to return from the API.
+      Usage: GET /events?page=1&limit=10
   2. Cursor based - TODO: Learn more about this.
 
 - GraphQL: It lets the clients request exactly the data that they need using queries. Reduces over-fetching and under-fetching. 
