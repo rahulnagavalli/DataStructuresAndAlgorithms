@@ -1,0 +1,21 @@
+Most important performance metrics: 
+1. Latency
+2. Throughput
+
+
+1. Latency: 
+  Time it takes for the request to travel from client to server plus the time it takes for the first byte of response to travel from the server back to the client.
+  It captures only the transmission, routing and infrastructure delay, but not the processing time.
+
+  Why did we say "first byte of response to travel" ? Does that mean that the response would arrive in multiple bytes?
+  Ans: Even a GET response is transmitted over TCP, which splits the data into multiple packets based on MTU and other network rules.
+        Therefore, a client receives response is segments.
+
+        Latency measures the arrival of first packet, whereas the Response time measures completion of all the packets.
+
+  Latency and response time are used interchangeably, but they are not the same. 
+
+  Response time: It is the user perceived total duration
+                  It is the total time elapsed from when a client sends a request until it receives complete response. 
+                  When a user makes an API call, the total time that they wait is referred as "Response time".
+  Response time = Latency (Queue/Network) + processing time.
