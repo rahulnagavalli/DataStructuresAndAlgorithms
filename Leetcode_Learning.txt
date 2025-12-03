@@ -162,6 +162,10 @@ Boats to save people:
 Contains duplicate:
 - Here, we just need to know whether duplicates exist or not.
 - we don't need the frequency of that duplicate. So HashMap is overkill for this. Use HashSet instead.
+- for time complexity: 
+If you use HashMap approach -> Each Map operation (get/put) is constant-time on average. So  overall time complexity is O(n).
+- for space complexity: 
+The extra space used by the HashMap is O(n) in the worst case, when all the elements are distinct.
 
 -- 7/21:
 
