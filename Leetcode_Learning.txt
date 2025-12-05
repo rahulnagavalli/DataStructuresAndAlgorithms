@@ -449,3 +449,28 @@ Do these once the above feel smooth:
 | 424. Longest Repeating Character Replacement | [https://leetcode.com/problems/longest-repeating-character-replacement/](https://leetcode.com/problems/longest-repeating-character-replacement/) | window + dynamic best frequency |
 | 1004. Max Consecutive Ones III               | [https://leetcode.com/problems/max-consecutive-ones-iii/](https://leetcode.com/problems/max-consecutive-ones-iii/)                               | similar principle but numeric   |
 
+
+
+Level 1 — Counting / HashMap Basics
+
+Valid Anagram
+
+Group Anagrams
+
+Top K Frequent Elements
+
+Level 2 — HashMap + logic
+
+Product of Array Except Self
+
+Valid Sudoku
+
+Level 3 — HashSet intuition
+
+Longest Consecutive Sequence
+
+Contains Nearby Duplicate (optional here or later)
+
+Level 4 — Encode & Decode Strings
+
+This teaches serialization — essential.
