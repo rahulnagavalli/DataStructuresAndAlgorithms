@@ -39,6 +39,12 @@ Group Anagrams - 4/8, 7/2:
 - computeIfAbsent() is used here.
 - Create a Map<String, List<String>>. key will be the string - in a sorted form and value will be list of Strings that are Anagrams of that String.
 - Use new ArrayList<>(map.values()) to get List<List<String>> from List<String>
+- computeIfAbsent(): 
+  Map<String, List<String>> map = new HashMap<>();
+  map.get(key).add(value); // This will first get the value associated with the key (which is an ArrayList) and then add "value" to that ArrayList. 
+                          // But what if there is no corresponding value for the given key? In that case, computeIfAbsent comes into picture.
+  map.computeIfAbsent(key, k-> new ArrayList<>()).add(value); 
+                          // Here, its like saying, when there is no corresponding value for the given key, initialize it to a new ArrayList and then add "value" to it.
 
 
 Basic pattern in optimization problems:
