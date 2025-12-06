@@ -75,8 +75,6 @@ Top K frequent elements:
 - Use a min heap to keep the top k frequent elements.
 - remove the least frequent from the heap size when size > k
 
--- 4/14: 
-
 Bucket Sort:
 
 - As we get time as O(nlogn) using normal sorting, we can use bucket sorting instead.
