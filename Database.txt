@@ -46,3 +46,10 @@ If Step 3 fails, trigger compensation = refund payment + release inventory.
 SQL Terminology:
 LIMIT: It will reduce the number of rows to return.
 OFFSET: It will specify where to begin counting the rows from.
+
+Database Normalization: 
+  It is used in Relational Database systems to organize tables to reduce Data Redundancy and improve Data Integrity.
+  It involes applying a set of rules known as Normal Forms. 
+  Primary goals of Database Normalization are: 
+  1. Eliminate Redundancy: Storing same piece of data multiple times can waste storage and cause storage inconsistencies.
+  2. Improve query performance.
