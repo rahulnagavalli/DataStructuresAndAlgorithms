@@ -60,3 +60,23 @@ table 2 - Orders
 INNER JOIN: Show me the rows where there is a match in BOTH THE TABLES.
 LEFT JOIN: Show me everyone from the LEFT table and the overlapping data. If a Customer has an Order, show it. If they don't, just leave the Order NULL. This is the most common join.
 RIGHT JOIN: Show me everything from the RIGHT table and the overlapping data. If we know who ordered it, show their name. If we don't know the Customer, leave their name NULL. 
+
+
+If we simply joined Users and Downloads, we would get a long list of rows:
+• Alice | Instagram
+• Alice | YouTube
+• Bob | WhatsApp
+
+
+SELECT Users.Name, COUNT(Downloads.App_Name) AS Total_Downloads
+FROM Users
+LEFT JOIN Downloads ON Users.User_ID = Downloads.User_ID
+GROUP BY Users.Name;
+
+
+In an interview, they might ask you: "What happens if Charlie has zero downloads? Does he show up with a 0 or a 1?"
+This depends on what you count:
+• COUNT(*): This counts the row. Since Charlie exists as a row in your LEFT JOIN (Charlie | NULL), SQL will count that row as 1. (Wrong result!)
+• COUNT(App_Name): This counts actual data. Since the App_Name for Charlie is NULL, SQL ignores it and gives you 0. (Correct result!)
+
+Rule of Thumb: When counting after a LEFT JOIN, always count a column from the Right Table to ensure you get a 0 for users with no activity
