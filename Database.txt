@@ -53,3 +53,10 @@ Database Normalization:
   Primary goals of Database Normalization are: 
   1. Eliminate Redundancy: Storing same piece of data multiple times can waste storage and cause storage inconsistencies.
   2. Improve query performance.
+
+table 1 - Customers
+table 2 - Orders
+
+INNER JOIN: Show me the rows where there is a match in BOTH THE TABLES.
+LEFT JOIN: Show me everyone from the LEFT table. If a Customer has an Order, show it. If they don't, just leave the Order NULL. This is the             most common join.
+RIGHT JOIN: Show me everything from the RIGHT table. If we know who ordered it, show their name. If we don't know the Customer, leave their name NULL. 
