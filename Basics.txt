@@ -268,5 +268,10 @@ Stack:
 	peek(): Returns value of the top element 
 	search(Object obj): Checks whether the given obj is present in Stack and if yes, returns its position from the top of the Stack. Otherwise, it returns "-1"
 
-	
+
+
+-------------------------------------------------------------
+12/6: 
+
+When we 
 
