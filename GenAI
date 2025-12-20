@@ -8,8 +8,20 @@ AI
 - Supervised Learning
 - Unsupervised Learning
 
+
+Gen AI: 
+  WHAT?
+  - It creates new content based on what is has learned from the existing content.
+
+  HOW? 
+  - It depends a lot on the training data that is fed into it.
+
+  WHY?
+
+
 Terminology: 
 Tokens: 
+  WHAT?
   - They are the basic building blocks of text in LLM, which can either be a character, a word or special characters. 
   - this is how an LLM internally segments a text (or a prompt) before generating a response.
   - LLM takes text (or prompt) as input, splits it into tokens, processed the tokens and generates the response as sequence of tokens, then converted back to text.
@@ -19,6 +31,24 @@ Tokens:
     - output token
     - cached token (reused tokens in conversation history)
     - reasoning tokens ( this is for the extra "thinking steps" internally before producing the final output)
+
+  WHY?
   - Each model has a maximum combined token limit  (input + output).
 Parameters: They are like a brain of a model. 
   - the more parameters an LLM has, greater its ability to think.
+
+Training: 
+  - Process of learning from existing content is called training.
+
+Prompt: 
+  - It is a short piece of text that is given to a LLM.
+
+HuggingFace: 
+  - It is an index of open source models. (community driven)
+
+Vertex AI Studio: 
+  - It is a MLOps platform for building , deploying and managing models.
+
+MLOps: 
+  - Stands for Machine Learning Operations.
+  - It refers to the process of managing Machine Learning lifecycle - from development to deployment and monitoring.
