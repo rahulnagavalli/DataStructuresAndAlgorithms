@@ -7,3 +7,18 @@ AI
   - Reinforcement Learning
 - Supervised Learning
 - Unsupervised Learning
+
+Terminology: 
+Tokens: 
+  - They are the basic building blocks of text in LLM, which can either be a character, a word or special characters. 
+  - this is how an LLM internally segments a text (or a prompt) before generating a response.
+  - LLM takes text (or prompt) as input, splits it into tokens, processed the tokens and generates the response as sequence of tokens, then converted back to text.
+  - the more number of tokens an LLM has, greater its ability to continue a conversation.
+  - Type of tokens: 
+    - input token
+    - output token
+    - cached token (reused tokens in conversation history)
+    - reasoning tokens ( this is for the extra "thinking steps" internally before producing the final output)
+  - Each model has a maximum combined token limit  (input + output).
+Parameters: They are like a brain of a model. 
+  - the more parameters an LLM has, greater its ability to think.
