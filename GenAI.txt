@@ -9,6 +9,8 @@ AI
 - Supervised Learning
 - Unsupervised Learning
 
+Neural Networks:
+  - Here, we could give pictures of cat and dog and ask it - 
 
 Gen AI: 
   WHAT?
@@ -37,7 +39,7 @@ Tokens:
   - Each model has a maximum combined token limit  (input + output).
 
 Parameters: They are like a brain of a model. 
-  - They are the memories and knowledge of a LLM that the machine learned from model training.
+  - They are the memories and knowledge of an LLM that the machine learned from model training.
   - They define skill of a model in problem solving.
   - the more parameters an LLM has, greater its ability to think.
 
@@ -80,4 +82,21 @@ LLM:
   - General purpose:
     - sufficient to solve human problems
   - pre-trained and fine-tuned:
-    - 
+    - LLM is pre trained for general purpose (to solve common language problems) with a large dataset
+    - fine tuned for a specific aim with a much smaller dataset.
+  - LLMs are based on Tranformer model.
+
+Transformer:
+  - 
+
+shots: 
+  - In LLMs, "shots" refer to the number of examples you provide to the model in your prompt to help it understand the task.
+
+zero-shot learning: 
+  - Model relies entirely on the pre-existing knowledge.
+
+one-shot learning: 
+  - you give exactly one example to follow.
+
+few-shot learning
+  - you give a small set of examples to show a pattern.
