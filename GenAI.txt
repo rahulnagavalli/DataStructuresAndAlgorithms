@@ -4,6 +4,7 @@ AI
     - Artifical Neural Networks
     - Discriminative AI
     - Generative AI (Gen AI)
+      - LLM
   - Reinforcement Learning
 - Supervised Learning
 - Unsupervised Learning
@@ -34,7 +35,10 @@ Tokens:
 
   WHY?
   - Each model has a maximum combined token limit  (input + output).
+
 Parameters: They are like a brain of a model. 
+  - They are the memories and knowledge of a LLM that the machine learned from model training.
+  - They define skill of a model in problem solving.
   - the more parameters an LLM has, greater its ability to think.
 
 Training: 
@@ -52,3 +56,28 @@ Vertex AI Studio:
 MLOps: 
   - Stands for Machine Learning Operations.
   - It refers to the process of managing Machine Learning lifecycle - from development to deployment and monitoring.
+
+Modal: 
+  - It refers to the "medium" of information, such as text, audio, video etc. 
+  - Also, can be referred as "format" of information.
+
+Multimodal: 
+  - It means many "modes".
+  - A "Multimodal" AI can see images, hear audio, read texts all at once.
+
+LLM: 
+  - They are a subset of Deep Learning.
+  - They are large, general purpose language models that are pre-trained and then fine-tuned for specific purposes.
+  - They are trained to solve common language problems like, 
+    - Text classification
+    - question answering
+    - document summarization
+    - text generation
+  - They can then be trained to solve problems in specific fields such as retail, finance and entertainment using a relatively small size of data subsets.
+  - Large: It refers to 2 things.
+    - Refers to the subset of the training data.
+    - Refers to the parameters (or hyperparameters)
+  - General purpose:
+    - sufficient to solve human problems
+  - pre-trained and fine-tuned:
+    - 
