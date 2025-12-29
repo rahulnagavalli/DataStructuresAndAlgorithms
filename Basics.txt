@@ -253,20 +253,40 @@ PUT - idempotent (you can run it multiple times and get same result)
 10/1: 
 
 Stack: 
-	It is an Abstract, Linear data type with a pre-defined capacity.
+	It is an Abstract, Linear data structure with a pre-defined capacity.
+	Its a linear collection of items where items are inserted or removed based on a particular order.
 	It specifies the operation and behaviour without specifying how the data is stored or implemented.
 
 	Stacks are great for processing nested structures, and are important for understanding Recursion.
 	Important: Insertion and Deletion happens at the same end in a Stack (top end)
 
-	Real-life uses: Undo, Redo function in any text editor.
+	Real-life uses: 
+	- Undo, Redo function in any text editor.
+	- Memory management
+	- backtracking algorithms
 
 	Methods: 
-	pop: removes element from the Stack
-	push: adds element to the Stack
-	empty(): Returns true when a Stack is empty
+	pop(): removes element from the Stack and return it.
+	push(element): adds element to the Stack
+	isEmpty(): Returns true when a Stack is empty
 	peek(): Returns value of the top element 
 	search(Object obj): Checks whether the given obj is present in Stack and if yes, returns its position from the top of the Stack. Otherwise, it returns "-1"
+	size(): returns current size of the Stack.
+
+	Ask this question - "Does this problem involve undo, backtracking, matching, or previous elements?". If the answer is yes, then use Stacks.
+		- undo/backspace
+		- matching pairs (), {}, []
+		- previous greater/smaller
+		- expression evaluation
+		- Reversals
+
+	Stack implementation: 
+	- Stack: Usually not recommended, as it extends Vector interface an Vector is synchronized. And synchronization in unnecessary overhead here.
+	- ArrayDeque: Preferred for Stack implementation in Java.
+	- LinkedList: Not preferred as it has memory overhead because of nodes.
+
+	Deque<Character> stack = new ArrayDeque<>();
+	Here, Deque is the Interface and ArrayDeque is the implementation.
 
 
 
