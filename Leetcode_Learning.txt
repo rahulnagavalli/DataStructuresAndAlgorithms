@@ -478,3 +478,9 @@ Contains Nearby Duplicate (optional here or later)
 Level 4 — Encode & Decode Strings
 
 This teaches serialization — essential.
+
+
+Membership check → Set
+Order matters → List
+Index access → Array
+Tiny fixed set → explicit condition
