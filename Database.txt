@@ -16,9 +16,11 @@ Atomicity:
 
 Consistency: 
 
-Isolation: 
+Isolation:
+  Concurrent transactions yield the same results as sequential transactions.
 
 Durability:
+  Changes persist after they are committed, even when failures occur.
 
 Distributed Atomicity:
   Why Atomicity is hard in distributed systems (due to partial failures).
@@ -38,10 +40,11 @@ Idempotency and Compensation;
   3. Event-driven design (using queues to ensure eventual consistency)
 
 Eg: In Microservices, 
-Step 1: Deduct Payment
+Step 1: Authorize/Hold payment
 Step 2: Reserve Inventory
 Step 3: Create Order.
-If Step 3 fails, trigger compensation = refund payment + release inventory.
+Step 4: Payment capture.
+If Step 3 fails, trigger compensation = void authorization/remove hold + release inventory.
 
 TODO: 
 - Know how RDBMS implements it (commit logs, rollback segments)
