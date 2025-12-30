@@ -1,23 +1,24 @@
-Atomicity: Important principle in ACID.
-Eg: Bank transfer, order placement etc. 
+ACID principles - Those are guarantees from a database. They are not related to SQL.
 
-TODO: 
-- Know how RDBMS implements it (commit logs, rollback segments)
-- Be able to explain how Atomicity prevents partial writes.
+Atomicity: 
+  Its about all or nothing execution. Either both operations succeed or neither does.
+  Important principle in ACID.
+  Eg: Bank transfer, order placement etc. 
+  
+  Eg: 
+  BEGIN; 
+  UPDATE ACCOUNTS SET BALANCE = BALANCE - 100 WHERE ID = 'A';
+  UPDATE ACCOUNTS SET BALANCE = BALANCE + 100 WHERE ID = 'B';
+  COMMIT;
+  
+  Both of the above operations execute as a single piece of work.
+  If any statement fails, the database rolls back the entire transaction, preventing partial state changes.
 
-Eg: 
-BEGIN; 
-UPDATE ACCOUNTS SET BALANCE = BALANCE - 100 WHERE ID = 'A';
-UPDATE ACCOUNTS SET BALANCE = BALANCE + 100 WHERE ID = 'B';
-COMMIT;
+Consistency: 
 
-If any lines, then rollback the entire transaction.
+Isolation: 
 
-Transaction logging: 
-  Learn how databases ensure Atomicity via: 
-    Write-Ahead logs (WAL)
-    Undo/Redo logs
-    Checkpoints.
+Durability:
 
 Distributed Atomicity:
   Why Atomicity is hard in distributed systems (due to partial failures).
@@ -41,6 +42,15 @@ Step 1: Deduct Payment
 Step 2: Reserve Inventory
 Step 3: Create Order.
 If Step 3 fails, trigger compensation = refund payment + release inventory.
+
+TODO: 
+- Know how RDBMS implements it (commit logs, rollback segments)
+- Be able to explain how Atomicity prevents partial writes.
+- Transaction logging: 
+    Learn how databases ensure Atomicity via: 
+      Write-Ahead logs (WAL)
+      Undo/Redo logs
+      Checkpoints.
 
 --------------
 SQL Terminology:
