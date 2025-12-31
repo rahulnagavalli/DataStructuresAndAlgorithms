@@ -1,0 +1,1 @@
+We follow cloud native design, where the business functionality has segregated into small, independent Microservices.
