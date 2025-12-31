@@ -291,7 +291,19 @@ Stack:
 
 
 -------------------------------------------------------------
-12/6: 
+12/30:
 
-When we 
+Learn difference between cloud native applications and distributed services/applications.
+
+Cloud native application design: 
+	Cloud native approach changes the way we design, deploy and manage applications.
+	It also changes the way we manage and store data.
+
+	In many ways, a single database keeps the data management simple. 
+	Querying data across multiple tables from a single database is straight forward.
+	ACID transactions guarantee strong and immediate consistency.
+
+	But in cloud native, business functionality segregates into independent Microservices.
+	Each Microservice has a specific business capability and its own data.
+	There will be a distributed data model with each Microservice having its own
 
