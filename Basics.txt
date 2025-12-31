@@ -305,5 +305,8 @@ Cloud native application design:
 
 	But in cloud native, business functionality segregates into independent Microservices.
 	Each Microservice has a specific business capability and its own data.
-	There will be a distributed data model with each Microservice having its own
+	There will be a distributed data model with each Microservice having its own database.
+
+	That gives way to database per Microservice model. 
+	It is best suitable for systems that evolve rapidly and support massive scale.
 
