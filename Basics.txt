@@ -296,6 +296,37 @@ Stack:
 Learn difference between cloud native applications and distributed services/applications.
 
 Cloud native application design: 
+
+	From a design perspective, cloud-native systems
+	- stateless
+	- horizontally scalable
+	- failure-tolerant
+	- They assume that instances can be restarted at any time, so state is externalized to managed stores.
+	- loosely coupled (communicate through APIs or events)
+	- emphasize automation (IaaC, CI/CD, observability)
+
+	It's not about "running an app on AWS".
+	It's about how the app is designed, not just where it runs.
+
+	Cloud-native is NOT about: 
+	- A monolith deployed on EC2
+	- Just using Kubernetes
+	- Just using Microservices
+
+Cloud native development: 
+	There is a difference between cloud native design and cloud native development.
+	Design defines the architecture; development ensures code behaves correctly under cloud conditions.
+
+“What does cloud-native mean?”
+
+“How is cloud-native different from traditional applications?”
+
+“Is using Kubernetes enough to be cloud-native?”
+
+“What design principles do you follow for cloud-native systems?”
+
+Database management in Cloud native design:
+
 	Cloud native approach changes the way we design, deploy and manage applications.
 	It also changes the way we manage and store data.
 
