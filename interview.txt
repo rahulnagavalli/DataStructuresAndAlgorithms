@@ -2,3 +2,6 @@ We follow cloud native design, where the business functionality has segregated i
 
 
 What we have is cloud-native in the sense that we use microservices and async processing, and we separate reads into Redis. But we still share a single BRM system-of-record database across services, which introduces coupling. So architecturally it’s closer to CQRS with a shared database, and it has distributed-monolith risks. A more mature cloud-native microservice approach would move toward service-owned data stores and event-driven integration
+
+Is your system cloud-native: 
+  Operationally, yes — we use microservices, async processing, and managed stores. But from a data-ownership standpoint, we still have a shared system-of-record database, which introduces coupling. So architecturally it’s a step toward cloud-native, but not fully aligned with database-per-service principles.
