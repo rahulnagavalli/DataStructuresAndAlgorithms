@@ -14,25 +14,27 @@ database-per-service principles.
 What principles do you follow while designing cloud native applications? 
   When designing cloud-native systems, I follow a few core principles that align with how cloud environments behave.
 
-First, I design services to be stateless and horizontally scalable, so instances can be added or replaced without impact. Any state is 
-externalized to managed data stores.
+  First, I design services to be stateless and horizontally scalable, so instances can be added or replaced without impact. Any state is 
+  externalized to managed data stores.
+  
+  Second, I design for failure by default. I assume instances and dependencies can fail, so I use timeouts, retries with backoff, circuit
+  breakers, and graceful degradation.
+  
+  Third, I focus on loose coupling and clear ownership. Services communicate through APIs or events and do not share databases or internal 
+  state, which allows independent evolution.
+  
+  Fourth, I separate concerns like reads and writes when needed, often using event-driven patterns and eventual consistency to improve 
+  scalability and resilience.
+  
+  Fifth, I rely heavily on automation—infrastructure as code, CI/CD pipelines, and immutable deployments—so the system is reproducible and 
+  easy to operate.
+  
+  Finally, I treat observability as a first-class concern, with structured logging, metrics, tracing, and health checks, so the system can     be understood and debugged in production.
+  
+  Overall, the goal is to build systems that scale elastically, tolerate failure, and can evolve independently.”
 
-Second, I design for failure by default. I assume instances and dependencies can fail, so I use timeouts, retries with backoff, circuit
-breakers, and graceful degradation.
-
-Third, I focus on loose coupling and clear ownership. Services communicate through APIs or events and do not share databases or internal 
-state, which allows independent evolution.
-
-Fourth, I separate concerns like reads and writes when needed, often using event-driven patterns and eventual consistency to improve 
-scalability and resilience.
-
-Fifth, I rely heavily on automation—infrastructure as code, CI/CD pipelines, and immutable deployments—so the system is reproducible and 
-easy to operate.
-
-Finally, I treat observability as a first-class concern, with structured logging, metrics, tracing, and health checks, so the system can be understood and debugged in production.
-
-Overall, the goal is to build systems that scale elastically, tolerate failure, and can evolve independently.”
-
+How do you rate limit an API: 
+  
 
 Do's and Don'ts:
 
