@@ -32,9 +32,37 @@ What principles do you follow while designing cloud native applications?
   Finally, I treat observability as a first-class concern, with structured logging, metrics, tracing, and health checks, so the system can     be understood and debugged in production.
   
   Overall, the goal is to build systems that scale elastically, tolerate failure, and can evolve independently.”
+  
+Why eventual consistency is preferred in cloud-native design over strong consistency?
+  Strong consistency requires co-ordination and synchronous communication between all the nodes and services, which will eventually increase
+the latency.
+  Whereas eventual consistency allows services to operate independently, communicate asynchronously. And system converges over time.
+  That's said, it a deliberate trade-off. We use eventual consistency where temporary inconsistency is acceptable and reserve strong 
+consistency for critical operations like payments, inventory management etc.
+
+What do you mean by "System converges over time"? 
+  Different parts of a distributed system may temporarily have different values, but all of them will eventually reflect the correct state.
+
+  Example: 
+  Order status update.
+  1. Order status changes from CREATED to SHIPPED.
+  2. Write service updates primary DB.
+  3. Event is published.
+  4. Caches, search indices update asynchronously.
+  
+  For a short time, DB says SHIPPED and Cache says CREATED. 
+  After propagation, all say SHIPPED.
+
+  Convergence assumes below: 
+  - Reliable delivery (events, polling etc.)
+  - Retry mechanisms
+  - no conflicting writes.
+  - Idempotent consumers
 
 How do you rate limit an API: 
-  
+How to handle continous conflicting updates? 
+How to handle lost events?
+
 
 Do's and Don'ts:
 
