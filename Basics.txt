@@ -293,17 +293,36 @@ Stack:
 -------------------------------------------------------------
 12/30:
 
-Difference between cloud native applications and distributed services/applications
-	Distributed or Microservices describe the structure. 
-	Cloud-native describes how a system is designed, developed, and operated to run effectively in the cloud environments, including
-scalability, resilience and automation
+Difference between distributed services and cloud native services.
+	Definitions: 
+		Distributed systems describe how the system in split into multiple components that communicate over the network.
+		Cloud-native describes how a system is designed, developed, and operated to run effectively in the cloud environments, emphasizing
+	scalability, resilience and automation
+
+Differences beween Distributed systems and Microservices: 
+	Definitions: 
+		Distributed systems describe how the system in split into multiple components that communicate over the network.
+		Microservices: Its an architectural style where a system is built as a collection of small, independently deployable services, 
+each having its own business capability and communicating via APIs or events.
+
+	Differences: 
+	- Service Autonomy: 
+		Distributed services are often deployed together, failed together. Whereas, 
+		Microservices are independently deployable, scalable and fail in isolation.
+	- Business capability.
+	- Data ownership
+		Distributed services share databases, tight coupling via data
+		Microservices have each of their own database (ideally), integration via APIs, events.
+	- Failure model
+		Distributed services: cascading failures are normal
+		Microservices: failures are isolated to independent Microservices.
 
 	We can have: 
 	- distributed systems that are not cloud-native
+	- distributed systems that consist of Microservices
 	- Microservices that are not cloud-native
 	- Cloud native systems that use Microservices.
-
-	A single distributed service can have multile b
+	All Microservices are distributed systems, but not all distributed systems are Microservices.
 
 
 Cloud native application design: 
