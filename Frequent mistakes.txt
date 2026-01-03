@@ -5,3 +5,4 @@ Frequent Mistakes:
 - return statements
 - Basic methods for data types (like, String.toCharArray, String.charAt(i), Character.toLowerCase(), Character.isLetterOrDigit())
 - look for data type overflows (like, int overflow for large integers. In that case, convert the sum into long - like in 4Sum problem)
+- DO NOT USE - "on the cloud". Instead, use "in the cloud" or "in the cloud environments".
