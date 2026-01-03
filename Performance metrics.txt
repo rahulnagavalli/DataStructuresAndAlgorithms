@@ -4,7 +4,8 @@ Most important performance metrics:
 
 
 1. Latency: 
-  Time it takes for the request to travel from client to server plus the time it takes for the first byte of response to travel from the server back to the client.
+  Time it takes for the request to travel from client to server plus the time it takes for the first byte of response to travel from the
+server back to the client.
   It captures only the transmission, routing and infrastructure delay, but not the processing time.
 
   Why did we say "first byte of response to travel" ? Does that mean that the response would arrive in multiple bytes?
