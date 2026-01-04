@@ -41,7 +41,7 @@ Tokens:
 Parameters: They are like a brain of a model. 
   - They are the memories and knowledge of an LLM that the machine learned from model training.
   - They define skill of a model in problem solving.
-  - the more parameters an LLM has, greater its ability to think.
+  - the more parameters an LLM has, greater its ability to think. This is often correlated, but not guaranteed. Intelligence is more tied to training, architecture and tuning.
 
 Training: 
   - Process of learning from existing content is called training.
@@ -100,3 +100,21 @@ one-shot learning:
 
 few-shot learning
   - you give a small set of examples to show a pattern.
+
+Transformers basics
+
+Prompting patterns
+
+Embeddings
+
+RAG basics
+
+RAG advanced (hybrid, rerank, eval)
+
+Function/tool calling
+
+Agents
+
+MCP
+
+Production (eval, monitoring, security, cost)
