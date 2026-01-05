@@ -1,7 +1,7 @@
 CAP theorem
 
-Consistency: All users see same data at the same time.
-  Availability: System continues to operate even when parts of it fail.
+  Consistency: All users see same data at the same time.
+  Availability: System will be available/continues to operate even when parts of it fail.
   Partition tolerance: System works despite network failures between nodes.
 
   System can have only 2 of the above 3. 
