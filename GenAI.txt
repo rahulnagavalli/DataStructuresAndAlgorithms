@@ -25,6 +25,7 @@ Gen AI:
 Terminology: 
 Tokens: 
   WHAT?
+  - A basic unit of text that an LLM processes.
   - They are the basic building blocks of text in LLM, which can either be a character, a word or special characters. 
   - this is how an LLM internally segments a text (or a prompt) before generating a response.
   - LLM takes text (or prompt) as input, splits it into tokens, processed the tokens and generates the response as sequence of tokens, then converted back to text.
@@ -38,6 +39,10 @@ Tokens:
   WHY?
   - Each model has a maximum combined token limit  (input + output).
 
+Context window:
+  - It is the maximum number of tokens that an LLM can handle. 
+  - It is the attention span of an LLM. (It is input + output tokens combined)
+
 Parameters: They are like a brain of a model. 
   - They are the memories and knowledge of an LLM that the machine learned from model training.
   - They define skill of a model in problem solving.
@@ -45,6 +50,15 @@ Parameters: They are like a brain of a model.
 
 Training: 
   - Process of learning from existing content is called training.
+
+Inference: 
+  - It is the process of using a trained LLM to generate output based on the input.
+  How inference works?
+  - Input processing: Convert prompt into tokens
+  - Model computation: Process the tokens through its layers to predict the probability of the next token.
+  - Autoregressive generation: It generates one token at a time (predicts the most likely next token, appends it to the input, repeats until a stop condition)
+  - Output decoding: generated tokens are converted back into readable text.
+  That is why output comes out one token at a time - the model is literally predicting one token at a time.
 
 Prompt: 
   - It is a short piece of text that is given to a LLM.
