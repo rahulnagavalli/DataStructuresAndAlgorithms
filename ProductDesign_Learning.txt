@@ -163,3 +163,48 @@ Evaluation:
 
 4. Communication
   Clearly explain complex concepts to stakeholders
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Framework delivery: 
+
+Requirements (5 minutes).
+
+
+Core Entities: (2 minutes).
+  These are the core entities that the 
+  - system will exchange 
+  - persist in data model
+
+  In the Twitter example, below are the core entities: 
+  - Tweet
+  - User
+  - Follow
+
+  To get this, answer the question - "What are the Nouns or Resources necessary to satisfy the functional requirements?".
+
+API or System Interface: (5 minutes).
+  Define a contract between System and Users.
+  Make this decision - Which API Protocol should you use?
+  - REST: Use HTTP verbs to perform CRUD operations on resources.
+  - GraphQL: Allows clients to specify exactly the data that they need, avoiding over-fetching and under-fetching.
+            Choose this when we have diverse clients with different data needs.
+  - RPC: This is faster than REST for service to service communication.
+        Used for Internal APIs when performance is critical.
+
+Data flow: (5 minutes).
+
+High level design: (10-15 minutes).
+  This is about drawing boxes and arrows to represent different components of the system and how they interact.
+  Explain below items:
+  - How data flows through system 
+  - what state changes with each request (either in database, caches, queues etc.)
+  - When request reaches the database, its time to document the columns/fields for each entity.
+
+Deep dives: (10 minutes).
+  As we have a full high level design, improve it by using below changes: 
+  - Ensure it meets non-functional requirements (like, Daily Active Users, Latency etc.)
+  - Handle edge cases
+  - Identifying and addressing issues, bottle necks.
+  - Improving the design based on review from Interviewer.
+  
