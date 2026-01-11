@@ -1,0 +1,56 @@
+Networking essentials
+API design
+Data Modeling: Process of defining how your application's data is structured, stored and related. Like deciding what entites exist, how they're identified and how they connect to each other.
+Database Indexing
+Caching
+Sharding
+Consistent Hashing
+CAP therom
+Numbers to know
+
+
+Data modeling: 
+  Choose between Relational vs NoSQL.  
+  Relational databases: 
+  - Use them when you have structured data with clear relationships and need strong consistency.
+    - clear relationships: User accounts linking to orders, linking to products.
+    - strong consistency: <TBD>
+    - We can express complex queries using SQL, use transactions to keep data consistent.
+  - We use below models in Relationship databases: 
+    - Normalization: Splitting data across tables to avoid duplication.
+      - Can be achieved by using Joins. 
+      - Downside: But, Joins can get expensive when dealing with huge tables or when we're joining multiple tables.
+    - Denormalization: We duplicate data to avoid joins and make reads faster.
+      - e.g., we store user name in both the Users and the Orders table. So that we can fetch an Order an display it without touching the other table.
+      - Downside: If a user changes their name, we have to update it in Users table and every Order table record. But, if the system is a read-heavy system, where data changes rarely, this trade-off is worth it.
+  NoSQL databases: 
+  - Use when you need flexible schema (data structure changes frequently)
+  - when there is a need to scale horizontally across many servers without complex joins.
+  - Document databases: They store data as JSON-like documents with flexible schemas.
+
+  Key-value stores: 
+  - They provide simple lookups where you fetch values by using exact keys.
+  - They are extremely fast but offer limited query capabilities.
+    When to use? 
+    - caching, session storage.
+    - good for high write scenarios where we need maximum performance.
+
+  Wide column databases: 
+  - Eg: Cassandra, HBase
+    When to use? 
+    - write heavy workloads
+    - time-series data
+
+  Here, in the interview, we make a note of:
+  - tables
+  - key fields
+  - relationships
+  - how we would index or parition to support the main query patterns.
+
+  Usage: 
+  - If we are using multi-table joins, then performance may take a hit when the system scales. If that is the case, check below: 
+    - If your queries really are performant enough.
+    - If you need denormalized views, caching or pre-computed results.
+  - But if strong consistency is one of the Non-Functional requirement (such as, payments don't double charge or inventory doesn't sell out), then SQL's ACID properties are right tool. 
+
+  
