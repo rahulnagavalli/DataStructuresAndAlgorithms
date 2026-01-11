@@ -10,7 +10,7 @@ server back to the client.
 
   Why did we say "first byte of response to travel" ? Does that mean that the response would arrive in multiple bytes?
   Ans: Even a GET response is transmitted over TCP, which splits the data into multiple packets based on MTU and other network rules.
-        Therefore, a client receives response is segments.
+        Therefore, a client receives response in segments.
 
         Latency measures the arrival of first packet, whereas the Response time measures completion of all the packets.
 
