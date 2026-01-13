@@ -23,6 +23,10 @@ Gen AI:
 
 
 Terminology: 
+
+Agent: 
+  - An Agent is a system that leverages an AI model to interact with its environment in order to achieve a user defined 
+
 Tokens: 
   WHAT?
   - A basic unit of text that an LLM processes.
