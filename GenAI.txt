@@ -26,6 +26,16 @@ Terminology:
 
 Agent: 
   - An Agent is a system that leverages an AI model to interact with its environment in order to achieve a user defined 
+  - Agent's work is a continous cycle of Think, Action and Observation.
+
+Tools: 
+  - They are just functions that give AI models extra capabilities - like, web search or any complex math calculations.
+  Why? 
+  - To overcome the limitations of static data training, handle real-time tasks and specialized operations.
+  How they are used?
+  - Agents make use of LLMs to generate tool invocation code.
+
+  AI models convert the user input to a formatted prompt by concatenating system, user and assistant messages.
 
 Tokens: 
   WHAT?
