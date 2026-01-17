@@ -1,0 +1,59 @@
+If you want your system to handle high read traffic, then use Cache. 
+Because, in such scenario, Databases become bottleneck.
+
+If you want to build a scalable system, Cache is essential. They reduce load on the database and cut latency. 
+Challenges of using Cache: 
+- Invalidation 
+- Failure handling
+
+The most common usage of Cache is between application and database. But there are other places where we can place cache.
+1. External cache.
+  It is a standalone cache service that your application talks to over a network.
+
+  Why to use?
+  We store frequently accessed data in something like Redis or Memcached so you do not have to hit the database every time.
+
+  How it works?
+  Here, every application server talks to the same cache. So, the external caches scale well. 
+  They support eviction policies like LRU and expiration via TTL
+
+  When to use? 
+  1. Use for almost every design which has high read requirement.
+
+2. Content Delivery Network (CDN)
+  It is a geographically distributed network of servers that caches content close to the users.
+
+  Why to use?
+  Instead of every request travelling to the origin server, a CDN stores copies of the content at edge servers around the world.
+  Eg: Cloudfare, Fastly, Akamai
+  Uses: Media delivery, Static content, HTML
+
+  How it works?
+  1. User requests for an image
+  2. Request is sent to CDN edge server
+  3. If image is present, it is returned. 
+  4. If not, it is fetched from origin server, stored in edge server and then returned.
+  5. From now on, if any other users requests the same image, it is fetched from the CDN edge server.
+
+  When to use?
+  1. Use only when your system needs static media at scale.
+
+3. Client-side caching:
+  It is about storing data close to the requestor to avoid any network calls - like, user's device, browser, on-device storage.
+  It can also mean caching within a client's library.
+
+  Why to use?
+
+
+
+
+Redis: 
+  Redis cluster - 
+  Redis node - A Redis server instance that is part of a cluster.
+               Redis process running inside a machine (server) or a container.
+               Each node has its own memory, port number, stores part of the data, talks to other nodes.
+  If there are multiple nodes, then how does Redis cluster store data? 
+    It makes use of Sharding. 
+    Sharding: Splitting data across multiple servers.
+  
+  
