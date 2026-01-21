@@ -6,6 +6,9 @@ Challenges of using Cache:
 - Invalidation 
 - Failure handling
 
+Trade-offs of storing data in cache: 
+- Memory is limited. It needs to have eviction policies. we can't fit whole dataset in cache.
+
 The most common usage of Cache is between application and database. But there are other places where we can place cache.
 1. External cache.
   It is a standalone cache service that your application talks to over a network.
@@ -44,16 +47,121 @@ The most common usage of Cache is between application and database. But there ar
 
   Why to use?
 
+Cache architectures or cache patterns: 
+1. Cache aside
+    application checks the cache. if found returns it. if not, fetch from database, store it in cache, return it.
+    When to use? 
+
+    Advantage:
+    - only caches data when needed, which keeps cache lean.
+
+    Downside? 
+    - cache miss can cause extra latency.
+
+2.  write-through-caching
+    application writes to cache first, which then writes to database synchronously before returning data back to the application.
+    write operation does not complete until data is written to both cache and database.
+
+    But this requires a caching library or a framework to do the sync data processing.
+
+    when to use? 
+    - use when reads must always fresh data.
+    - and if system can tolerate slightly slower writes.
+
+    Advantage? 
+
+    Downside?
+    - slower writes (because, applicaton has to wait for both cache and db update to happen)
+    - if either one succeeds and the other one fails, data will be inconsistent. We might need retry logic, error handling etc.
+
+3. write-behind-caching
+    application writes data only to cache. cache asynchronously updates data in db.
+
+    when to use? 
+    - used when occasional data loss is acceptable.
+    - use when high write throughput and eventual consistency is acceptable.
+
+    use case: 
+    - analytics and metrics pipelines.
+
+    Advantage? 
+
+    Downside? 
+    - if cache crashes before flushing data to DB, you risk data loss.
+
+4. read through caching.
+    here, cache acts as a proxy. 
+    application reads data from cache. if data is not found, cache fetches data from database, stores the data and returns it.
 
 
+    when to use? 
 
-Redis: 
-  Redis cluster - 
+    use case:
+    - used in CDS's, where data is read from CDN edge server and if data is not found, edge server fetches data from DB, stores it and returns it.
+
+    Advantage? 
+
+    Downside? 
+    - requires caching library or framework
+
+Eviction policies: 
+  Data in Cache is stored in Memory (RAM) rather than disk (in case of database). 
+  Memory is limited, and it cannot store the entire dataset.
+  That's why we need eviction policies. 
+  So, we need a strategy to decide what to keep and what to remove.
+
+  different types of policies: 
+  - LRU (least recently used) - evicts items that haven't been accessed in longest time. (implemented by linked list or priority queue that tracks the access order)
+    when to use? 
+    - used most commonly.
+  - LFU (least frequently used) - evicts items that are used least often, even if they are used recently.
+    when to use? 
+    - when few items are read way more than others.
+  - FIFO - evicts the oldest item first.
+    when to use? 
+  - TTL - each item expires after a set time. used for data that can go stale.
+    when to use? 
+    - used when freshness really matters than recent data or frequency.
+
+Challenges of using cache: 
+- Thundering herd: 
+  if cache is evicted at a certain time and if a huge volume of reqeusts arrive at the same time, they all try to query from DB at the same time to update data in DB. 
+  Stampede here: many requests hitting database at the same time.
+  As db connections are limited, what if we get 10,000 parallel Db queries? Resources would get exhausted and performance will be degraded.
+  DB connections are limited because, each connection Memory, CPU and thread resources.
+
+  HOW TO SOLVE IT? 
+    - Request coalescing: 
+      Allow only one request to rebuild the cache, while others wait.
+
+- Cache consistency:
+  
+
+
+Redis:
+  Redis cluster - a group of Redis nodes/servers.
   Redis node - A Redis server instance that is part of a cluster.
                Redis process running inside a machine (server) or a container.
                Each node has its own memory, port number, stores part of the data, talks to other nodes.
   If there are multiple nodes, then how does Redis cluster store data? 
     It makes use of Sharding. 
     Sharding: Splitting data across multiple servers.
-  
+
+
+ This is the real stampede.
+
+Why is this bad?
+
+Because:
+
+DB connections are limited
+
+CPU spikes
+
+Disk IO increases
+
+Query queue grows
+
+Entire system slows down 
+connection pooling - consider a pool of size 50. All of those 50 requests reuse the same connection.
   
