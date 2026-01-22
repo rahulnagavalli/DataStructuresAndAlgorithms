@@ -99,3 +99,21 @@ Rule of Thumb: When counting after a LEFT JOIN, always count a column from the R
 e Next Increment: Having (The "Filter for Groups")
 Once you have grouped your data and counted it, what if you only want to see people who have more than 5 apps?
 You can't use WHERE because WHERE filters individual rows. To filter groups, we use a new keyword: HAVING.
+
+
+
+DB indexing: 
+  - problem: if we have to a user record in a table with million rows, database would have to check each row sequentially. This becomes painfully slow.
+            when querying without an index, database has to sequentially scan through every page for a match.
+  - solution: use indexes - data structures 
+    Indexes are what that makes fast lookups possible.
+
+    An index is added to a column.
+    There are different types of indexes that we can add.
+    Knowing when to add an index, to what columns and what type of index is crucial.
+
+  When we store data in a database, it is written onto the disk as a collection of files.
+  Even though the data is stored in disk (SSD's mostly), we can only process it only when its in memory.
+  That means, every query requires loading data from disk onto RAM.
+
+  
