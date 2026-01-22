@@ -146,7 +146,7 @@ Challenges of using cache:
   - Accept eventual consistency.
   
 - Hot keys: 
-  A hot key is a single entry that receives huge amount of traffic compared to every one else.
+  A hot key is a cache entry that receives huge amount of traffic compared to every one else.
 
   How to figure out which cache entry is a hot key?
   - 
@@ -158,8 +158,29 @@ Challenges of using cache:
     slow down abusive traffic patterns.
 
 When to bring caching in interviews?
-  - 
+  - when dealing with read heavy workloads.
+    like, when you have 10M DAU and each user making 20 request/day, that's 200M queries to the database. That will be 20-50 milliseconds per query.
+    But when we use cache, it drops to 2 milliseconds per query.
+  - when dealing with expensive queries ( where we interact with multiple tables to return the data).
+  - high database CPU 
+  - latency requirements: If we have to return response in sub-10milliseconds. Database queries are taking 30-50 ms, and we have to cache.
 
+How to introduce caching:
+  1. identify the bottlenecks
+    point to specific problem cache would solve.
+  2.  decide what to cache
+    not everything needs to be cached.
+  3.  choose your cache architecture.
+    if you need strong consistency: use write-through (writing to cache and then cache writes to database, only then write operation is success).
+    if you have high write frequency and can tolerate some risk: use write-behind caching (write to cache and cache writes to DB asynchronously)
+    if you are serving too much static content: use CDN caching.
+  4.  set eviction policies.
+    LRU cache is common, and it is included with TTL (for example: user profiles).
+  5. downsides of using caching.
+    - cache invalidation: How to keep data in cache fresh? Do you want to invalidate on writes, or set TTL or accept eventual consistency?
+    - what happens when cache fails? does the database gets hammered down? we add circuit breakers to prevent cache stampede.  
+    - what happens when a popular cache entry expires and 1000 requests try to fetch the data simultaneously? - use request coalescing.
+  
 
 Redis:
   Redis cluster - a group of Redis nodes/servers.
