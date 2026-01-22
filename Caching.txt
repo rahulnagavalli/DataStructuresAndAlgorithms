@@ -51,12 +51,13 @@ Cache architectures or cache patterns:
 1. Cache aside
     application checks the cache. if found returns it. if not, fetch from database, store it in cache, return it.
     When to use? 
-
+    - this is used in most of the cases.
     Advantage:
     - only caches data when needed, which keeps cache lean.
 
     Downside? 
     - cache miss can cause extra latency.
+    - cache might not have the most up-to-date information.
 
 2.  write-through-caching
     application writes to cache first, which then writes to database synchronously before returning data back to the application.
@@ -65,7 +66,7 @@ Cache architectures or cache patterns:
     But this requires a caching library or a framework to do the sync data processing.
 
     when to use? 
-    - use when reads must always fresh data.
+    - use when reads must always return fresh data.
     - and if system can tolerate slightly slower writes.
 
     Advantage? 
@@ -79,7 +80,7 @@ Cache architectures or cache patterns:
 
     when to use? 
     - used when occasional data loss is acceptable.
-    - use when high write throughput and eventual consistency is acceptable.
+    - use when high write throughput and eventual consistency is acceptable - such as in analytics and data pipelines.
 
     use case: 
     - analytics and metrics pipelines.
@@ -128,14 +129,36 @@ Challenges of using cache:
   if cache is evicted at a certain time and if a huge volume of reqeusts arrive at the same time, they all try to query from DB at the same time to update data in DB. 
   Stampede here: many requests hitting database at the same time.
   As db connections are limited, what if we get 10,000 parallel Db queries? Resources would get exhausted and performance will be degraded.
-  DB connections are limited because, each connection Memory, CPU and thread resources.
+  DB connections are limited because, each connection has Memory, CPU and thread resources.
 
   HOW TO SOLVE IT? 
-    - Request coalescing: 
-      Allow only one request to rebuild the cache, while others wait.
+    - Request coalescing:
+      Also called as single-flight pattern.
+      Allow only one request to re-build the cache while others wait for the result. This is a solution for cache stampede problem.
 
 - Cache consistency:
+  Most commonly discussed problems in system design.
+  That happens when cache and database return different values for the same data.
+  it happens because most systems read from cache and write to database and it creates a window where cache still holds the data.
+
+  Solutions to fix cache consistency:
+  - Cache invalidation on writes: delete cache entry after updating the database so it gets re-populated with fresh data.
+  - Accept eventual consistency.
   
+- Hot keys: 
+  A hot key is a single entry that receives huge amount of traffic compared to every one else.
+
+  How to figure out which cache entry is a hot key?
+  - 
+
+  Solutions to fix hot keys: 
+  - Replicate hot keys:
+    Store the same value in multiple nodes and do load balance between them.
+  - Apply rate limiting:
+    slow down abusive traffic patterns.
+
+When to bring caching in interviews?
+  - 
 
 
 Redis:
@@ -145,7 +168,8 @@ Redis:
                Each node has its own memory, port number, stores part of the data, talks to other nodes.
   If there are multiple nodes, then how does Redis cluster store data? 
     It makes use of Sharding. 
-    Sharding: Splitting data across multiple servers.
+    Sharding: dividing dataset into multiple partitions and distributing across multiple nodes.
+    Shard: A single logical partition
 
 
  This is the real stampede.
