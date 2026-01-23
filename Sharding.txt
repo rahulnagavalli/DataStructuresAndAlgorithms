@@ -1,0 +1,31 @@
+Paritioning: 
+  - splitting data within a single database instance (often by hash partitions or table ranges).
+  There are two types.
+  - Horizontal paritioning: 
+    Splitting rows across paritions. (same columns)
+    Eg: one partition per year of orders.
+
+  - Vertical paritioning: 
+    Splitting columns across partitions. (same rows)
+    Eg: frequently used columns in one partition, rarely used columns in other partitions.
+
+Sharding:
+  - splitting data across multiple instances.
+  - It can be considered as Horizontal partitioning across multiple machines/instances.
+  - Each shard holds a subset of the data.
+  - Sharding spreads the load across multiple databases.
+  - Each Shard is a standalone database with its own CPU, Memory and Storage. 
+  - No single machine holds all the data or handles all the traffic.
+
+  Sharding introduces few problems as well.
+  - you have to choose the shard key
+  - route queries to the right shard.
+  - avoid hotspots
+  - rebalance data as shards grow.
+
+  Shard: the partitioned data chunk is called as a logical shard. It is not a physical entity. Its a logical representation of a data chunk (or partition)
+  Node: A machine that stores a logical shard is called as physical shard or a database node. A physical shared can contain multiple logical shards.
+
+  Each physical shard operates independently and is unaware of other physical shards.
+
+  Shard key: used to determine how to partition the dataset.
