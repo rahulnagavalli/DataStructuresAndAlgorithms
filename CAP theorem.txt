@@ -7,6 +7,12 @@ CAP theorem
   System can have only 2 of the above 3. 
   Consistency over Availability ? - choose only one.
 
+Strong consistency   -> answers "What is the latest correct value?" -> storage layer
+Eventual consistency -> replication layer/cache layer.
+Causal consistency   -> answers "Are related/dependent operations observed in the same order?" -> messaging, workflow, replication layer (middle layer)
+RYW consistency     -> answers "Did this user see their write?" -> application routing layer
+
+
 STRONG CONSISTENCY: 
   All clients always see the same, most recent value after a write. 
 
@@ -38,14 +44,16 @@ STRONG CONSISTENCY:
   And, the local servers have read replicas/cache/edge services (to ensure faster queries and faster user experience).
 
   Eg: If you withdraw $200 from your account, it will be updated in the main ledger in USA. (when you are withdrawing money from India).   
-      But your mobile banking app might still be showing your old balance for a few seconds (as it will be reading from a local replica and the sync may not have happened yet)
+      But your mobile banking app might still be showing your old balance for a few seconds (as it will be reading from a local replica and the sync may not have happened yet).
+      But mostly, all the write operations and the critical read operations follow Strong consistency (like, checking balance immediately after debit operations, etc.)
+      For dashboards, statements and transaction history screens - banks use read replicas (which will result in eventual consistency).
 
   If banks try to synchronize every display read, then viewing balance could take time.
-  So, banks will use Strong consistency for writes and Eventual consistency for Reads.
+  So, banks will use Strong consistency for writes and Eventual consistency for non-critical Reads.
   Because, reading from a local replica is faster, cheaper and scalable.
 
   And, even if transaction happens in the same country or same building that the bank is present, 
-  Writes always go to the main ledger and Reads often come from Replicas. 
+  Writes always go to the main ledger and non-critical Reads often come from Replicas. 
   This is done for 
   a. Performance.
   b. Scalability.
@@ -59,13 +67,29 @@ STRONG CONSISTENCY:
 
   Here, latency is accepted. Because in banking, correctness is more important than speed. (even if there is cross-region network latency)
 
-Where is strong consistency ideal? 
+  Where is strong consistency ideal? 
   1. Banking 
   2. Ticket sales
   3. Inventory
 
+  How is it implemented? 
+  - leader based replication
+    Client sends write to leader, leader writes to local log, sends update to replica. Wait for ACK, and only then, commit the transaction.
+  - Quorum based replication
+  - distributed consensus based algorithm.
+
+  Strong consistency is hard and expensive because: 
+  - all nodes have to be co-ordinated
+  - handle failures
+  - global ordering.
+
+  These cause: 
+  - higher latency
+  - lower throughput
+
 CAUSAL CONSISTENCY: 
   Only the operations that are causally related are seen in the same order by everyone. Unrelated operations may be seen in different order. 
+  Order of related operations is maintained here.
   It preserves cause-and-effect, but doesn't force a single global order for everything.
   For chat applications. 
     cause-and-effect must be preserved within the same chat.
@@ -83,6 +107,16 @@ CAUSAL CONSISTENCY:
 
   Eg: You are chatting with Alice in one window and with Bob in another window. 
   Chat A messages can be delivered without waiting for chat B messages.
+
+  How is causal consistency achived?
+  1. Event sequencing.
+      Banks use event streams (like, Kafka).
+      each event carries: event Id, parent event id, timestamp and partition key.
+      
+
+
+  Eg: after a payment is created, a receipt gets generated. (This has cause and effect relation - which needs causal consistency)
+  
 
 
 | Feature                                    | Banking                      | WhatsApp Chat                    |
@@ -159,6 +193,23 @@ RYW consistency is often used together with Eventual consistency.
       So when we read, the client requests at least that version, ensuring it never reads old data.
 
       this is how the distributed NoSQL stores use RYW consistency without making use of session stickiness.
+
+
+  How does banks implement RYW consistency?
+  1. session stickiness (most common)
+      After your write, your session is sticked to the primary DB  (or the updated replica). And for some time window, all reads go to the same sticked instance.
+      Who does session stickiness ? It is implemented at Load Balancer layer.
+  2. write timestamp tracking.
+      system stores the last write timestamp.
+      When we do a read, replica reports the last sync timestamp. 
+
+      if the last sync timestamp > last write timestamp, then replica is safe to use.
+      if otherwise, read from primary Db.
+  3. write through cache. 
+      write to DB, then cache updated immediately (synchronous)
+  4. read directly from leader node.
+      this is easy to implement but, costly.
+      
   
 
 | Model                               | Meaning                                 | Example                        |
@@ -174,11 +225,43 @@ RYW consistency is often used together with Eventual consistency.
   How Availability affects system design ? 
   1. Use multiple replicas.
 
-But, important thing to remember is: Different parts of a system can have different requirements.
-Eg: TicketMaster
-1. Consistency for booking tickets. (We cannot have 2 users booking the same ticket)
-2. Availability for CRUD on events. 
+  But, important thing to remember is: Different parts of a system can have different requirements.
+  Eg: TicketMaster
+  1. Consistency for booking tickets. (We cannot have 2 users booking the same ticket)
+  2. Availability for CRUD on events. 
+  
+  Eg: Tinder
+  1. Consistency for matching. (If user A swipes right to user B, then user B has to see that he is liked by user A instantly).
+  2. Availability for viewing profile data.
 
-Eg: Tinder
-1. Consistency for matching. (If user A swipes right to user B, then user B has to see that he is liked by user A instantly).
-2. Availability for viewing profile data.
+EVENTUAL CONSISTENCY:
+  Why to use? 
+  - Performance (async replication = faster writes)
+  - Scalability (millions of reads hit replicas and caches)
+  - Cost optimization (replicas and caches are cheaper compared to core DB).
+
+
+
+AVAILABILITY:
+  The trade-off between Consistency and Availability happens only during network failures. 
+  When network is fine, we can have both.
+
+
+
+PARITION TOLERANCE: 
+  The system continues to operate even if the network is split and some nodes cannot communicate with others.
+  Partition: Nodes canot communicate with others due to any reason.
+              When there is a disconnect between nodes due to any reason.
+
+  IF the system is partition tolerant, it will:
+  - redirect traffic or
+  - read from cache
+  - block writes on replica.
+
+   Partition tolerance is mandatory in distributed systems. So most system choose either CP or AP.
+
+  How is the partition detected?
+  - Hearbeats (nodes ping every second). If no response, suspect partition.
+  - leader election (consensus protocols - Raft, Paxos, Zookeeper etc.)
+
+
