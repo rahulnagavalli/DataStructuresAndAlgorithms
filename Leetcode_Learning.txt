@@ -484,3 +484,10 @@ Membership check → Set
 Order matters → List
 Index access → Array
 Tiny fixed set → explicit condition
+
+
+
+pivot index:
+  to make SC as O(1), use this approach: rightSum = total - leftSum - nums[i]. Here, calculate total first and calculate leftSum on the fly.
+  Instead of using a prefix array (that stores left sum), calculate it on the fly - because, at any point, we just need the sum of elements on the left side of that particular index.
+  And, rightSum can be calculated once we have leftSum as (total - leftSum - nums[i])
