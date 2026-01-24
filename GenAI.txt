@@ -25,7 +25,7 @@ Gen AI:
 Terminology: 
 
 Agent: 
-  - An Agent is a system that leverages an AI model to interact with its environment in order to achieve a user defined 
+  - An Agent is a system that leverages an AI model to interact with its environment in order to achieve a user defined task.
   - Agent's work is a continous cycle of Think, Action and Observation.
 
 Tools: 
@@ -135,7 +135,28 @@ Prompting patterns
 
 Embeddings
 
-RAG basics
+RAG basics:
+  Retrieval Augmented Generation.
+    It is a framework that combines LLM's with external knowledge bases to improve their outputs or to be more accurate or up-to-date.
+    Generation: It refers to LLM's generating text in response to user's prompts.
+    Augmented: enhanced
+    Retrieval: retrieving information.
+
+    So, instead of re-training the model, we just augment it using a data store.
+
+    Instead of an LLM generating a response based on its training data, RAG enables a LLM to connect with a data source to remain up to date or to generate domain specific knowledge.
+  Why use RAG?
+    It is to extend the capabilities of a LLM to a specific domain or an organization's internal knowledge base, all without the need to retrain the model.
+    We can use RAG to connect LLM to live social media feeds, news sites and other frequently updated  information.
+
+  How it works? 
+    In RAG framework, LLM has an instruction - to retrieve relevant content from data source first, combine that with user's question and then generate the answer.
+
+Vector database:
+
+Semantic database: 
+  It stores data in a way that maps relationship between things.- like a graph based database.
+  
 
 RAG advanced (hybrid, rerank, eval)
 
