@@ -509,3 +509,8 @@ Remove duplicates from sorted Array II:
   j -> read pointer
 
   This is called as read-filter-write pattern.
+
+  First 2 elements can be duplicates or different numbers.
+  we can start at i = 2 and j = 2. 
+
+  
