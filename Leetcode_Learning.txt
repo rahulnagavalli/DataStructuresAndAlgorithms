@@ -491,3 +491,21 @@ pivot index:
   to make SC as O(1), use this approach: rightSum = total - leftSum - nums[i]. Here, calculate total first and calculate leftSum on the fly.
   Instead of using a prefix array (that stores left sum), calculate it on the fly - because, at any point, we just need the sum of elements on the left side of that particular index.
   And, rightSum can be calculated once we have leftSum as (total - leftSum - nums[i])
+
+👉 Read–Write Two Pointer Pattern
+
+Very common in:
+
+Remove duplicates
+
+Move zeros
+
+Filter elements
+
+Partition arrays
+
+Remove duplicates from sorted Array II:
+  i -> write pointer (next position where we can write a valid element.)
+  j -> read pointer
+
+  This is called as read-filter-write pattern.
