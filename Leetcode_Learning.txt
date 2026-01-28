@@ -493,16 +493,30 @@ pivot index:
   And, rightSum can be calculated once we have leftSum as (total - leftSum - nums[i])
 
 👉 Read–Write Two Pointer Pattern
-
 Very common in:
+  Remove duplicates
+  Move zeros
+  Filter elements
+  Partition arrays
 
-Remove duplicates
+Pattern Recognition Cheat Sheet ⭐
 
-Move zeros
+When you see:
+"Longest / Shortest Substring"
+  Think:
+  👉 Sliding Window
 
-Filter elements
+"No duplicates / unique / distinct"
+  Think:
+  👉 HashSet or HashMap
 
-Partition arrays
+"At most K / exactly K"
+  Think:
+  👉 Frequency Map + window shrink logic
+
+"Permutation / anagram"
+  Think:
+  👉 Fixed-size window + frequency count
 
 Remove duplicates from sorted Array II:
   i -> write pointer (next position where we can write a valid element.)
@@ -513,4 +527,67 @@ Remove duplicates from sorted Array II:
   First 2 elements can be duplicates or different numbers.
   we can start at i = 2 and j = 2. 
 
-  
+
+Longest substring without repeating characters:
+  we need a window of characters where each character has to be unique.
+  we start from the first character (by taking 2 variables - left and right). left is for start of the window and right is for end of the window.
+  To store the characters, we use HashSet - which has O(1) for for fetching stored data.
+  if a character is not in set, then add it to set, find the max len (right-left+1, as we are dealing with indices, so we add "1"), then increment right pointer (to track the window).
+  if a character is already present in set, remove the left character from set and increment left pointer, as we no longer neeed left character, as we are dealing with substring.
+
+if a map doesn't have a key - c, then doing map.get(c) would return null. So, always do map.getOrDefault(0)
+
+In Sliding window, 
+* Always ADD first.
+* then FIX/SHRINK if invalid.
+
+Expand window. If the window becomes invalid, shrink it until it becomes valid again.
+technically, it would transfer to -> add elements, then use a while loop to check if elements are valid. and until then, shrink it.
+
+| Constraint Type    | Use                |
+| ------------------ | ------------------ |
+| No duplicates      | Set + gated expand |
+| At most K distinct | Map + shrink loop  |
+| Exact window size  | Fixed window       |
+| Max/min substring  | Expand + shrink    |
+
+Longest Substring with At Most Two Distinct Characters: 
+  as the problem statement is about finding substring with at most 2 distinct characters, we need to keep a count of distinct characters and store the characters as well. So take Map
+  as this is a sliding window, first expand the window. And if the window becomes invalid (if (map.size() > 2), then shrink from the left. Instead of if, take while loop. Because, we have to continue shrinking to get        valid subString.
+
+class Solution {
+    public int lengthOfLongestSubstringTwoDistinct(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        int l = 0; 
+        int r = 0;
+        int maxLen = 0;
+        while (r < s.length()) {
+            char c= s.charAt(r);
+            map.put(c, getOrDefault(c, 0) + 1);
+
+            while (map.size() > 2) {
+                char leftChar = s.charAt(l);
+                map.put(leftChar, map.get(c) - 1);
+                if (map.get(leftChar) == 0) {
+                    map.remove(leftChar);
+                }
+                l++;
+            }
+            maxLen = Math.max(maxLen, r - l + 1);
+            r++;
+        }
+        return maxLen;
+    }
+}
+
+reason of checking whether map.get(leftChar) == 0. 
+  After shrinking the window, a character's count can become zero, but the key still remains in the Map. If that is the case, map.size() will not decrease even though that character is no longer in the window.
+  map.size() must reflect number of distinct characters in the window.
+
+
+Above pattern is - expand and shrink dynamically.
+below pattern is - 
+  Fixed size sliding window problem: 
+
+Permutation in String: 
+  maintain frequency map in s1 and slide a window of same length in s2.  At each step, update the frequency and check if it matches the target map.
