@@ -517,7 +517,7 @@ When you see:
 "Permutation / anagram"
   Think:
   👉 Fixed-size window + frequency count
-
+----------------------------------------------------------------------------------------------------
 Remove duplicates from sorted Array II:
   i -> write pointer (next position where we can write a valid element.)
   j -> read pointer
@@ -527,7 +527,16 @@ Remove duplicates from sorted Array II:
   First 2 elements can be duplicates or different numbers.
   we can start at i = 2 and j = 2. 
 
+  array is sorted, duplicates will be adjacent
 
+  Q: In the first comparison (nums[j] vs nums[i-2]), we don’t write anything. So how do we even arrive at the idea of doing nums[i] = nums[j] later?
+  A: As we have to keep valid numbers on the start of the array, we have to read values from the right side using j and write values into the left side using i. 
+    Eg: if input array is 1,1,1,2,2,3. here, nums[2] == nums[0]. So, we don't want to write elements from right onto the left. 
+        if input array is 1,1,2,2,2,3. here, nums[2] != nums[0]. So, we can write element from right (2) onto the left. As it is the first iteration, nothing changes even when we write.
+
+  Q: Why use nums[i] = nums[j]? 
+  A: We want to move the next element (jth index) to i (which is the variable holding next position of valid element). 
+----------------------------------------------------------------------------------------------------
 Longest substring without repeating characters:
   we need a window of characters where each character has to be unique.
   we start from the first character (by taking 2 variables - left and right). left is for start of the window and right is for end of the window.
