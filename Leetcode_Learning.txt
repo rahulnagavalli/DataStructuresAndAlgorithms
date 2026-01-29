@@ -511,6 +511,8 @@ Remove duplicates from sorted Array II:
   This is called as read-filter-write pattern.
 
   First 2 elements can be duplicates or different numbers.
-  we can start at i = 2 and j = 2. 
+  we can start at i = 2 and j = 2.
+  why not start at i = 1 and j = 2? If we do that way, then we don't know if element at j=2 is the third element that is repeated. 
+    So, that is the reason why we compare nums[j] with nums[i-2]. (Eg: nums[2] with nums[0])
 
   
