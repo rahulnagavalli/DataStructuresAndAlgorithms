@@ -561,7 +561,7 @@ technically, it would transfer to -> add elements, then use a while loop to chec
 | At most K distinct | Map + shrink loop  |
 | Exact window size  | Fixed window       |
 | Max/min substring  | Expand + shrink    |
-
+----------------------------------------------------------------------------------------------------
 Longest Substring with At Most Two Distinct Characters: 
   as the problem statement is about finding substring with at most 2 distinct characters, we need to keep a count of distinct characters and store the characters as well. So take Map
   as this is a sliding window, first expand the window. And if the window becomes invalid (if (map.size() > 2), then shrink from the left. Instead of if, take while loop. Because, we have to continue shrinking to get        valid subString.
@@ -599,6 +599,47 @@ reason of checking whether map.get(leftChar) == 0.
 Above pattern is - expand and shrink dynamically.
 below pattern is - 
   Fixed size sliding window problem: 
-
+----------------------------------------------------------------------------------------------------
 Permutation in String: 
   maintain frequency map in s1 and slide a window of same length in s2.  At each step, update the frequency and check if it matches the target map.
+  Find the array index corresponding to this character and increment its frequency: 
+    int[] target = new int[26];
+    for (int i = 0; i< 26; i++) {
+      target[s.charAt(i)-'a']++;
+    }
+
+  class Solution {
+    public boolean checkInclusion(String s1, String s2) {
+        int k = s1.length();
+        if (k > s2.length()) return false;
+
+        int[] target = new int[26];
+        int[] window = new int[26];
+
+        for (int i = 0; i < k; i++) {
+            target[s1.charAt(i) - 'a']++;
+            window[s2.charAt(i) - 'a']++;
+        }
+
+        if (matches(target, window)) return true;
+
+        for (int r = k; r < s2.length(); r++) {
+            window[s2.charAt(r) - 'a']++;         // add new char
+            window[s2.charAt(r - k) - 'a']--;     // remove old char
+
+            if (matches(target, window)) return true;
+        }
+
+        return false;
+    }
+
+    private boolean matches(int[] a, int[] b) {
+        for (int i = 0; i < 26; i++) {
+            if (a[i] != b[i]) return false;
+        }
+        return true;
+    }
+}
+----------------------------------------------------------------------------------------------------
+
+
