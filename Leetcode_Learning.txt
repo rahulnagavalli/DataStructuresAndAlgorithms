@@ -641,5 +641,18 @@ Permutation in String:
     }
 }
 ----------------------------------------------------------------------------------------------------
+Sliding window + frequency map approach:
 
+Minimum window substring:
+  expand until valid + shrink to minimum + repeat
 
+  a window is valid if it contains atleast the minimum counts from "t" string.
+
+  1. convert requirement into counts (create new maps - need and have)
+  2. use a sliding window on s.
+  3. to find a valid window, we can track characters in each substring (window). but instead, just use 2 variables - required (number of distinct characters in t) and formed (how many of the distinct characters currently meet the needed count)
+  
+----------------------------------------------------------------------------------------------------
+
+binary search: 
+  always do middle = l + (r-l)/2, as doing just (l+r)/2 would result in integer overflow.
