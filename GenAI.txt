@@ -152,18 +152,38 @@ RAG basics:
   How it works? 
     In RAG framework, LLM has an instruction - to retrieve relevant content from data source first, combine that with user's question and then generate the answer.
 
+
+  RAG system consists of 2 models.
+  1. Retrieval model.
+  2. Language model.
+
+  There are several ways to implement RAG.
+  1. Graph RAG
+  2. Hybrid RAG
+  3. Hierarchical RAG
+
+  System will have the following components:
+  1. embedding model: A pretrained model that converts input text into embeddings.
+  2. vector database: A storage system for knowledge and its corresponding embedding vectors.
+  3. chatbot: A language model that generates responses based on retrieved knowledge.
+
+
+  First phase: 
+  Indexing phase: dataset is broken into small chunks, and vector representation of each chunk is calculated.
+
+  To compare the similarity between 2 vectors, we can use cosine similarity, euclidean distances or any other option.
+  Here, we will be using consine similarity.
+
+  
+
+
+  
 Vector database:
 
 Semantic database: 
   It stores data in a way that maps relationship between things.- like a graph based database.
   
 
-RAG advanced (hybrid, rerank, eval)
 
-Function/tool calling
 
-Agents
 
-MCP
-
-Production (eval, monitoring, security, cost)
