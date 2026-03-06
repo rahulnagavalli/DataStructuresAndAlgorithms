@@ -1,0 +1,41 @@
+Object oritned 
+design the classes, interfaces and relationships to make it work.
+is your code extensible? 
+
+------
+implementation: 
+
+pseudo code or real code.
+design patterns
+establish scope before you start design.
+
+-----
+they are looking for:
+
+ability to decompose a system
+explain out clear classes and objects
+Problem analysis: extract key entities and relationships, lock down scope.
+class design - method signatures, boundaries etc.
+quality of code - encapsulation, well managed state, composition, inheritance, naming, consistency, clear separation of concerns.
+extensibility and maintainability - they test with a follow-up requirement.
+talk out loud to explain your processing/thinking
+
+
+------
+Framework: 
+
+1. Requirements
+  Primary capabilities
+  Rules and Completion
+  Error handling
+  Scope boundaries
+
+2. Entities and Relationships
+  Identify the entities
+  Then, think through how they interact to get relationships.
+
+3. Class Design
+  Go through entity-by-entity, top-down (Eg: In Tic Tac Toe game, 
+Start with the Orchestrator - Game, then the supporting entities like Board, Player etc.)
+  
+
