@@ -182,6 +182,19 @@ Vector database:
 
 Semantic database: 
   It stores data in a way that maps relationship between things.- like a graph based database.
+
+
+MCP vs RAG: 
+
+RAG: its a technique where user sends a prompt to an application or system, then that app searches in a knowledge base (mostly vector DB), gets relevant chunks, adds them to the prompt and then send to LLM for response. 
+MCP: its a protocol where LLM communicates with external data sources. 
+
+Even in a traditional REST API, the client communicates with server. But, the client always initiates a connection. The server cannot just say "hey, I have something for you". It is not truly bi-directional.
+When we compare in layman's terms: REST API is where client speaks and server replies. Server never speaks.
+But RAG - its like a phone. Both sides can communicate - both people speaking at the same time.
+
+MCP is not like a traditional REST API model or WebSockets. It uses Streamable HTTP (client sends request over HTTP and server streams response using Server Sent Events). 
+SSE is a one-directional streaming mechanism
   
 
 
