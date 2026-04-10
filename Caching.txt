@@ -1,6 +1,8 @@
 If you want your system to handle high read traffic, then use Cache. 
 Because, in such scenario, Databases become bottleneck.
 
+Cache: It is a fast, temporary storage. Stores copies copies of data for quick reads.
+
 If you want to build a scalable system, Cache is essential. They reduce load on the database and cut latency. 
 Challenges of using Cache: 
 - Invalidation 
