@@ -52,6 +52,7 @@ The most common usage of Cache is between application and database. But there ar
 Cache architectures or cache patterns: 
 1. Cache aside
     application checks the cache. if found returns it. if not, fetch from database, store it in cache, return it.
+    Here, application is fully responsible for keeping the DB and Cache in sync.
     When to use? 
     - this is used in most of the cases.
     Advantage:
@@ -60,6 +61,21 @@ Cache architectures or cache patterns:
     Downside? 
     - cache miss can cause extra latency.
     - cache might not have the most up-to-date information.
+
+
+    Write scenario: 
+    1. Update DB, delete from cache.(delete-on-write)
+    2. Update DB, update Cache. (update-on-write)
+        Both DB and Cache have updated data immediately. No extra DB call from the next request.
+    3. Update DB. forget about Cache.
+        In this case, Cache continues to serve stale data until TTL.
+
+    The tradeoff of using delete-on-write approach is safety under concurrent writes, but pay one extra DB read after every write.
+
+    Important: 
+    - the order of DB writes and Redis writes may differ.
+    - If stale data is present in Cache, then damage persists for the entire TTL duration.
+        
 
 2.  write-through-caching
     application writes to cache first, which then writes to database synchronously before returning data back to the application.
