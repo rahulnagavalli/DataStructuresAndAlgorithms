@@ -172,7 +172,7 @@ RAG basics:
   Indexing phase: dataset is broken into small chunks, and vector representation of each chunk is calculated.
 
   To compare the similarity between 2 vectors, we can use cosine similarity, euclidean distances or any other option.
-  Here, we will be using consine similarity.
+  Here, we will be using cosine similarity.
 
   
 
