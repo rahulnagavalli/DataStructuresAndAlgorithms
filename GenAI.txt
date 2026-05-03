@@ -195,6 +195,19 @@ But RAG - its like a phone. Both sides can communicate - both people speaking at
 
 MCP is not like a traditional REST API model or WebSockets. It uses Streamable HTTP (client sends request over HTTP and server streams response using Server Sent Events). 
 SSE is a one-directional streaming mechanism
+
+
+Skill.md: It is for domain expertise for a type of output (how to generate a React project, a ppt file etc.)
+Claude.md: It is for project context for your specific codebase/environment.
+
+User Story: Requirement framed from a User's perspective.
+Acceptance Criteria: specific, testable conditions that define done. 
+
+PRD: Product Requirements Document
+
+In the traditional model, a vague spec was tolerable because the human coder could fill in gaps using judgment and context as they wrote. With AI, a vague spec produces vague or wrong output. So the spec has to be more precise, more explicit about
+edge cases, and clearer about constraints. Ironically, the AI-assisted approach is making teams better at writing specs because the cost of a bad spec is now immediate — you get broken code instead of just a confused developer who asks clarifying
+questions.
   
 
 
