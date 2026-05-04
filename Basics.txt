@@ -328,7 +328,7 @@ each having its own business capability and communicating via APIs or events.
 Cloud native application design: 
 	Cloud-native describes how a system is designed, developed, and operated to run effectively in the cloud
 
-	From a design perspective, cloud-native systems
+	From a design perspective, cloud-native systems (SHLFE)
 	- stateless (	- They assume that instances can be restarted at any time, so state is externalized to managed stores.)
 	- horizontally scalable
 	- loosely coupled (communicate through APIs or events)
@@ -372,3 +372,31 @@ Database management in Cloud native design:
 	That gives way to database per Microservice model. 
 	It is best suitable for systems that evolve rapidly and support massive scale.
 
+
+
+Linked Lists: 
+	It is a DS where each element is stored independently in memory - and each node has 2 things: value and reference (or called as pointer) to next node.
+	The last node points to null, which signals the end of linked list.
+	The only entry point you have is the head - the first node.
+	So, no index. No random access.
+	To reach the 4th element, you must walk through the head. It takes O(n) TC.
+
+
+	class ListNode {
+		int val;
+		ListNode next;
+
+		ListNode (int val) {
+			this.val = val;
+			this.next = null;
+		}
+	}
+
+	// assume you have head pointing to first node.
+	// Now, create a new variable for iterating through the linked list. Name it current for making it easy to understand.
+
+	ListNode current = head; // as we will be starting from head.
+
+	while (current != null) { // iterate until the last node. As last node will have its pointer as null, we use 'current != null'
+		System.out.println(current.val);
+		current = current.next; // next is the variable in each node like val. But next contains the reference to another node. 'current.next' gives that reference of the actual node.
