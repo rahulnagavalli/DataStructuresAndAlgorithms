@@ -400,3 +400,6 @@ Linked Lists:
 	while (current != null) { // iterate until the last node. As last node will have its pointer as null, we use 'current != null'
 		System.out.println(current.val);
 		current = current.next; // next is the variable in each node like val. But next contains the reference to another node. 'current.next' gives that reference of the actual node.
+
+	In a Single Linked list, you cannot go back. 
+	So in the problem of Reverse linked list, you thought of a solution to find the end and traverse backwards. But single linked list just has "next" but not "prev" reference.
