@@ -402,7 +402,72 @@ Linked Lists:
 		current = current.next; // next is the variable in each node like val. But next contains the reference to another node. 'current.next' gives that reference of the actual node.
 	}
 
-	When we write current.next, we are just establishing the link.
+	When we write current.next, we are just establishing the link and getting the node that is being referenced by current.
 	
 	In a Single Linked list, you cannot go back. 
 	So in the problem of Reverse linked list, you thought of a solution to find the end and traverse backwards. But single linked list just has "next" but not "prev" reference.
+
+	In a Single linked list, each node only knows about the next node.
+	A doubly linked list adds a 'prev' pointer too, so we can walk backwards. This will be used in problems like LRU Cache.
+
+	linked list problems give us only the "head". because once we have "head" node, we can just get the entire linked list as its like a chain. 
+	so if they ask to return the reversed linked list, we can return the "pre" node as it now points to the start of the linked list.
+
+
+	RECURSIVE: Its like a function that calls itself (to solve a smaller version of the same problem - THIS IS IMPORTANT TO NOTE) and stops when it hits the base case.
+				The whole point of recursion is to make the problem smaller with each call. 
+				Each call peels off one node and hands over to the next call. That's how we guarantee that we'll eventually reach the base case.
+	Stack: LIFO
+
+	returnType solve(input) {
+    	if (smallestCase) return answer;         // base case
+    	return doSomething + solve(smallerInput); // recursive step
+	}
+
+	When to do recursion and when not to do? 
+		Technically, any problem that can be solved using a loop, can be solved using recursion.
+		It DS is linear (arrays, linked lists), prefer iteration. 
+		If DS is hierarchical (trees, graphs) or if the problem naturally subdivides (merge sort, backtracking, generating permutations), prefer recursion.
+
+	Recursion uses more memory than iteration as each call with its own variables gets a new frame on the stack.
+=============================================================================================================================
+
+	Great questions. Let me address both.
+
+**About "trust" — it's actually the opposite of memorizing.** "Trusting the recursion" is a well-known concept in computer science. It's called the **recursive leap of faith**. It means: "I've defined the base case correctly, and I know each call gets smaller, so I don't need to mentally trace every call to know the recursive call returns the right answer." Interviewers hear this and think you have a strong understanding of recursion, not that you memorized something.
+
+You could phrase it a few ways:
+
+- *"I assume the recursive call correctly reverses the rest of the list"*
+- *"By induction, `reverseList(head.next)` returns the reversed sublist"*
+- *"I delegate the rest to the recursive call and focus on what I need to do at this level"*
+
+All of these are senior-level phrasing.
+
+**Why `head.next` and not `head`?**
+
+If you pass `head`, you're asking "reverse the list starting from `head`" — that's the same problem you're already in. Nothing gets smaller. You'd call yourself with the same input forever, and you'd get a StackOverflowError.
+
+The whole point of recursion is to make the problem smaller with each call. `head.next` gives a list that is **one node shorter**:
+
+```
+head = 3:     [3 → 7 → 1]     length 3
+head.next:    [7 → 1]          length 2  (smaller!)
+```
+
+Next call passes `7.next`:
+
+```
+head = 7:     [7 → 1]          length 2
+head.next:    [1]              length 1  (smaller!)
+```
+
+Next call hits `head.next == null` — base case, stop.
+
+Each call peels off one node and hands the rest to the next call. That's how you guarantee you'll eventually reach the base case.
+
+=============================================================================================================================
+
+
+	Splicing: 
+		Moving all or specific part of one linked list to another by relinking pointers.
