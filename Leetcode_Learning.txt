@@ -663,10 +663,21 @@ Linked list:
 5/5:
 
 Reverse linked list:
-  Choose 3 pointers. prev, current and head.
-  we need to adjust the arrows to point backwards, starting from the head node, because we cannot go back in a linked list.
-  to point the head node (or current node in this case) backwards, point it to previous node. (create a previous dummy node setting its value to null).
-  in every iteration, set current node to point to previous. And, save the next node by setting it to a dummy variable.
-  and move current node to next node in the front.
-  NOTE: current.next need not be only in forward direction. It just refers to the pointer/reference. This is important to note in this problem.
-  next, move both the prev and current pointers one step ahead (prev = current; current = temp)
+
+  Iteratively:
+    Choose 3 pointers. prev, current and head.
+    we need to adjust the arrows to point backwards, starting from the head node, because we cannot go back in a linked list.
+    to point the head node (or current node in this case) backwards, point it to previous node. (create a previous dummy node setting its value to null).
+    in every iteration, set current node to point to previous. And, save the next node by setting it to a dummy variable.
+    and move current node to next node in the front.
+    NOTE: current.next need not be only in forward direction. It just refers to the pointer/reference. This is important to note in this problem.
+    next, move both the prev and current pointers one step ahead (prev = current; current = temp)
+
+  Recursively: 
+    https://www.youtube.com/watch?v=W-EfGB0E_ao
+    The two values that change with each iteration — cur and prev — become the parameters of the helper. 
+
+    Approach to follow: 
+      Recurse first, fix arrows on the way back.
+      Dive all the way to the last node and fix the arrows on the way back.
+
