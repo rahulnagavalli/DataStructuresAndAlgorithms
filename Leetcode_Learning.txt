@@ -681,3 +681,16 @@ Reverse linked list:
       Recurse first, fix arrows on the way back.
       Dive all the way to the last node and fix the arrows on the way back.
 
+5/8:
+  Merge 2 sorted linked lists.
+    Iteratively:
+      we need a variable to iterate through the linked list that we should form (that has elements in sorted order).
+      we need a variable to store the pointer to the first node (like, a temp variable) so that we can return temp.next as solution.
+      compare the elements from both lists and point the current to the least element and move forward. 
+      If we reach the end of one list and if the other list has elements left, then just point the cur.next to that list as that list will already be sorted.
+
+
+      We need a dummy node at the beginning so we can return dummy.next as the head of the merged list. We also need a pointer (cur) to track the tail of the merged chain as we build it. At each step, we compare the 
+current nodes of both lists, attach the smaller one to cur.next, advance the pointer of whichever list we picked from, and move cur forward. When one list is exhausted, we attach the remainder of the other list directly
+since it is already sorted.
+
