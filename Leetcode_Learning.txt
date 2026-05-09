@@ -674,8 +674,6 @@ Reverse linked list:
     next, move both the prev and current pointers one step ahead (prev = current; current = temp)
 
   Recursively: 
-    https://www.youtube.com/watch?v=W-EfGB0E_ao
-    The two values that change with each iteration — cur and prev — become the parameters of the helper. 
 
     Approach to follow: 
       Recurse first, fix arrows on the way back.
@@ -686,6 +684,9 @@ Reverse linked list:
     Iteratively:
       we need a variable to iterate through the linked list that we should form (that has elements in sorted order).
       we need a variable to store the pointer to the first node (like, a temp variable) so that we can return temp.next as solution.
+        WHY? 
+            In the merge problem, you don't know the starting point until you start comparing. The head of the merged result could come from either list. The dummy node solves this — it's a guaranteed anchor that sits before whichever node ends up 
+first:
       compare the elements from both lists and point the current to the least element and move forward. 
       If we reach the end of one list and if the other list has elements left, then just point the cur.next to that list as that list will already be sorted.
 
