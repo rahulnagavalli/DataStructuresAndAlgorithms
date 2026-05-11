@@ -695,3 +695,12 @@ first:
 current nodes of both lists, attach the smaller one to cur.next, advance the pointer of whichever list we picked from, and move cur forward. When one list is exhausted, we attach the remainder of the other list directly
 since it is already sorted.
 
+
+5/11:
+  Linked List Cycle:
+    HashSet approach:
+      Add the nodes to a HashSet. If the node is already present in the HashSet, that suggests we have already seen that node. Then return 
+      true or else false.
+    Two pointer approach:
+      
+
