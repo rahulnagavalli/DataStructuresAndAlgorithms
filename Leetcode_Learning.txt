@@ -701,6 +701,19 @@ since it is already sorted.
     HashSet approach:
       Add the nodes to a HashSet. If the node is already present in the HashSet, that suggests we have already seen that node. Then return 
       true or else false.
+5/12:
     Two pointer approach:
+      Take 2 pointers - a slow pointer and a fast pointer to start from first node. 
+      Slow pointer moves one node at a time and fast pointer moves two nodes. 
+      If they meet at any point,a cycle exists. 
+      If fast pointer reaches null, no cycle exists - we check that by using fast != null (this handles the case where fast lands on null) && fast.next != null (this handles the case where fast lands on last but one
+      element - before null)
+
+
+    Remove Nth Node from end of a linked list:
+      Two passes:
+        Straightforward approach is to find the length of the given linked list in one pass and then remove the node in second pass.
+        Assume length is the total number of nodes in given linked list and n is the position of node from the end to remove: length - n gives the position of the node before the target, counting from the start.
+        Edge case: to remove the first node in the list. Assume length = 5 then n will also become 5. so length-n is 0. We don't have any node before the first element. So, create a dummy node to handle this.
       
 
