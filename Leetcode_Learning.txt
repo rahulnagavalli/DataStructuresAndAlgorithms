@@ -702,10 +702,13 @@ since it is already sorted.
       Add the nodes to a HashSet. If the node is already present in the HashSet, that suggests we have already seen that node. Then return 
       true or else false.
 5/12:
+    How do you determine that you've already visited a node without storing/remembering which nodes you've seen? 
+    Consider two people walking in a circle. They would meet one another only when one is moving slower than the other.
+
     Two pointer approach:
       Take 2 pointers - a slow pointer and a fast pointer to start from first node. 
       Slow pointer moves one node at a time and fast pointer moves two nodes. 
-      If they meet at any point,a cycle exists. 
+      If they meet at any point, a cycle exists. 
       If fast pointer reaches null, no cycle exists - we check that by using fast != null (this handles the case where fast lands on null) && fast.next != null (this handles the case where fast lands on last but one
       element - before null)
 
@@ -715,5 +718,18 @@ since it is already sorted.
         Straightforward approach is to find the length of the given linked list in one pass and then remove the node in second pass.
         Assume length is the total number of nodes in given linked list and n is the position of node from the end to remove: length - n gives the position of the node before the target, counting from the start.
         Edge case: to remove the first node in the list. Assume length = 5 then n will also become 5. so length-n is 0. We don't have any node before the first element. So, create a dummy node to handle this.
+        Here, we don't have to use a counter to calculate the position at every step. 
+        we can just use a for loop where the condition will be length < pos and do temp.next. 
+        That is the place where temp reaches the position before target. 
+        Then, we can do temp.next = temp.next.next;
+
+        Your approach:    walk and keep checking "am I there yet?" at every step
+        Better approach:  I know it's exactly pos steps away, so just walk there directly
+
+      One pass: 
+        We used two passes to determine length first as we didn't know where the end was and another pointer to locate the target node.
+        What if we could find the end and locate the target node at the same time? 
+        Use gap technique. 
+        Place two pointers at the start. Move first pointer n steps ahead. Now there's a gap of n between them.
       
 
