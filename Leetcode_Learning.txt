@@ -731,5 +731,14 @@ since it is already sorted.
         What if we could find the end and locate the target node at the same time? 
         Use gap technique. 
         Place two pointers at the start. Move first pointer n steps ahead. Now there's a gap of n between them.
+        edge case: What if we want to remove 5th node from end of the list (given that length of the list is 5). 
+          So, consider a dummy node at the beginning of the list. 
+
+    Middle of the Linked List:
+      Two passes:
+        mid = number of steps to take from the beginning to land on the exact node.
+      One pass: 
+        fast != null is for handling even length linked list and fast.next != null is for odd length linked list.
+        
       
 
