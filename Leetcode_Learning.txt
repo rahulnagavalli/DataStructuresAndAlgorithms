@@ -679,6 +679,10 @@ Reverse linked list:
       Recurse first, fix arrows on the way back.
       Dive all the way to the last node and fix the arrows on the way back.
 
+IMPORTANT: 
+  WHY USE A DUMMY NODE IN LINKED LIST PROBLEMS? 
+    Use it when head of the result might change or is unknown.
+
 5/8:
   Merge 2 sorted linked lists.
     Iteratively:
@@ -733,6 +737,14 @@ since it is already sorted.
         Place two pointers at the start. Move first pointer n steps ahead. Now there's a gap of n between them.
         edge case: What if we want to remove 5th node from end of the list (given that length of the list is 5). 
           So, consider a dummy node at the beginning of the list. 
+
+IMPORTANT: 
+  We use fast != null in the while loop condition when we want to evaluate code until fast is null
+  When fast is null, loop exists. 
+  Usage: If you don't need fast and only care about 'slow', then use 'fast != null'.
+
+  If you need to read or use 'fast' after the loop, use 'fast.next != null'. 
+  Because, loop exits when fast.next is null, that means fast is the last node of the given linked list.
 
     Middle of the Linked List:
       Two passes:
