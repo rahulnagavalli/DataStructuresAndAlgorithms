@@ -666,10 +666,10 @@ Reverse linked list:
 
   Iteratively:
     Choose 3 pointers. prev, current and head.
-    we need to adjust the arrows to point backwards, starting from the head node, because we cannot go back in a linked list.
-    to point the head node (or current node in this case) backwards, point it to previous node. (create a previous dummy node setting its value to null).
-    in every iteration, set current node to point to previous. And, save the next node by setting it to a dummy variable.
-    and move current node to next node in the front.
+    We need to adjust the arrows to point backwards, starting from the head node, because we cannot go back in a linked list.
+    To point the head node (or current node in this case) backwards, point it to previous node. (create a previous dummy node setting its value to null).
+    In every iteration, set current node to point to previous. And, save the next node by setting it to a dummy variable.
+    Move current node to next node in the front.
     NOTE: current.next need not be only in forward direction. It just refers to the pointer/reference. This is important to note in this problem.
     next, move both the prev and current pointers one step ahead (prev = current; current = temp)
 
@@ -751,6 +751,19 @@ IMPORTANT:
         mid = number of steps to take from the beginning to land on the exact node.
       One pass: 
         fast != null is for handling even length linked list and fast.next != null is for odd length linked list.
+         One exits when cur is gone (cur != null). The other exits while cur is still a valid node (cur.next != null)
+        Solved using 2 pointers - slow and fast pointers. 
+        If two people start walking from the same point and one walks twice as fast as the other, when the fast one reaches the end, the slow one is at the halfway point.
         
-      
+     Reorder List: 
+
+     How to go from Brute-force to optimized approach:
+        In each iteration, to get the last node, walk the entire list, detach it and insert it. Now, to get to the second to last, do the same. This will make TC as O(n2). 
+        In a Singly linked list, accessing the end is expensive. But accessing the front is O(1).
+        So if you reverse the second half, the last nodes become first nodes. 
+
+    Optimized approach:
+      split the list into two based on middle node. 
+      reverse the second list
+      interleave both the lists (one node from first list, one node from second list)
 
