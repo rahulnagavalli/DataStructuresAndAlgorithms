@@ -746,6 +746,9 @@ IMPORTANT:
   If you need to read or use 'fast' after the loop, use 'fast.next != null'. 
   Because, loop exits when fast.next is null, that means fast is the last node of the given linked list.
 
+  If you want to process every node, then use cur != null in while loop condition. 
+  If you want to stop at the last non-null node, then use cur.next != null in while loop condition. 
+
     Middle of the Linked List:
       Two passes:
         mid = number of steps to take from the beginning to land on the exact node.
