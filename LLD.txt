@@ -1,34 +1,18 @@
-Object oritned 
-design the classes, interfaces and relationships to make it work.
-is your code extensible? 
-
-------
-implementation: 
-
-pseudo code or real code.
-design patterns
-establish scope before you start design.
-
------
-they are looking for:
-
-ability to decompose a system
-explain out clear classes and objects
-Problem analysis: extract key entities and relationships, lock down scope.
-class design - method signatures, boundaries etc.
-quality of code - encapsulation, well managed state, composition, inheritance, naming, consistency, clear separation of concerns.
-extensibility and maintainability - they test with a follow-up requirement.
-talk out loud to explain your processing/thinking
-
+In system design, the focus is on architecture. 
+In LLD, the focus is on implementation.
+  the discussion is about methods, relationships, data models and state transitions.
+  we are expected to write class definitions, method signatures and bit of a logic.
+  design patterns are important - you should be able to tell why strategy design pattern is used vs factory design pattern.
+  Establish the scope before you start designing.
 
 ------
 Framework: 
 
 1. Requirements
-  Primary capabilities
-  Rules and Completion
-  Error handling
-  Scope boundaries
+  Primary capabilities: what operation must this system support?
+  Rules and Completion: what conditions define success, failure, or when the system stops or transitions state? 
+  Error handling: how should system respond when the inputs or actions are invalid? 
+  Scope boundaries: what areas are in scope and what areas are explictly out?
 
 2. Entities and Relationships
   Identify the entities
