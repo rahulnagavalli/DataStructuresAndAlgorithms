@@ -59,6 +59,12 @@ Serialization:
 SubString: 
   A contiguous and non-empty sequence of characters.
 
+State: 
+  It refers to the data an object holds. 
+
+  Changing state: 
+    It means mutable state. It means the values can change as things happen over time.
+
 Stack: 
   It is an Abstract data structure, which can be implemented using different data structures such as ArrayList or LinkedList. 
 
