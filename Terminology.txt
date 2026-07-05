@@ -65,6 +65,10 @@ State:
   Changing state: 
     It means mutable state. It means the values can change as things happen over time.
 
+  Durable state: 
+    It is a state that must persist - beyond the current operation or even after a system restart.
+    Eg: Order in an e-commerce system. Even if system crashes, your Order details have to be persisted somewhere, otherwise customers lose the trust and they riot.
+
 Stack: 
   It is an Abstract data structure, which can be implemented using different data structures such as ArrayList or LinkedList. 
 
