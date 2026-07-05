@@ -53,7 +53,154 @@ general software design principles:
   4. Separation of Concerns
       Different parts of code should handle different responsibilities, and they shouldn't know about each others internals.
   5. Law of Demeter
-  6. SOLID principles
+
+Object oriented design principles:
+  1. SOLID principles
       S: Single Responsibility Principle
           A class should have one reason to change. If a class mixes multiple concerns, split them.
+
+Bad: 
+class Report {
+  void generateContent() { // add impl }
+  void printToPDF() { // add impl }
+  void saveToFile() { // add impl }
+}
+
+Good: 
+class Report {
+  void generateContent() { // add impl }
+}
+
+class PDFPrinter {
+  void print(Report report) { // add impl }
+}
+
+class FileStorage {
+  void save(Report report) { // add impl }
+}
+
+
+      O: Open/Closed Principle  
+          Classes should be open for extension but closed for modification.
+            You should be able to add new behaviour without changing existing code.
+            This usually means using Interfaces and Abstract classes so we can add new implementation without touching the original code.
+
+Bad: 
+class PaymentProcessor {
+  void process(String type, double amount) {
+    if (type.equals("credit")) {
+      // add impl
+    } else if (type.equals("paypal")) {
+      // add impl
+    } 
+  }
+}
+
+Good: 
+
+interface PaymentMethod {
+  void process(double amount);
+}
+
+class CreditCardPayment implements PaymentMethod {
+  public void process(double amount) {
+    // add impl
+  }
+}
+
+class PaypalPaymentMethod implements PaymentMethod {
+  public void process(double amount) {
+    // add impl
+  }
+}
+
+
+      L: Liskov Substitution Principle
+          The Subclass can add new behaviour but it can't remove or break behaviour that the parent promised.
+
+Bad: 
+
+class Bird{
+  void fly() {
+    // impl
+  }
+}
+
+class Penguin extends Bird {
+  public void fly() {
+    throw new UnsupportedOperationException("Penguins can't fly");
+  }
+}
+
+Good: 
+
+interface Bird {
+  void eat();
+}
+
+interface FlyingBird extends Bird{
+  void fly();
+}
+
+class Parrot implements FlyingBird{
+  public void eat() {
+    // impl
+  }
+  public void fly() {
+    // impl
+  }
+}
+
+class Penguin extends Bird{
+  public void eat() {
+    // impl
+  }
+}
+      I: Interface Segregation Principle
+          Prefer small, focused Interfaces over large, general-purpose ones.
+            So if a class only needs two methods from an Interface with ten methods, then that Interface is big
+
+Bad: 
+
+interface Worker{
+  void work();
+  void sleep();
+  voi eat();
+}
+
+class Robot implements Worker{
+  public void work() { // add impl}
+  public void sleep() { // Robots don't sleep }
+  public void eat() { // Robots don't eat }
+}
+
+Good: 
+
+interface Workable {
+  void work();
+}
+
+interface Restable {
+  void sleep();
+}
+
+interface Feedable {
+  void eat();
+}
+
+class Human implements Workable, Restable, Feedable {
+  public void work() { // add impl }
+  public void sleep() { // add impl }
+  public void eat() { // add impl }
+}
+
+class Robot implements Workable { 
+  public void work() { // add impl }
+}
+
+      D: Dependency Inversion Principle
+          Depend on abstractions, not concrete classes - and inject the dependency instead of creating it inside. So OrderService takes a Notifier interface, and I can swap email for SMS, or a fake for testing, without
+          changing it.
+          
+          
 
