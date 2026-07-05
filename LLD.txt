@@ -8,6 +8,12 @@ In LLD, the focus is on implementation.
 ------
 Framework: 
 
+R: Requirements
+E: Entities
+C: Class Design
+I: Implementation
+E: Extensibility
+
 1. Requirements
   Primary capabilities: what operation must this system support?
   Rules and Completion: what conditions define success, failure, or when the system stops or transitions state? 
@@ -21,5 +27,33 @@ Framework:
 3. Class Design
   Go through entity-by-entity, top-down (Eg: In Tic Tac Toe game, 
 Start with the Orchestrator - Game, then the supporting entities like Board, Player etc.)
+  For each entity, answer two questions - State (objects) and Behaviour (methods). 
+
+4. Implementation
+  Start with happy path, and then move to Edge cases (invalid inputs, illegal operations, out of range values etc.)
+
+5. Extensibility
   
+
+--------
+Design Principles: 
+  Design principles guide decision making to write a clean, extensible and maintainable code.
+
+  we have to consider two types of principles.
+  1. general software design principles
+  2. object oriented design principles
+
+general software design principles: 
+  1. KISS: Keep it simple, stupid: If it works, leave it. Do not over-engineer at the beginning itself. 
+  2. DRY: Don't repeat yourself. If same code is at multiple places, refactor them to create a shared method.
+  3. YAGNI: You aren't gonna need it.
+      Build what you need now, not what you might need later.
+      It doesn't mean "never think ahead". It means "don't build ahead".
+      Design with extension in mind, but only implement what is needed now.
+  4. Separation of Concerns
+      Different parts of code should handle different responsibilities, and they shouldn't know about each others internals.
+  5. Law of Demeter
+  6. SOLID principles
+      S: Single Responsibility Principle
+          A class should have one reason to change. If a class mixes multiple concerns, split them.
 
