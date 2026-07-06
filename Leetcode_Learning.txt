@@ -770,3 +770,44 @@ IMPORTANT:
       reverse the second list
       interleave both the lists (one node from first list, one node from second list)
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+A 2D Array stores Arrays as its elements, whereas a 1D array stores numbers as its elements.
+1D array: [1,2,3,4]
+2D array: [[1,2],[3,4],[4,5]]-> This is a 3x2 matrix, which has 3 rows with 2 columns each.
+If an array is denoted as int[][] arr;
+  then number of rows in 2D array: arr.length
+  then number of columns in 2D array: arr[0].length (we can use arr[1] or arr[2] as well because all rows in a matrix have the same number of columns)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Search a 2D matrix: 
+division or row number: It gives how many complete groups of n come before this index (where n is the number of elements in a row or also referred as number of columns)
+modulo or column number: It gives the position of the index in the current row
+
+consider a 2D array or matrix: 
+
+0 1 2 3
+4 5 6 7
+8 9 10 11
+
+which is converted into a flat 1D array: 0 1 2 3 4 5 6 7 8 9 10 11
+
+and we want to get the position (both column and row) of an element at index 6 in 2D array: 
+then row = 6/4 = 1
+then column = 6%4 = 2
+
+so the position of index 6 in 2D array is [1][2], where 1 is the row and 2 is the column.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+koko eating bananas: 
+
+slowest that koko can eat bananas is 1 banana per hour.
+fastest that she can eat is size of the largest pile - because eating faster than that doesn't help as she can only eat one pile per hour.
+
+so possible speeds: 1,2,3,..... max(piles)
+
+There is monotonic property here. 
+
+If a certain speed k lets Koko finish in time, any speed greater than k also finishes in time.
+if k is too slow, any speed lesser than k is also too slow.
+
+This is monotonic property. If this in in the problem, use Binary Search.
