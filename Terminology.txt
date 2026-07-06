@@ -38,6 +38,10 @@ Linear data type:
   Data elements are arranged sequentially - one after another. 
   Eg: Stack, Queue, LinkedList
 
+Monotonic relationship:
+  It describes a one directional association between two variables.
+  As one variable increase, the other variable consistency increases or decreases without changing direction.
+
 Non-Linear data type: 
   Elements branch out.
   Eg: Tree, Graph
