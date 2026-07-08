@@ -212,12 +212,12 @@ Inheritance
 
 Encapsulation: 
   Its about binding data and methods into a single unit - a class and hiding internal state so it can't be accessed directly.
-  Access modifiers like public, private and protected control visibility and we can exposed controlled access through methods that can enforce rules.
+  Access modifiers like public, private and protected control visibility and we can expose controlled access through methods that can enforce rules.
 
   For example, take a BankAccount class where we keep balance variable private and it only lets us change the balance through deposit() and withdraw() methods.
 
 Abstraction:
- Its about exposing what an Object does by hiding how it does it.
+ Its about exposing what an Object does and hiding how it does it.
 
  For example, a PaymentMethod Interface exposes process() method, the caller doesn't care whether its payment through Credit card or Paypal underneath.
   OrderService doesn't care which PaymentMethod implementation it gets.
@@ -229,6 +229,6 @@ Abstraction:
     Encapsulation and Abstraction are related. Encapsulation is one of the ways to achieve Abstraction. Encapsulation is the mechanism and Abstraction is the design goal.
 
 Polymorphism:
-  It allows a single Interface or method take multiple forms, so the same call behaves different depending on the actual object involved.
+  It allows a single Interface or method to take multiple forms, so the same call behaves different depending on the actual object involved.
   There are two types: Run-time polymorphism (method overriding) and Compile time polymorphism (method overloading)
 
