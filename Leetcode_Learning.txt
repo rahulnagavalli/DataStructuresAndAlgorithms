@@ -811,3 +811,19 @@ If a certain speed k lets Koko finish in time, any speed greater than k also fin
 if k is too slow, any speed lesser than k is also too slow.
 
 This is monotonic property. If this in in the problem, use Binary Search.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Minimum time to repair cars
+
+This is similar to koko eating bananas. 
+check the given condition - total time = r*n2. 
+here the min limit is 1 and max limit of time is max(rank) * n2, where n is the number of cars.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Find Minimum in a rotated sorted array: 
+
+A rotated sorted array consists of two segments. 
+the values increase until a pivot point, then drop to a minimum and then increase again. 
+
+edge case: what is the array is not rotated at all? rotated 0 times? 
+
