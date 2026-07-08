@@ -202,5 +202,33 @@ class Robot implements Workable {
           Depend on abstractions, not concrete classes - and inject the dependency instead of creating it inside. So OrderService takes a Notifier interface, and I can swap email for SMS, or a fake for testing, without
           changing it.
           
-          
+OOPS concepts: These are the mechanisms that programming language gives to actually implement the clean code.
+
+Encapsulation
+Abstraction
+Polymorphism
+Inheritance
+
+
+Encapsulation: 
+  Its about binding data and methods into a single unit - a class and hiding internal state so it can't be accessed directly.
+  Access modifiers like public, private and protected control visibility and we can exposed controlled access through methods that can enforce rules.
+
+  For example, take a BankAccount class where we keep balance variable private and it only lets us change the balance through deposit() and withdraw() methods.
+
+Abstraction:
+ Its about exposing what an Object does by hiding how it does it.
+
+ For example, a PaymentMethod Interface exposes process() method, the caller doesn't care whether its payment through Credit card or Paypal underneath.
+  OrderService doesn't care which PaymentMethod implementation it gets.
+
+  Difference b/w Encapsulation and Abstraction: 
+    Encapsulation: it is about protecting the data.
+    Abstraction: it is about exposing only the essential behaviour
+  
+    Encapsulation and Abstraction are related. Encapsulation is one of the ways to achieve Abstraction. Encapsulation is the mechanism and Abstraction is the design goal.
+
+Polymorphism:
+  It allows a single Interface or method take multiple forms, so the same call behaves different depending on the actual object involved.
+  There are two types: Run-time polymorphism (method overriding) and Compile time polymorphism (method overloading)
 
