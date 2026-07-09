@@ -827,3 +827,16 @@ the values increase until a pivot point, then drop to a minimum and then increas
 
 edge case: what is the array is not rotated at all? rotated 0 times? 
 
+
+Type A: 
+  Find the exact match: Binary search, Search a 2D matrix: l <= r, mid+1, mid-1
+
+Type B:
+  Find the boundary (Minimum value, Maximum value, First/Smallest position, binary search on the answer etc.): l<r, r=mid. Because when canX(mid) might be true, we now that mid might be the answer. So we include mid (r=mid)
+    As we included mid, we cannot do l <= r, because it will create another mid and will go on a loop.
+
+if we have a mid value, either the left half or right half will be sorted. 
+if the left half is sorted, check if target is present in left half, it not, check in right half
+if the left half is not sorted, check if target is present in right half, if not, check in left half.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
