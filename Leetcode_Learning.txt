@@ -823,7 +823,7 @@ here the min limit is 1 and max limit of time is max(rank) * n2, where n is the 
 Find Minimum in a rotated sorted array: 
 
 A rotated sorted array consists of two segments. 
-the values increase until a pivot point, then drop to a minimum and then increase again. 
+the values increases until a pivot point, then drop to a minimum and then increase again. 
 
 edge case: what is the array is not rotated at all? rotated 0 times? 
 
@@ -840,3 +840,4 @@ if the left half is sorted, check if target is present in left half, it not, che
 if the left half is not sorted, check if target is present in right half, if not, check in left half.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
