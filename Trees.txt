@@ -1,0 +1,16 @@
+In Linked List we had a node pointing to another single node. But in a Tree, a single node can be pointed to multiple other nodes.
+If a Tree has at-most two children, it is called as a Binary tree.
+
+Root node: A node without any parents.
+Tree: There has to be a way to reach every node from the root node.
+Binary tree: it is a type of a tree where each node has at-most two nodes.
+Full binary tree: it is a type of binary tree where all the leaf nodes should be at the same level.
+
+Depth of a node in a tree: Number of nodes on top of the given node excluding it.
+Height of a node in a tree: Number of nodes below the given node excluding it.
+
+Height of a root node = Height of the tree.
+
+Condition of a tree: 
+  No two references link to a same node.
+  If it has a cycle, then its not a tree.
