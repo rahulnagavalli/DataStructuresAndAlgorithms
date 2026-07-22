@@ -471,3 +471,56 @@ Each call peels off one node and hands the rest to the next call. That's how you
 
 	Splicing: 
 		Moving all or specific part of one linked list to another by relinking pointers.
+
+=============================================================================================================================
+
+Tree: 
+
+Basically a Tree is a Node with two smaller Trees hanging off it.
+
+Depth of a node: 
+	The number of edges on the path from the root down to that node.
+	Depth is property of the node measured downward from the top .
+
+Height of a node: 
+	It is the number of edges on the longest path from that node down to leaf.
+	Height is property of the node measured downward to the bottom.
+
+Basically, depth looks up and height looks down.
+
+Height of a tree: 
+	It is the height of its root.
+	OR the depth of its deepest node.
+
+Depth first pattern: 
+	print me first, fully handle left, fully handle right
+
+If a problem on Trees says "depth" or "height" in an interview, ask them if they are counting nodes or edges.
+Because, if we count nodes, then number will be +1 compared to that of counting edges.
+
+
+** Each child is itself the root of a smaller tree.
+
+------------------------------------------------------------------------------
+> "How should I explain my thought process if I get asked the maximum depth of a binary tree question in an interview?"
+------------------------------------------------------------------------------
+
+Here's the maxDepth walkthrough restated with that filter applied, so you have a clean version to rehearse:
+
+*"Quick clarification — are we counting nodes or edges? LeetCode counts nodes, so a single node returns 1. I'll go with nodes."*
+
+*"So I need the number of nodes on the longest path from the root down to a leaf."*
+
+*"A tree breaks into smaller trees — each child is the root of its own subtree. So if I know how deep the left side goes and how deep the right side goes, my answer is the bigger of those two plus one for the current node. That's naturally recursive."*
+
+*"Base case: an empty tree has no nodes, so null returns 0. Otherwise, recurse on both children, take the larger, add one."*
+
+[write the code]
+
+*"To check it's right: the base case matches the definition. And for any node, if both recursive calls return the correct depth for their subtrees, then taking the larger and adding one gives the correct depth here — because any path down has to go through one child or the other. Every path ends at a null, so that covers every node."*
+
+*"Time is O(n) — each node is visited once. Space is O(h) for the call stack, where h is the height. That's O(log n) if the tree is balanced, but O(n) worst case if it's a straight line."*
+
+*"There's also an iterative BFS version with a queue, counting levels. Same time, and it avoids stack overflow on very deep trees."*
+
+----------
