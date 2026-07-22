@@ -1,0 +1,19 @@
+1. Design a Rider-Driver Matching Marketplace: a dispatch service  that pairs riders to nearby driver, a separate pricing service you call
+    over gRPC, trip state in MySQL, everything in Docker on Kubernetes. Then, hammer it with Load Balancer, kill the dispatch pod mid-match
+    and prove requests still get served - with the Grafana dashboard to show it.
+2. If two delivery drivers from Swiggy try to accept the same food order at the same time, how do you prevent double assignment? 
+3. User double clicks the pay button - how do you stop duplicate API calls?
+4. Question: How many Ubers are in San Fransicso right now?
+5. Redis is single threaded. How is it still faster than most of the multi-threaded databases? 
+6. How do you handle race conditions at scale?
+7. When to use Basic, Session and JWT based authentication mechanisms?
+8. How does a Load Balancer decides which server gets the request?
+
+
+AI: 
+1. Knowledge graph vs Vector Databases
+2. Do a project: AskSQL. Ask questions in plain english and get back a SQL query and real results from the database.
+3. Question: You build a RAG pipeline where the knowledge base updates every 5 minutes. How do you handle stale context?
+4. Question: You built a RAG system. But how do know whether its working or not?
+5. Embeddings & Semantic search. RAG pipelines. Prompt versioning. Multimodal systems. Evals. Guardrails and output validation.
+    
