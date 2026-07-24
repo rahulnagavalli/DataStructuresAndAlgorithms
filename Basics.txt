@@ -524,3 +524,4 @@ Here's the maxDepth walkthrough restated with that filter applied, so you have a
 *"There's also an iterative BFS version with a queue, counting levels. Same time, and it avoids stack overflow on very deep trees."*
 
 ----------
+Check if the base case matches the definition. Then, on an arbitrary node, check that the return statement is correct assuming the recursive calls gave correct answers
