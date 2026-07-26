@@ -17,3 +17,21 @@ AI:
 4. Question: You built a RAG system. But how do know whether its working or not?
 5. Embeddings & Semantic search. RAG pipelines. Prompt versioning. Multimodal systems. Evals. Guardrails and output validation.
     
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6. How do you handle race conditions at scale?
+    This is related to thread handling. 
+    What is a thread? It is a smallest unit of execution within a process.
+        Each thread has its own Stack.
+    What is a process? Process here refers to a running program. A process can have multiple threads and all of them share a same memory space (same heap, global variables and file handles). Each thread has its own 
+        stack and program counter, so it can execute code independently.
+
+        As multiple threads use shared memory, Race conditions arise from that. Because, threads share "state" and run independently, the final result depends on the timing of how their operations interleave - which the 
+            scheduler decides unpredictably.
+
+    What is Interleave? 
+        Mix together. Instad of AAAA BBBB, you might get AABABBBA
+
+    
