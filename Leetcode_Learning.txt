@@ -847,3 +847,12 @@ Time Based Key-Value Store:
 
 As the data is already sorted, we can use binary search. 
 Use Map<String, List<Pair>> where Pair contains the timestamp and value.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Invert a binary tree: 
+
+Let me look at what inverting actually requires. At the root, I need to swap its two children. But it's not just the top — every node in each subtree also needs its children swapped. So the problem on the whole tree is the same problem repeated on each subtree. That self-similarity — the same operation on smaller versions of the same structure — is the signal for recursion."
+
+That sentence is the derivation. The trigger phrase to internalize: "the problem on the tree is the same problem on its subtrees" → recursion. That's what you're listening for in any tree problem.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
