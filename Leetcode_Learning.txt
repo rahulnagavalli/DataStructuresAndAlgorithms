@@ -849,10 +849,24 @@ As the data is already sorted, we can use binary search.
 Use Map<String, List<Pair>> where Pair contains the timestamp and value.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Maximum Depth of Binary Tree:
+
+maxDepth: base case null → 0. Recurse both children for their depths. Return 1 + max(left, right). The +1 counts the current node; max picks the deeper side since a path goes down one branch. Time O(n), space O(h).
+
+Because the depth of a tree is built from the depths of its subtrees. To know how deep the tree rooted here goes, I need to know how deep the left subtree goes and how deep the right goes, then take the deeper one and add one for the current node.
+Since 'depth of a subtree' is the exact same problem as 'depth of a tree,' just on a smaller input, I call the same method on each child. That self-similarity is why recursion fits — and each call shrinks toward null, so it terminates."
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Invert a binary tree: 
 
 Let me look at what inverting actually requires. At the root, I need to swap its two children. But it's not just the top — every node in each subtree also needs its children swapped. So the problem on the whole tree is the same problem repeated on each subtree. That self-similarity — the same operation on smaller versions of the same structure — is the signal for recursion."
 
 That sentence is the derivation. The trigger phrase to internalize: "the problem on the tree is the same problem on its subtrees" → recursion. That's what you're listening for in any tree problem.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Same tree: 
+
+Two trees are the same if the root values are equal and the left sub trees are the same and the right sub trees are the same as well.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
