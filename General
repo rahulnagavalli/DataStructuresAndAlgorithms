@@ -14,3 +14,21 @@ Also don’t forget that you need to get lucky.
 The system design battles and Hello Interview.
 
 A great project explanation is a conversation, not a monologue — you're offering doors and letting them choose which to open.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+I work on the platform that lets customers and support agents manage their software subscriptions — things like updating billing details, cancelling, or toggling auto-renewal. The same subscription can be modified from two places: a customer self-service portal and an internal agent console.
+
+The interesting challenge is that any change has to be applied by a downstream system of record that we integrate with asynchronously, and we have to prevent two conflicting changes to the same subscription at once — from either channel. So a lot of the design is about coordinating concurrent updates across systems we don't fully control."
+
+At a high level: reads go through a GraphQL gateway backed by Elasticsearch. A write goes through a rules engine that decides whether the action is even allowed, then to a write service that publishes the change to the downstream system over Kafka and places a lock on that subscription. When the downstream system finishes and publishes an acknowledgment back, a consumer service releases the lock. So it's an asynchronous, event-driven update with a locking scheme layered on top for concurrency control."
+
+That's the shape of it — I'm happy to go deeper on the concurrency model, the async event flow, or the failure modes, whichever is most useful.
+
+
+
+
+———————
+
+Sure. I work on the backend services behind a subscription management platform — the system customers use to manage software subscriptions: updating billing details, cancelling, toggling auto-renewal, that kind of thing.
+What makes it architecturally interesting is that two different clients consume the same backend APIs — a customer-facing self-service portal, and an internal console that our support agents use. So the same subscription can be modified from either channel. And on top of that, changes aren't applied by us directly — they're processed by a downstream system of record that we integrate with asynchronously over Kafka.
+So the core challenge is concurrency control: making sure two conflicting updates to the same subscription — from either channel — can't race each other while a change is still in flight downstream. We handle that with a locking mechanism layered over the async flow.
+Ha
