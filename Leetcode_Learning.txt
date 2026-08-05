@@ -870,3 +870,57 @@ Same tree:
 Two trees are the same if the root values are equal and the left sub trees are the same and the right sub trees are the same as well.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Diameter of Binary Tree: 
+
+We have to find out: For every node, what's the longest path that bends at this node? It goes into the left sub-tree and right sub-tree, like an upside down V.
+So its length = height of left sub-tree + height of right sub-tree.
+height = how far down a sub-tree reaches.
+
+Diameter = largest such candidate across all nodes.
+
+
+Diameter: candidate at each node = leftHeight + rightHeight (edges). Reuse maxDepth to get heights. Keep a global max; update with left+right at each node. Return 1+max(left,right) as height — NOT the diameter. 
+Two quantities per node: return height, side-save diameter.
+
+Interview: 
+The longest path bends at some node, going down its left and right subtrees. So at each node, the candidate is leftHeight + rightHeight. I compute heights bottom-up like maxDepth, and at each node I update a global max
+with left + right. The function returns height for the parent, but the answer is the max candidate seen across all nodes.
+
+
+DFS: the call stack holds the path down from the root to wherever we currently are.
+DFS is the traversal order, whereas Recursion is the implementation technique.
+
+=====
+
+1. Clarify (10 seconds).
+
+"Quick check — is the diameter counted in edges or nodes? LeetCode counts edges, so a single node has diameter 0. And to confirm: the path doesn't have to pass through the root, right?"
+
+That second question is high-signal. It shows you've spotted the actual difficulty of the problem before writing anything.
+
+2. Restate it.
+
+"So I need the longest path between any two nodes, measured in edges, and that path can sit anywhere in the tree — not necessarily through the root."
+
+3. Derive the approach — this is the part being evaluated.
+
+"The longest path has to bend at some node — it goes down into that node's left subtree and down into its right subtree, with that node at the top. So for any given node, the longest path bending there is leftHeight + rightHeight. That means if I check every node as a possible bending point and take the maximum, I get the answer."
+
+"And 'how far down does a subtree reach' is just the height, which I can compute recursively — a node's height is one plus the taller of its two children's heights. So one traversal can compute heights bottom-up, and at each node I already have both child heights sitting there, which is exactly what I need for the candidate."
+
+That paragraph is the whole solution in words. Say it before writing code.
+
+4. Flag the design decision.
+
+"There's a wrinkle: the recursion needs to return the height, because that's what a parent needs from its children. But the answer I want is the max diameter, which is a different number. So I'll have the recursion return height and track the best diameter in a field, updated at each node. The required method becomes a thin wrapper that kicks off the traversal and returns that field."
+
+Explaining why the helper exists — rather than just writing it — is what separates understanding from memorization here.
+
+5. Mention the naive approach and why you're not using it.
+
+"I could instead call a height function separately at every node, but then each node re-walks its whole subtree, which is O(n²). Computing the diameter inside the height traversal reuses work I'm already doing, so it's a single O(n) pass."
+
+Naming the O(n²) trap unprompted is a strong senior signal.
+
+=====
