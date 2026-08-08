@@ -1,0 +1,11 @@
+Day 1 — Atomicity. Write the four-thread counter. Run it. Watch the total come out below 4,000,000. → Race Conditions
+
+Day 2 — Visibility. Loop on a non-volatile boolean another thread sets to false. Watch it hang. → Volatile
+
+Day 3 — Locks. Fix Day 1's counter with synchronized, then with AtomicLong. → Synchronized
+
+Day 4 — Deadlock. Write a two-lock, two-thread deadlock deliberately. Run jstack on it and read the output. → Deadlock, Prevention
+
+Day 5 — Thread pools. No experiment. → Thread Pools, Thread Congestion
+
+Day 6 — Application. Reopen LatencyAggregator and look only at record(). Classify what's wrong with those five lines as visibility, atomicity, or both.
