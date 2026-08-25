@@ -859,12 +859,19 @@ Since 'depth of a subtree' is the exact same problem as 'depth of a tree,' just 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Invert a binary tree: 
 
-Let me look at what inverting actually requires. At the root, I need to swap its two children. But it's not just the top — every node in each subtree also needs its children swapped. So the problem on the whole tree is the same problem repeated on each subtree. That self-similarity — the same operation on smaller versions of the same structure — is the signal for recursion."
+To invert a tree, every node has to swap its two children. This has to be done at the root and also at every node inside each subtree.
+So the operation on the whole tree is the same operation repeated on each subtree. That self-similarity — the same operation on smaller versions of the same structure — is the signal for recursion."
 
-That sentence is the derivation. The trigger phrase to internalize: "the problem on the tree is the same problem on its subtrees" → recursion. That's what you're listening for in any tree problem.
+The trigger phrase to internalize: "the operation on the tree is the same operation on its subtrees" → recursion.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+DFS: Follow one branch all the way to the bottom, then back up and try the next.
+  It uses Stack. 
+  Stack holds the path from the root down to where you currently are. 
+  Stack uses LIFO order.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Same tree: 
 
 Two trees are the same if the root values are equal and the left sub trees are the same and the right sub trees are the same as well.
