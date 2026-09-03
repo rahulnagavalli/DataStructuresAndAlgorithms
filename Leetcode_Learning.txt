@@ -866,7 +866,9 @@ The trigger phrase to internalize: "the operation on the tree is the same operat
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-DFS: Follow one branch all the way to the bottom, then back up and try the next.
+DFS: 
+  It goes deep before wide.
+  follows one branch all the way to the bottom, then back up and try the next.
   It uses Stack. 
   Stack holds the path from the root down to where you currently are. 
   Stack uses LIFO order.
