@@ -37,6 +37,9 @@
 
   Ask below questions for getting the proper Non-functional requirements.
 
+  Coming up with non-functional requirements can be challenging when you are not familiar with the domain. 
+  Below is the checklist of things to consider. 
+  You'll want to identify the top 3-5 that are relevant to your system.
   CESL DSF
 
   1. CAP Theorom
@@ -150,7 +153,7 @@ Server to Server communication:
 - RPC
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Evaluation: 
-1. Problem Solving 
+1. Problem Navigation/Solving 
   Identify and prioritize the core challenges.
   Eg: In designing a Ticketmaster, focus on booking flow and not the authentication.
 
@@ -161,7 +164,7 @@ Evaluation:
   Demonstrate deep knowledge and expertise
   Eg: talk about specific areas where things could break
 
-4. Communication
+4. Communication and Collaboration
   Clearly explain complex concepts to stakeholders
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
