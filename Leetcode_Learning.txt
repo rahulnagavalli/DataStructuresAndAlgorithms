@@ -865,6 +865,11 @@ So the operation on the whole tree is the same operation repeated on each subtre
 The trigger phrase to internalize: "the operation on the tree is the same operation on its subtrees" → recursion.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+A single node can be a sub-tree. 
+A sub-tree is defined as a node plus everything hanging below it. If nothing hangs below it, the subtree is just that one node.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 DFS: 
   It goes deep before wide.
@@ -872,6 +877,12 @@ DFS:
   It uses Stack. 
   Stack holds the path from the root down to where you currently are. 
   Stack uses LIFO order.
+
+  DFS answers: In what order should I reach the nodes?
+
+  The computation of above problems is bottom-up approach and traversal is DFS.
+  bottom-up answers: in which direction does the information flow? 
+  bottom-up: leaves resolve first and answer flows up.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Same tree: 
