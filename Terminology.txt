@@ -28,6 +28,19 @@ Data structure:
   It focuses on how the data is actually stored and organized - it is about the implementation.
   Eg: ArrayList, LinkedList, HashMap etc. 
 
+Deduplication: 
+  If there are multiple logically same records, we consider only one record for processing.
+
+  Three important details to look for:
+  1. What makes two records the same? 
+      Is it eventId, orderId or timestamp?
+  2. Which copy survives? 
+      Usually it will be the latest copy or the first one we ever saw or merge them non-null fields. 
+  3. Where does the dedup happen?
+    a. Read time: The duplicates stay in storage. Dedupe happens while retrieving.
+    b. Write time: The duplicates never land in the storage.
+    c. Process time: Duplicate never causes an action. 
+
 De-serialization:
 
 Fault tolerance: 
