@@ -41,6 +41,11 @@ Deduplication:
     b. Write time: The duplicates never land in the storage.
     c. Process time: Duplicate never causes an action. 
 
+  So when someone says to "dedupe the records" - answer these three questions - 
+  a. pick a key
+  b. pick a winner
+  c. pick a layer
+
 De-serialization:
 
 Fault tolerance: 
