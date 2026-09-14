@@ -29,7 +29,7 @@ Data structure:
   Eg: ArrayList, LinkedList, HashMap etc. 
 
 Deduplication: 
-  If there are multiple logically same records, we consider only one record for processing.
+  - the same real world thing is showing up more than once, and we need it to show up exactly once.
 
   Three important details to look for:
   1. What makes two records the same? 
@@ -45,6 +45,9 @@ Deduplication:
   a. pick a key
   b. pick a winner
   c. pick a layer
+
+  What do they mean when they say "dedupe the records" 
+  
 
 De-serialization:
 
