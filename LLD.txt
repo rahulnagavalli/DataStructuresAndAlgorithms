@@ -211,7 +211,7 @@ Inheritance
 
 
 Encapsulation: 
-  Its about binding data and methods into a single unit - a class and hiding internal state so it can't be accessed directly.
+  Its about binding data and methods into a single unit - a class, and hiding internal state so it can't be accessed directly.
   Access modifiers like public, private and protected control visibility and we can expose controlled access through methods that can enforce rules.
 
   For example, take a BankAccount class where we keep balance variable private and it only lets us change the balance through deposit() and withdraw() methods.
