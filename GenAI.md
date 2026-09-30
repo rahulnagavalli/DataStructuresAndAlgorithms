@@ -153,6 +153,11 @@ RAG basics:
     In RAG framework, LLM has an instruction - to retrieve relevant content from data source first, combine that with user's question and then generate the answer.
 
 
+
+
+
+
+
   RAG system consists of 2 models.
   1. Retrieval model.
   2. Language model.
@@ -208,6 +213,39 @@ PRD: Product Requirements Document
 In the traditional model, a vague spec was tolerable because the human coder could fill in gaps using judgment and context as they wrote. With AI, a vague spec produces vague or wrong output. So the spec has to be more precise, more explicit about
 edge cases, and clearer about constraints. Ironically, the AI-assisted approach is making teams better at writing specs because the cost of a bad spec is now immediate — you get broken code instead of just a confused developer who asks clarifying
 questions.
+
+
+Horse harness: Its a strap that connects a Horse to its cart. Without the harness, the power from horse remains unused.
+Harness: Code around a component that runs it, feeds it inputs, and does something with its outputs.
+
+Eg: Test harness 
+  JUnit + test setup is test harness. A class cannot test itself, so we need the JUnit + test setup for testing it.
+
+
+Agentic Harness: 
+  It is the Harness (that includes tools, memory, context building, guardrails and error handling) in which the model decides the next 
+step, running in a loop until the task is done.
+  What tool to call, memory, guardrails, agentic loop etc. live inside Agentic harness.
+
+So we can say that: 
+AI agent = AI model + Agentic Harness
+
+
+Agentic: 
+  Who controls the flow? That decides whether something is agentic or not. 
+  In normal harness, your code decides the next step. 
+  In agentic harness, model decides the next step, again and again until its done.
+
+
+context window = working memory.
+
+Plan -> Action -> Observe
+
+<img width="960" height="548" alt="image" src="https://github.com/user-attachments/assets/97b2e248-5b80-47fb-9b78-657877fb3610" />
+
+
+
+
   
 
 
