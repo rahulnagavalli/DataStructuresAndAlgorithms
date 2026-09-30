@@ -230,6 +230,8 @@ step, running in a loop until the task is done.
 So we can say that: 
 AI agent = AI model + Agentic Harness
 
+Memory lives in the harness.
+
 
 Agentic: 
   Who controls the flow? That decides whether something is agentic or not. 
@@ -243,7 +245,29 @@ Plan -> Action -> Observe
 
 <img width="960" height="548" alt="image" src="https://github.com/user-attachments/assets/97b2e248-5b80-47fb-9b78-657877fb3610" />
 
+agents.md: 
+  It sits at the root of the project and when the agent starts working in that project, it reads this file. 
+  This file tells which commands to run for test, which coding conventions to use, which projects to look for etc.
+  We can have multiple agents.md files. But the files closer to the working directory override the earlier files, because they appear later.
 
+
+LLM is stateless. It doesn't remember the memory or the previous prompts/replies.
+So the harness sends the previous messages along with the new prompt to the model every time. 
+As chat history grows, the content that the LLM has to read also grows. 
+- which can result in increased context window. Size
+- Cost: cost is mesasured per tokens.
+- Quality: very long inputs, full of old, irrelevant details can make the model pay less attention to what is new now.
+
+So the harness has to manage the history. Common strategies are: 
+- Sliding window (remember only the last N messages)
+- Summarization
+- Pinning key facts.
+
+TODO: Know more about above. 
+
+An agent's memory is split into two types.
+- short term memory: across a single task/session
+- long term memory: across multiple sessions.
 
 
   
