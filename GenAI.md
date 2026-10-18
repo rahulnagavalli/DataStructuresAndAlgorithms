@@ -192,7 +192,26 @@ Semantic database:
 MCP vs RAG: 
 
 RAG: its a technique where user sends a prompt to an application or system, then that app searches in a knowledge base (mostly vector DB), gets relevant chunks, adds them to the prompt and then send to LLM for response. 
-MCP: its a protocol where LLM communicates with external data sources. 
+MCP: Its a open, standard protocol that defines how an AI application connects to external systems.
+    MCP client inside the host application connects to MCP server, which exposes tools, resources and prompts. 
+    The host application places those results in the LLM's context window at request time. 
+    The model's trained knowledge does not change.
+
+    MCP server can answer to every request either using a JSON object or Server sent Streamable events.
+
+
+    Finally, the host sends the entire conversation (including the tool list, and the response from the tool) to the LLM and LLM frames the response output based on the info it has.
+    
+<img width="851" height="641" alt="image" src="https://github.com/user-attachments/assets/cfd6c7c9-74eb-423c-90f9-bcb6ac65039b" />
+
+handshake: 
+  Its the set of messages exchanged at the start of a connection, before any real work begins, so that they can agree on how to communicate.
+
+  Eg: TCP handshake: 
+      TLS handshake:
+
+  Now, the remote MCP server can run several identical instances behind a load balancer.
+    So the request 1 can reach instance A and request 2 can reach instance B.
 
 Even in a traditional REST API, the client communicates with server. But, the client always initiates a connection. The server cannot just say "hey, I have something for you". It is not truly bi-directional.
 When we compare in layman's terms: REST API is where client speaks and server replies. Server never speaks.
@@ -203,6 +222,8 @@ SSE is a one-directional streaming mechanism
 
 
 Instead of exposing a tool to be used by each application separately, we can create a MCP server, so that any MCP compatible host can use it.
+
+The LLM itself does not interact with MCP. The host application contains one MCP client for each MCP server that it connects to.
 
 
 Skill.md: It is for domain expertise for a type of output (how to generate a React project, a ppt file etc.)
@@ -220,6 +241,7 @@ questions.
 
 Horse harness: Its a strap that connects a Horse to its cart. Without the harness, the power from horse remains unused.
 Harness: Code around a component that runs it, feeds it inputs, and does something with its outputs.
+  It is the code that runs the agent loop around the model; it builds each request to the model, sends it, read the model's output, executes any tool calls, feeds the tool response back to the model, and repeats until the task ends.
 
 Eg: Test harness 
   JUnit + test setup is test harness. A class cannot test itself, so we need the JUnit + test setup for testing it.
