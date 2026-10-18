@@ -207,6 +207,10 @@ MCP: Its a open, standard protocol that defines how an AI application connects t
 <img width="855" height="749" alt="image" src="https://github.com/user-attachments/assets/63116612-3889-48b1-8537-e57cf0b72ea0" />
 
 
+<img width="940" height="831" alt="image" src="https://github.com/user-attachments/assets/cd8231e8-db02-4edb-8e21-2d16430727ec" />
+
+
+
 handshake: 
   Its the set of messages exchanged at the start of a connection, before any real work begins, so that they can agree on how to communicate.
 
