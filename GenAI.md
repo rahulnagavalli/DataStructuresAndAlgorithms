@@ -204,6 +204,9 @@ MCP: Its a open, standard protocol that defines how an AI application connects t
     
 <img width="851" height="641" alt="image" src="https://github.com/user-attachments/assets/cfd6c7c9-74eb-423c-90f9-bcb6ac65039b" />
 
+<img width="855" height="749" alt="image" src="https://github.com/user-attachments/assets/63116612-3889-48b1-8537-e57cf0b72ea0" />
+
+
 handshake: 
   Its the set of messages exchanged at the start of a connection, before any real work begins, so that they can agree on how to communicate.
 
@@ -240,7 +243,7 @@ questions.
 
 
 Horse harness: Its a strap that connects a Horse to its cart. Without the harness, the power from horse remains unused.
-Harness: Code around a component that runs it, feeds it inputs, and does something with its outputs.
+Harness: 
   It is the code that runs the agent loop around the model; it builds each request to the model, sends it, read the model's output, executes any tool calls, feeds the tool response back to the model, and repeats until the task ends.
 
 Eg: Test harness 
