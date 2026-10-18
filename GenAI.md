@@ -202,6 +202,9 @@ MCP is not like a traditional REST API model or WebSockets. It uses Streamable H
 SSE is a one-directional streaming mechanism
 
 
+Instead of exposing a tool to be used by each application separately, we can create a MCP server, so that any MCP compatible host can use it.
+
+
 Skill.md: It is for domain expertise for a type of output (how to generate a React project, a ppt file etc.)
 Claude.md: It is for project context for your specific codebase/environment.
 
@@ -249,6 +252,25 @@ agents.md:
   It sits at the root of the project and when the agent starts working in that project, it reads this file. 
   This file tells which commands to run for test, which coding conventions to use, which projects to look for etc.
   We can have multiple agents.md files. But the files closer to the working directory override the earlier files, because they appear later.
+
+
+agents skill:
+  skill.md
+  It tells the agent how to do a specific kind of task.
+  invoke me when the user wants to create subscription: create_subscription
+
+MCP:
+
+A2A:
+  protocol for agent to agent communication.
+  Each agent publishes agent card - which is like a description of what the agent does and how to integrate with it.
+
+Sub-agent: 
+  it is the child agent that the main agent spins up. 
+  each sub-agent runs in its own context window.
+
+  Q: is the main agent's context window split between the sub-agents or is it the same for all sub-agents and main agent? 
+    Who decides the number of sub-agents to spawn?
 
 
 LLM is stateless. It doesn't remember the memory or the previous prompts/replies.
