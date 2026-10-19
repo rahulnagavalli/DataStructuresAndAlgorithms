@@ -853,7 +853,7 @@ Maximum Depth of Binary Tree:
 
 maxDepth: base case null → 0. Recurse both children for their depths. Return 1 + max(left, right). The +1 counts the current node; max picks the deeper side since a path goes down one branch. Time O(n), space O(h).
 
-Because the depth of a tree is built from the depths of its subtrees. To know how deep the tree rooted here goes, I need to know how deep the left subtree goes and how deep the right goes, then take the deeper one and add one for the current node.
+Because the depth of a tree is built from the depths of its subtrees. To know how deep the tree root here goes, I need to know how deep the left subtree goes and how deep the right goes, then take the deeper one and add one for the current node.
 Since 'depth of a subtree' is the exact same problem as 'depth of a tree,' just on a smaller input, I call the same method on each child. That self-similarity is why recursion fits — and each call shrinks toward null, so it terminates."
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
